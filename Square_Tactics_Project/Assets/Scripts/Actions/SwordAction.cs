@@ -84,7 +84,7 @@ public class SwordAction : BaseAction
         return new EnemyAiAction()
         {
             gridPosition = _gridPosition,
-            actionValue = 200,
+            actionValue = 0,
         };
     }
 
