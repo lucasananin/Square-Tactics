@@ -6,7 +6,7 @@ using UnityEngine;
 public class Pathfinding : Singleton<Pathfinding>
 {
     [SerializeField] GameObject _gridDebugPrefab = null;
-    [SerializeField] Transform _pathfindingLinkParent = null;
+    [SerializeField] PathfindingLinkCollection _pathfindingLinkCollection = null;
     [SerializeField] LayerMask _obstaclesLayerMask = default;
     [SerializeField] LayerMask _mouseLayerMask = default;
 
@@ -65,20 +65,13 @@ public class Pathfinding : Singleton<Pathfinding>
         }
 
         _pathfindingLinks = new List<PathfindingLink>();
+        int _count = _pathfindingLinkCollection.PathfindingLinkBehaviours.Length;
 
-        foreach (Transform _pathfindingLinkTransform in _pathfindingLinkParent)
+        for (int i = 0; i < _count; i++)
         {
-            if (_pathfindingLinkTransform.TryGetComponent(out PathfindingLinkBehaviour _pathfindingLinkBehaviour))
-            {
-                _pathfindingLinks.Add(_pathfindingLinkBehaviour.GetPathfindingLink());
-            }
+            PathfindingLinkBehaviour _pathfindingLinkBehaviour = _pathfindingLinkCollection.PathfindingLinkBehaviours[i];
+            _pathfindingLinks.Add(_pathfindingLinkBehaviour.GetPathfindingLink());
         }
-
-        //_pathfindingLinks.Add(new PathfindingLink 
-        //{ 
-        //    gridPositionA = new GridPosition(0, 4, 0),
-        //    gridPositionB = new GridPosition(0, 5, 1),
-        //});
     }
 
     public Collider[] GetObstaclesOnGridPosition(GridPosition _gridPosition)
