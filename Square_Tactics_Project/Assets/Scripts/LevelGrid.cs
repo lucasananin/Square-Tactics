@@ -113,7 +113,9 @@ public class LevelGrid : Singleton<LevelGrid>
 
     public int GetFloor(Vector3 _worldPosition)
     {
-        return Mathf.FloorToInt(_worldPosition.y / _floorAmount);
+        int _floor = Mathf.RoundToInt(_worldPosition.y / _floorAmount);
+        int _floorClamped = Mathf.Clamp(_floor, 0, _floorAmount - 1);
+        return _floorClamped;
     }
 
     private GridSystem<GridObject> GetGridSystem(int _floor)

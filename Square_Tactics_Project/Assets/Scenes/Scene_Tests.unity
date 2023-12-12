@@ -808,8 +808,7 @@ MonoBehaviour:
   _isPersistent: 0
   _gridDebugPrefab: {fileID: 7600402755359161080, guid: c21020815e8703246ae55b5ea74c9f42,
     type: 3}
-  _pathfindingLinkParent: {fileID: 285237598}
-  _pathfindingLinkCollection: {fileID: 0}
+  _pathfindingLinkCollection: {fileID: 285237599}
   _obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -913,7 +912,7 @@ MonoBehaviour:
   _width: 32
   _height: 32
   _cellSize: 2
-  _floorAmount: 1
+  _floorAmount: 2
 --- !u!4 &290745378
 Transform:
   m_ObjectHideFlags: 0
@@ -1105,7 +1104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.3535534, y: 0.35355344, z: -0.14644663, w: 0.8535534}
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.14644662, w: 0.8535534}
   m_LocalPosition: {x: -7.071068, y: 10, z: -1.0710678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2829,7 +2828,7 @@ PrefabInstance:
     - target: {fileID: 7742449936197641507, guid: 59710e2e3270d1143ac6b67faa36f1a2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59710e2e3270d1143ac6b67faa36f1a2, type: 3}
@@ -4174,7 +4173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686879980}
-  m_LocalRotation: {x: 0.3535534, y: 0.35355344, z: -0.14644663, w: 0.8535534}
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.14644662, w: 0.8535534}
   m_LocalPosition: {x: -7.071068, y: 10, z: -1.0710678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
