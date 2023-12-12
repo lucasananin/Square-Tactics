@@ -52,7 +52,7 @@ public class UnitAnimator : MonoBehaviour
 
     private void Start()
     {
-        EquipRifle();
+        //EquipRifle();
     }
 
     private void LateUpdate()
@@ -80,24 +80,24 @@ public class UnitAnimator : MonoBehaviour
 
     private void _swordAction_onSwordActionStarted(object sender, System.EventArgs e)
     {
-        EquipSword();
+        //EquipSword();
         _animator.SetTrigger(_swordSlashTriggerHash);
     }
 
     private void _swordAction_onSwordActionCompleted(object sender, System.EventArgs e)
     {
-        EquipRifle();
+        //EquipRifle();
     }
 
-    private void EquipSword()
-    {
-        _swordGameObject.SetActive(true);
-        _rifleGameObject.SetActive(false);
-    }
+    //private void EquipSword()
+    //{
+    //    _swordGameObject.SetActive(true);
+    //    _rifleGameObject.SetActive(false);
+    //}
 
-    private void EquipRifle()
-    {
-        _rifleGameObject.SetActive(true);
-        _swordGameObject.SetActive(false);
-    }
+    //private void EquipRifle()
+    //{
+    //    _rifleGameObject.SetActive(true);
+    //    _swordGameObject.SetActive(false);
+    //}
 }
