@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 6921990402936943866}
   - component: {fileID: -612674197574263749}
   m_Layer: 7
-  m_Name: Unit_Hero_FemaleGoblin
+  m_Name: Unit_Hero_Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,7 +887,7 @@ MonoBehaviour:
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _maxGridHorizontalDistance: 1
-  _rotSpeed: 10
+  _rotSpeed: 15
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}
@@ -1040,18 +1040,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1090,10 +1078,6 @@ PrefabInstance:
     - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9519522, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
       propertyPath: m_Controller

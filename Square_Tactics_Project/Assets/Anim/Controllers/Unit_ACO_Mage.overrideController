@@ -6,17 +6,17 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unit_ACO_2Handed
+  m_Name: Unit_ACO_Mage
   m_Controller: {fileID: 9100000, guid: 9a6dbe09579845840bf4bb31968fddfe, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: -203655887218126122, guid: 4aa94aeea148ab746a02b700085d1fd8,
       type: 3}
-    m_OverrideClip: {fileID: 7400000, guid: c26ff68d987e6654eae7ac997df4d3bc, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: be797334aa848784d838447aa3d3a0e4, type: 3}
   - m_OriginalClip: {fileID: 7400000, guid: aa4d8c6b3bcd2cd419dab1c513b0406e, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 4ba9cb46f1d6c854d98ac9aa94ed0013, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: d9d469953be3eeb468fe9ec060467ded, type: 3}
   - m_OriginalClip: {fileID: -203655887218126122, guid: e35f2e0bdd0c73b49b8c52c51bfb5cb7,
       type: 3}
-    m_OverrideClip: {fileID: 7400000, guid: dbbdcfdc751ca1146932bd6bc3dda730, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: e0919932c9c179142ad06cf4ee11f204, type: 3}
   - m_OriginalClip: {fileID: -203655887218126122, guid: 8f3c5e6d3637f4442ac94f067e049a16,
       type: 3}
-    m_OverrideClip: {fileID: 7400000, guid: c5d16688a2667894b81d952bcd698ca8, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: d664857a783ffb645b4f451b91f99021, type: 3}
