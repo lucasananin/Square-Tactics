@@ -14,6 +14,9 @@ public class UnitAnimator : MonoBehaviour
     [SerializeField, ReadOnly] ShootAction _shootAction = null;
     [SerializeField, ReadOnly] SwordAction _swordAction = null;
 
+    [Title("// Values")]
+    [SerializeField] float _timeToShoot = 1f;
+
     private int _shootTriggerHash = Animator.StringToHash("Shoot");
     private int _swordSlashTriggerHash = Animator.StringToHash("SwordSlash");
     private int _horizontalVelocityHash = Animator.StringToHash("HorizontalVelocity");
@@ -67,15 +70,21 @@ public class UnitAnimator : MonoBehaviour
     private void TriggerShoot(object _sender, ShootAction.OnShootEventArgs _e)
     {
         _animator.SetTrigger(_shootTriggerHash);
-
-        var _bullet = Instantiate(_bulletProjectilePrefab, _shootPoint.position, Quaternion.identity);
-        _bullet.Setup(_e);
+        StartCoroutine(TriggerShoot_routine(_e));
 
         //var _targetPosition = _e.targetUnit.transform.position;
         //_targetPosition.y = _shootPoint.position.y;
 
         //_bullet.SetDamage(_e.damage);
         //_bullet.SetTargetPosition(_targetPosition);
+    }
+
+    private IEnumerator TriggerShoot_routine(ShootAction.OnShootEventArgs _e)
+    {
+        yield return new WaitForSeconds(_timeToShoot);
+
+        var _bullet = Instantiate(_bulletProjectilePrefab, _shootPoint.position, Quaternion.identity);
+        _bullet.Setup(_e);
     }
 
     private void _swordAction_onSwordActionStarted(object sender, System.EventArgs e)

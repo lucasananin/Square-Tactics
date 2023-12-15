@@ -8,6 +8,7 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField] int _currentHealth = 12;
     [SerializeField] int _maxHealth = 12;
+    [SerializeField] bool _isInvincible = false;
 
     public event Action onHealthChanged = null;
     public event Action onDead = null;
@@ -20,6 +21,8 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int _amount)
     {
+        if (_isInvincible) return;
+
         _currentHealth -= _amount;
 
         if (_currentHealth <= 0)

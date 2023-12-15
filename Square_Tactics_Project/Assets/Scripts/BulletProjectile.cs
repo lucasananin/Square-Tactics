@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
     [SerializeField, ReadOnly] bool _hasReachedTarget = false;
     [SerializeField, ReadOnly] int _damage = 0;
+
+    public static event Action onAnyBulletHit = null;
 
     private void Update()
     {
@@ -28,6 +31,7 @@ public class BulletProjectile : MonoBehaviour
             _hasReachedTarget = true;
             _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage);
             Instantiate(_hitVfx, _targetPosition, Quaternion.identity);
+            onAnyBulletHit?.Invoke();
         }
     }
 

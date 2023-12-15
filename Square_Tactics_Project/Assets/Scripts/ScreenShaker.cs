@@ -10,19 +10,26 @@ public class ScreenShaker : Singleton<ScreenShaker>
 
     private void OnEnable()
     {
-        ShootAction.onAnyShoot += ShootAction_onAnyShoot;
+        //ShootAction.onAnyShoot += ShootAction_onAnyShoot;
+        BulletProjectile.onAnyBulletHit += BulletProjectile_onAnyBulletHit;
         GrenadeProjectile.onAnyGrenadeExploded += GrenadeProjectile_onAnyGrenadeExploded;
         SwordAction.onAnySwordHit += SwordAction_onAnySwordHit;
     }
 
     private void OnDisable()
     {
-        ShootAction.onAnyShoot -= ShootAction_onAnyShoot;
+        //ShootAction.onAnyShoot -= ShootAction_onAnyShoot;
+        BulletProjectile.onAnyBulletHit += BulletProjectile_onAnyBulletHit;
         GrenadeProjectile.onAnyGrenadeExploded -= GrenadeProjectile_onAnyGrenadeExploded;
         SwordAction.onAnySwordHit -= SwordAction_onAnySwordHit;
     }
 
     private void ShootAction_onAnyShoot(object sender, ShootAction.OnShootEventArgs e)
+    {
+        Shake();
+    }
+
+    private void BulletProjectile_onAnyBulletHit()
     {
         Shake();
     }

@@ -33,23 +33,7 @@ public class CameraManager : MonoBehaviour
         switch (_sender)
         {
             case ShootAction _shootAction:
-
-                Unit _shooterUnit = _shootAction.GetUnit();
-                Unit _targetUnit = _shootAction.GetTargetUnit();
-                Vector3 _cameraHeight = Vector3.up * 1.7f;
-                Vector3 _shootDir = (_targetUnit.transform.position - _shooterUnit.transform.position).normalized;
-                float _shoulderOffsetAmount = 0.5f;
-                Vector3 _shoulderOffset = Quaternion.Euler(0, 90, 0) * _shootDir * _shoulderOffsetAmount;
-                Vector3 _actionCameraPosition = _shooterUnit.transform.position + _cameraHeight + _shoulderOffset + (_shootDir * -1);
-                _actionCamera.transform.position = _actionCameraPosition;
-                _actionCamera.transform.LookAt(_targetUnit.transform.position + _cameraHeight);
-                ShowActionCamera();
-
-                //var _shoulderPosition = _shootAction.GetShoulderTargetPosition();
-                //var _shoulderLook = _targetUnit.transform.position + Vector3.up * _shoulderPosition.y;
-                //_actionCamera.transform.position = _shoulderPosition;
-                //_actionCamera.transform.LookAt(_shoulderLook);
-                //ShowActionCamera();
+                //SetCameraToShoulder(_shootAction);
                 break;
         }
     }
@@ -57,5 +41,19 @@ public class CameraManager : MonoBehaviour
     private void HideActionCamera(object _sender, EventArgs _e)
     {
         HideActionCamera();
+    }
+
+    private void SetCameraToShoulder(ShootAction _shootAction)
+    {
+        Unit _shooterUnit = _shootAction.GetUnit();
+        Unit _targetUnit = _shootAction.GetTargetUnit();
+        Vector3 _cameraHeight = Vector3.up * 1.7f;
+        Vector3 _shootDir = (_targetUnit.transform.position - _shooterUnit.transform.position).normalized;
+        float _shoulderOffsetAmount = 0.5f;
+        Vector3 _shoulderOffset = Quaternion.Euler(0, 90, 0) * _shootDir * _shoulderOffsetAmount;
+        Vector3 _actionCameraPosition = _shooterUnit.transform.position + _cameraHeight + _shoulderOffset + (_shootDir * -1);
+        _actionCamera.transform.position = _actionCameraPosition;
+        _actionCamera.transform.LookAt(_targetUnit.transform.position + _cameraHeight);
+        ShowActionCamera();
     }
 }
