@@ -8,7 +8,6 @@ using UnityEngine.AI;
 public abstract class BaseAction : MonoBehaviour
 {
     [SerializeField, ReadOnly] protected Unit _unit = null;
-    [SerializeField, ReadOnly] protected NavMeshAgent _navMeshAgent = null;
     [SerializeField, ReadOnly] protected bool _isActive = false;
     [SerializeField] protected Material _gridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
@@ -21,7 +20,6 @@ public abstract class BaseAction : MonoBehaviour
     protected virtual void Awake()
     {
         _unit = GetComponent<Unit>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public virtual bool IsValidGridPosition(GridPosition _gridPosition)

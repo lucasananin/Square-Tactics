@@ -46,6 +46,7 @@ public class MoveAction : BaseAction
         Vector3 _myPosition = transform.position;
         Vector3 _targetPosition = _positionsList[_currentPositionIndex];
         Vector3 _moveDirection = (_targetPosition - _myPosition).normalized;
+        Vector3 _movementVelocity = _moveDirection * 5f * Time.deltaTime;
         float _distance = (_myPosition - _targetPosition).sqrMagnitude;
 
         if (_distance < _stoppingDistance * _stoppingDistance)
@@ -58,8 +59,6 @@ public class MoveAction : BaseAction
             }
             else
             {
-                // É preciso checar a altura entre os andares para evitar que o personagem pule sobre rampas ou escadas.
-
                 _targetPosition = _positionsList[_currentPositionIndex];
                 GridPosition _targetGridPosition = LevelGrid.Instance.GetGridPosition(_targetPosition);
                 GridPosition _myGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
@@ -85,7 +84,7 @@ public class MoveAction : BaseAction
         }
         else
         {
-            _navMeshAgent.SetDestination(_targetPosition);
+            transform.position += _movementVelocity;
             SetTargetVelocity(Vector3.right);
             RotateToDirection(_moveDirection);
         }
@@ -113,7 +112,6 @@ public class MoveAction : BaseAction
     private void JumpTo(Vector3 _targetPosition, float _forceMultiplier = 1)
     {
         _isChangingFloors = true;
-        _navMeshAgent.enabled = false;
         _targetPosition += Vector3.up * COLLIDER_SKIN_WIDTH;
 
         transform.DOJump(_targetPosition, _jumpForce * _forceMultiplier, NUM_OF_JUMPS, _jumpDuration).
@@ -121,8 +119,6 @@ public class MoveAction : BaseAction
             OnComplete(() =>
             {
                 _isChangingFloors = false;
-                _navMeshAgent.enabled = true;
-                _navMeshAgent.Warp(_targetPosition);
             });
     }
 
