@@ -348,6 +348,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _invert: 0
   _cameraTransform: {fileID: 0}
+--- !u!1 &5395077086050879846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8642165776681738617}
+  m_Layer: 7
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8642165776681738617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395077086050879846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6916738671551120987}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5536985433187971377
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +444,7 @@ RectTransform:
   - {fileID: 5150540222100298729}
   - {fileID: 6799172441535309761}
   m_Father: {fileID: 6916738671551120987}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -515,18 +546,19 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6916738671551120986}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2, y: 0, z: 6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4370575470331380409}
   - {fileID: 6929418082531546029}
   - {fileID: 5898673369302824193}
+  - {fileID: 8642165776681738617}
   - {fileID: 7085343554758287417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6783654179584326574
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -597,10 +629,10 @@ MonoBehaviour:
     type: 3}
   _rifleGameObject: {fileID: 0}
   _swordGameObject: {fileID: 0}
-  _shootPoint: {fileID: 0}
+  _shootPoint: {fileID: 8642165776681738617}
   _shootAction: {fileID: 0}
   _swordAction: {fileID: 0}
-  _timeToShoot: 1.2
+  _timeToShoot: 0.6
 --- !u!114 &398068310960250320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +775,7 @@ MonoBehaviour:
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _maxGridHorizontalDistance: 1
+  _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8717902403553910639
 GameObject:
@@ -1013,6 +1046,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 95303867828160866, guid: fda5edc93819a5946901f75bc534ac54,
         type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 241000fe0ed49d34bbd7d3e1279a0f79,
+        type: 2}
+    - target: {fileID: 95303867828160866, guid: fda5edc93819a5946901f75bc534ac54,
+        type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
@@ -1024,6 +1063,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4374954111803166711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4373099635999215117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1877307886535162, guid: fda5edc93819a5946901f75bc534ac54,
+    type: 3}
+  m_PrefabInstance: {fileID: 4374954111803166711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &987231173453634437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373099635999215117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7912c3728bb6364d95cac97b03feed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFootR:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFootL:
+    m_PersistentCalls:
+      m_Calls: []
+  _onLand:
+    m_PersistentCalls:
+      m_Calls: []
+  _onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  _onWeaponSwitch:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &4459799246701840021 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95303867828160866, guid: fda5edc93819a5946901f75bc534ac54,

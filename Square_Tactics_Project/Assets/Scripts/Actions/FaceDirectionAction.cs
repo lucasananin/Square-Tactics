@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class FaceDirectionAction : BaseAction
 {
+    [Title("// Face Direction")]
+    [SerializeField] float _timeToComplete = 1f;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
 
     private void Update()
@@ -16,11 +18,6 @@ public class FaceDirectionAction : BaseAction
         _moveDirection.y = 0;
         Quaternion _targetRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, 15f * Time.deltaTime);
-
-        if (transform.rotation == _targetRotation)
-        {
-            ActionComplete();
-        }
     }
 
     public override string GetActionName()
@@ -85,5 +82,12 @@ public class FaceDirectionAction : BaseAction
     {
         _targetPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
         ActionStart(_onComplete);
+        StartCoroutine(CompleteAction_routine());
+    }
+
+    private IEnumerator CompleteAction_routine()
+    {
+        yield return new WaitForSeconds(_timeToComplete);
+        ActionComplete();
     }
 }

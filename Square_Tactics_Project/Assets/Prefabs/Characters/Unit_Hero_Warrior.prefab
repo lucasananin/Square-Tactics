@@ -927,6 +927,7 @@ MonoBehaviour:
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _maxGridHorizontalDistance: 1
+  _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8671917429047366216
 GameObject:
@@ -1050,9 +1051,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7742449936197641506}
     m_Modifications:
+    - target: {fileID: 103428, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112336, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 165754, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
       propertyPath: m_Name
       value: Character_Goblin_Warrior_Female
+      objectReference: {fileID: 0}
+    - target: {fileID: 186674, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 432292, guid: 9a6b87430c6b2684aa9c1d4616d38a60, type: 3}
       propertyPath: m_RootOrder

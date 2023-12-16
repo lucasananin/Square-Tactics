@@ -955,6 +955,7 @@ MonoBehaviour:
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _maxGridHorizontalDistance: 1
+  _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8671917429047366216
 GameObject:
