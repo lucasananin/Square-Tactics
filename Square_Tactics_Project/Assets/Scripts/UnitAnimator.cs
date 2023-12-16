@@ -17,11 +17,13 @@ public class UnitAnimator : MonoBehaviour
     [Title("// Values")]
     [SerializeField] float _timeToShoot = 1f;
 
-    private int _shootTriggerHash = Animator.StringToHash("Shoot");
-    private int _swordSlashTriggerHash = Animator.StringToHash("SwordSlash");
     private int _horizontalVelocityHash = Animator.StringToHash("HorizontalVelocity");
     private int _verticalVelocityHash = Animator.StringToHash("VerticalVelocity");
     private int _isChangingFloorsHash = Animator.StringToHash("IsChangingFloors");
+    private int _swordSlashTriggerHash = Animator.StringToHash("SwordSlash");
+    private int _shootTriggerHash = Animator.StringToHash("Shoot");
+    private int _TakeDamageTriggerHash = Animator.StringToHash("TakeDamage");
+    private int _dieTriggerHash = Animator.StringToHash("Die");
 
     private void OnEnable()
     {
@@ -37,6 +39,10 @@ public class UnitAnimator : MonoBehaviour
             this._swordAction.onSwordActionStarted += _swordAction_onSwordActionStarted;
             this._swordAction.onSwordActionCompleted += _swordAction_onSwordActionCompleted;
         }
+
+        HealthSystem _healthSystem = GetComponent<HealthSystem>();
+        _healthSystem.onTakeDamage += _healthSystem_onTakeDamage;
+        _healthSystem.onDead += _healthSystem_onDead;
     }
 
     private void OnDisable()
@@ -51,12 +57,16 @@ public class UnitAnimator : MonoBehaviour
             _swordAction.onSwordActionStarted -= _swordAction_onSwordActionStarted;
             _swordAction.onSwordActionCompleted -= _swordAction_onSwordActionCompleted;
         }
+
+        HealthSystem _healthSystem = GetComponent<HealthSystem>();
+        _healthSystem.onTakeDamage -= _healthSystem_onTakeDamage;
+        _healthSystem.onDead -= _healthSystem_onDead;
     }
 
-    private void Start()
-    {
-        //EquipRifle();
-    }
+    //private void Start()
+    //{
+    //    EquipRifle();
+    //}
 
     private void LateUpdate()
     {
@@ -109,4 +119,14 @@ public class UnitAnimator : MonoBehaviour
     //    _rifleGameObject.SetActive(true);
     //    _swordGameObject.SetActive(false);
     //}
+
+    private void _healthSystem_onTakeDamage()
+    {
+        _animator.SetTrigger(_TakeDamageTriggerHash);
+    }
+
+    private void _healthSystem_onDead()
+    {
+        _animator.SetTrigger(_dieTriggerHash);
+    }
 }

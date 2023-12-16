@@ -8,15 +8,15 @@ public class UnitRagdollSpawner : MonoBehaviour
     [SerializeField] Transform _rootBone = null;
     [SerializeField] HealthSystem _healthSystem = null;
 
-    private void OnEnable()
-    {
-        _healthSystem.onDead += Spawn;
-    }
+    //private void OnEnable()
+    //{
+    //    _healthSystem.onDead += Spawn;
+    //}
 
-    private void OnDisable()
-    {
-        _healthSystem.onDead -= Spawn;
-    }
+    //private void OnDisable()
+    //{
+    //    _healthSystem.onDead -= Spawn;
+    //}
 
     private void Spawn()
     {

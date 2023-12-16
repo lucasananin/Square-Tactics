@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 6921990402936943866}
   - component: {fileID: 1870124137690417511}
   - component: {fileID: -612674197574263749}
+  - component: {fileID: -8157734444955936604}
   m_Layer: 7
   m_Name: Unit_Hero_Mage
   m_TagString: Untagged
@@ -937,6 +938,24 @@ MonoBehaviour:
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _maxGridHorizontalDistance: 1
+--- !u!114 &-8157734444955936604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742449936197641507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc5ec97cd685fa45bd7dd8a9227851f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
+  _isActive: 0
+  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _maxGridHorizontalDistance: 1
+  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8671917429047366216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Male_Sorcerer_FixedScale
       objectReference: {fileID: 0}
+    - target: {fileID: 1963814178674550, guid: 10b964f589d35eb4c8ed8441ddc13ceb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4392203993358600, guid: 10b964f589d35eb4c8ed8441ddc13ceb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1109,6 +1132,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 137496271031916642, guid: 10b964f589d35eb4c8ed8441ddc13ceb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abd531dc805c984494c5ef16efaeff6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10b964f589d35eb4c8ed8441ddc13ceb, type: 3}
 --- !u!1 &8701353956727745680 stripped

@@ -10,7 +10,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] int _maxHealth = 12;
     [SerializeField] bool _isInvincible = false;
 
-    public event Action onHealthChanged = null;
+    public event Action onTakeDamage = null;
     public event Action onDead = null;
     public static event EventHandler onAnyDead = null;
 
@@ -22,6 +22,7 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(int _amount)
     {
         if (_isInvincible) return;
+        if (IsDead()) return;
 
         _currentHealth -= _amount;
 
@@ -31,8 +32,10 @@ public class HealthSystem : MonoBehaviour
             onDead?.Invoke();
             onAnyDead?.Invoke(this, null);
         }
-
-        onHealthChanged?.Invoke();
+        else
+        {
+            onTakeDamage?.Invoke();
+        }
     }
 
     private void ResetHealth()
@@ -40,9 +43,14 @@ public class HealthSystem : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    public bool IsDead()
+    {
+        return _currentHealth <= 0;
+    }
+
     public float GetHealthNormalized()
     {
-        return (float)_currentHealth / _maxHealth ;
+        return (float)_currentHealth / _maxHealth;
     }
 
     [Button]
