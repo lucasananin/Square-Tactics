@@ -31,14 +31,16 @@ public class EnemyAi : MonoBehaviour
 
                 if (_timer <= 0)
                 {
-                    if (TryTakeEnemyAiAction(SetStateTakingTurn))
-                    {
-                        _state = State.Busy;
-                    }
-                    else
-                    {
-                        TurnSystem.Instance.NextTurn();
-                    }
+                    TurnSystem.Instance.NextTurn();
+
+                    //if (TryTakeEnemyAiAction(SetStateTakingTurn))
+                    //{
+                    //    _state = State.Busy;
+                    //}
+                    //else
+                    //{
+                    //    TurnSystem.Instance.NextTurn();
+                    //}
                 }
                 break;
             case State.Busy:

@@ -56,7 +56,7 @@ public class SpinAttackAction : BaseAction
             {
                 if (_unit.IsMyHealthSystem(_healthSystem)) continue;
 
-                _healthSystem.TakeDamage(_damage);
+                _healthSystem.TakeDamage(_damage  * GetDamageBuffMultiplier());
             }
         }
 

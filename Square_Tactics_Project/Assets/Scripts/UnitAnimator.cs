@@ -25,6 +25,7 @@ public class UnitAnimator : MonoBehaviour
     private int _TakeDamageTriggerHash = Animator.StringToHash("TakeDamage");
     private int _dieTriggerHash = Animator.StringToHash("Die");
     private int _specialAttackTriggerHash = Animator.StringToHash("SpecialAttack");
+    private int _buffAbilityTriggerHash = Animator.StringToHash("BuffAbility");
 
     private void OnEnable()
     {
@@ -134,5 +135,10 @@ public class UnitAnimator : MonoBehaviour
     public void TriggerSpecialAttack()
     {
         _animator.SetTrigger(_specialAttackTriggerHash);
+    }
+
+    public void TriggerBuffAbility()
+    {
+        _animator.SetTrigger(_buffAbilityTriggerHash);
     }
 }

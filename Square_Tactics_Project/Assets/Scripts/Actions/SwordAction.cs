@@ -8,6 +8,7 @@ public class SwordAction : BaseAction
 {
     [Title("// Sword")]
     [SerializeField] float _rotSpeed = 10f;
+    [SerializeField] int _damage = 1;
     [SerializeField, ReadOnly] State _state = State.SwingingSwordBeforeHit;
     [SerializeField, ReadOnly] float _stateTimer = 0;
     [SerializeField, ReadOnly] Unit _targetUnit = null;
@@ -56,7 +57,7 @@ public class SwordAction : BaseAction
 
                 if (_targetUnit != null)
                 {
-                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(1);
+                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier());
                     onAnySwordHit?.Invoke(this, EventArgs.Empty);
                 }
                 break;

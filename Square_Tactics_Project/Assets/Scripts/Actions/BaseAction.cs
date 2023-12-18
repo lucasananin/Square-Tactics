@@ -12,6 +12,7 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField] protected Material _gridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
     //[SerializeField] protected int _maxGridVerticalDistance = 2;
+    [SerializeField] BaseAction _buffDamageAction = null;
 
     public static EventHandler onAnyActionStarted = null;
     public static EventHandler onAnyActionCompleted = null;
@@ -77,6 +78,17 @@ public abstract class BaseAction : MonoBehaviour
         {
             return null;
         }
+    }
+
+    public virtual bool IsBuffActive()
+    {
+        return false;
+    }
+
+    public virtual int GetDamageBuffMultiplier()
+    {
+        int _multiplier = _buffDamageAction != null && _buffDamageAction.IsBuffActive() ? 2 : 1;
+        return _multiplier;
     }
 
     public abstract void TakeAction(GridPosition _gridPosition, Action _onComplete);
