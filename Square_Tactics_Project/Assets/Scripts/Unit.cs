@@ -127,6 +127,11 @@ public class Unit : MonoBehaviour
         return _healthSystem.GetHealthNormalized();
     }
 
+    public bool IsMyHealthSystem(HealthSystem _value)
+    {
+        return _healthSystem == _value;
+    }
+
     private void Die()
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(_gridPosition, this);
