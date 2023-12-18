@@ -9,6 +9,7 @@ public class SwordAction : BaseAction
     [Title("// Sword")]
     [SerializeField] float _rotSpeed = 10f;
     [SerializeField] int _damage = 1;
+    [SerializeField] float _timeToDamage = 0.7f;
     [SerializeField, ReadOnly] State _state = State.SwingingSwordBeforeHit;
     [SerializeField, ReadOnly] float _stateTimer = 0;
     [SerializeField, ReadOnly] Unit _targetUnit = null;
@@ -136,7 +137,7 @@ public class SwordAction : BaseAction
         _targetGridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
 
         _state = State.SwingingSwordBeforeHit;
-        _stateTimer = 0.7f;
+        _stateTimer = _timeToDamage;
 
         onSwordActionStarted?.Invoke(this, EventArgs.Empty);
         ActionStart(_onComplete);
