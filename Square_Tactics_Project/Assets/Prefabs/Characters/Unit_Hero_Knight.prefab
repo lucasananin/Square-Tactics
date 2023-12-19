@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 7016231193894205436}
   - component: {fileID: 6417496724796784687}
   - component: {fileID: 8571920552624945169}
+  - component: {fileID: 2997493146820917899}
   - component: {fileID: 7027046825083637968}
   - component: {fileID: 4041120186303745863}
   m_Layer: 7
@@ -681,12 +682,14 @@ MonoBehaviour:
   _unit: {fileID: 9045753601613507018}
   _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: f68ec1cf547ee964f9dd864da56ec19c,
     type: 3}
+  _explosiveArrowActionProjectile: {fileID: 0}
   _rifleGameObject: {fileID: 0}
   _swordGameObject: {fileID: 0}
   _shootPoint: {fileID: 0}
   _shootAction: {fileID: 0}
   _swordAction: {fileID: 0}
   _timeToShoot: 1
+  _timeToShootExplosiveArrow: 1
 --- !u!114 &2878909365258105410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,8 +735,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 9045753601613507018}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
   _stoppingDistance: 0.1
   _currentPositionIndex: 0
@@ -759,13 +765,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
+  _damage: 1
+  _timeToDamage: 0.3
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &2997493146820917899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045753601613507016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c1b77fae716ef4c9cb53f6b1c4a340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 0}
+  _isActive: 0
+  _displayName: Blessed Cure
+  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
+  _maxGridHorizontalDistance: 3
+  _buffDamageAction: {fileID: 0}
+  _timeToHeal: 1
+  _timeToEnd: 0.5
+  _healValue: 1
+  _hitLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7027046825083637968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,8 +816,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
 --- !u!114 &4041120186303745863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,8 +835,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
   _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &9199438076391271641

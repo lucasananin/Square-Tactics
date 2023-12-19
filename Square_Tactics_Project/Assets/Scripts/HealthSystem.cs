@@ -38,6 +38,16 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    public void RecoverHealth(int _amount)
+    {
+        _currentHealth += _amount;
+
+        if (_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+    }
+
     private void ResetHealth()
     {
         _currentHealth = _maxHealth;
