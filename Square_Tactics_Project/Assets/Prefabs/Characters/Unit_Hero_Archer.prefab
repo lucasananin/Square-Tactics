@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 5761734011320962244}
   - component: {fileID: 6921990402936943866}
   - component: {fileID: 1870124137690417511}
+  - component: {fileID: 500241293569301733}
   - component: {fileID: -612674197574263749}
   - component: {fileID: 8215577400400112874}
   m_Layer: 7
@@ -1159,12 +1160,15 @@ MonoBehaviour:
   _unit: {fileID: 7742449936197641505}
   _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: f68ec1cf547ee964f9dd864da56ec19c,
     type: 3}
+  _explosiveArrowActionProjectile: {fileID: -286181103850536152, guid: a44ad35a3e528f343aa63a9d33ab9442,
+    type: 3}
   _rifleGameObject: {fileID: 0}
   _swordGameObject: {fileID: 0}
   _shootPoint: {fileID: 8122687420559892245}
   _shootAction: {fileID: 0}
   _swordAction: {fileID: 0}
   _timeToShoot: 1
+  _timeToShootExplosiveArrow: 0.6
 --- !u!114 &3533563310461779625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,6 +1214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 7742449936197641505}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
@@ -1239,6 +1244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
@@ -1264,6 +1270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
     type: 2}
@@ -1279,6 +1286,33 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _canShootBullet: 0
+--- !u!114 &500241293569301733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742449936197641507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b291738efe6c79f48b33190b9f5503ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 0}
+  _isActive: 0
+  _displayName: Explosive Arrow
+  _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
+  _maxGridHorizontalDistance: 3
+  _buffDamageAction: {fileID: 0}
+  _rotSpeed: 15
+  _damage: 4
+  _timeToEnd: 1.5
+  _shoulderTarget: {fileID: 7301399545472390776}
+  _obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &-612674197574263749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,6 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
@@ -1311,6 +1346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1

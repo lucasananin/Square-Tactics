@@ -8,6 +8,7 @@ public class UnitAnimator : MonoBehaviour
     [SerializeField] Animator _animator = null;
     [SerializeField] Unit _unit = null;
     [SerializeField] BulletProjectile _bulletProjectilePrefab = null;
+    [SerializeField] ExplosiveArrowProjectile _explosiveArrowActionProjectile = null;
     [SerializeField] GameObject _rifleGameObject = null;
     [SerializeField] GameObject _swordGameObject = null;
     [SerializeField] Transform _shootPoint = null;
@@ -16,6 +17,7 @@ public class UnitAnimator : MonoBehaviour
 
     [Title("// Values")]
     [SerializeField] float _timeToShoot = 1f;
+    [SerializeField] float _timeToShootExplosiveArrow = 1f;
 
     private int _horizontalVelocityHash = Animator.StringToHash("HorizontalVelocity");
     private int _verticalVelocityHash = Animator.StringToHash("VerticalVelocity");
@@ -140,5 +142,20 @@ public class UnitAnimator : MonoBehaviour
     public void TriggerBuffAbility()
     {
         _animator.SetTrigger(_buffAbilityTriggerHash);
+    }
+
+    public void TriggerExplosiveArrow(ExplosiveArrowAction _actionValue)
+    {
+        StartCoroutine(TriggerExplosiveArrow_routine(_actionValue));
+    }
+
+    private IEnumerator TriggerExplosiveArrow_routine(ExplosiveArrowAction _actionValue)
+    {
+        TriggerSpecialAttack();
+
+        yield return new WaitForSeconds(_timeToShootExplosiveArrow);
+
+        var _explosiveArrow = Instantiate(_explosiveArrowActionProjectile, _shootPoint.position, Quaternion.identity);
+        _explosiveArrow.Setup(_actionValue);
     }
 }

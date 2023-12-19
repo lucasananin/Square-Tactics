@@ -9,6 +9,7 @@ public abstract class BaseAction : MonoBehaviour
 {
     [SerializeField, ReadOnly] protected Unit _unit = null;
     [SerializeField, ReadOnly] protected bool _isActive = false;
+    [SerializeField] protected string _displayName = null;
     [SerializeField] protected Material _gridColorMaterial = null;
     [SerializeField] protected Material _fadedGridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
@@ -18,6 +19,8 @@ public abstract class BaseAction : MonoBehaviour
     public static EventHandler onAnyActionStarted = null;
     public static EventHandler onAnyActionCompleted = null;
     protected Action _onComplete = null;
+
+    public int MaxGridHorizontalDistance { get => _maxGridHorizontalDistance; private set => _maxGridHorizontalDistance = value; }
 
     protected virtual void Awake()
     {
