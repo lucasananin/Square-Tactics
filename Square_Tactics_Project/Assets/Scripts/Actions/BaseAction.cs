@@ -10,6 +10,7 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField, ReadOnly] protected Unit _unit = null;
     [SerializeField, ReadOnly] protected bool _isActive = false;
     [SerializeField] protected Material _gridColorMaterial = null;
+    [SerializeField] protected Material _fadedGridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
     //[SerializeField] protected int _maxGridVerticalDistance = 2;
     [SerializeField] BaseAction _buffDamageAction = null;
@@ -58,6 +59,11 @@ public abstract class BaseAction : MonoBehaviour
         return _gridColorMaterial;
     }
 
+    public Material GetFadedGridColorMaterial()
+    {
+        return _fadedGridColorMaterial;
+    }
+
     public EnemyAiAction GetBestEnemyAiAction()
     {
         List<EnemyAiAction> _enemyAiActions = new List<EnemyAiAction>();
@@ -85,10 +91,20 @@ public abstract class BaseAction : MonoBehaviour
         return false;
     }
 
+    public virtual bool HasFadedGridVisual()
+    {
+        return false;
+    }
+
     public virtual int GetDamageBuffMultiplier()
     {
         int _multiplier = _buffDamageAction != null && _buffDamageAction.IsBuffActive() ? 2 : 1;
         return _multiplier;
+    }
+
+    public virtual List<GridPosition> GetFadedValidActionGridPositions()
+    {
+        return null;
     }
 
     public abstract void TakeAction(GridPosition _gridPosition, Action _onComplete);

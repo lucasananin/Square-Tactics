@@ -70,13 +70,20 @@ public class GridSystemVisual : MonoBehaviour
     public void UpdateVisuals()
     {
         //var _unit = UnitActionSystem.Instance.GetSelectedUnit();
-        var _selectedAction = UnitActionSystem.Instance.GetSelectedAction();
+        BaseAction _selectedAction = UnitActionSystem.Instance.GetSelectedAction();
 
         if (_selectedAction != null)
         {
             HideAllGridPositions();
-            var _validPositions = _selectedAction.GetValidActionGridPositions();
-            ShowGridPositions(_validPositions);
+
+            if (_selectedAction.HasFadedGridVisual())
+            {
+                var _validFadedGridPositions = _selectedAction.GetFadedValidActionGridPositions();
+                ShowGridPositions(_validFadedGridPositions, _selectedAction.GetFadedGridColorMaterial());
+            }
+
+            var _validGridPositions = _selectedAction.GetValidActionGridPositions();
+            ShowGridPositions(_validGridPositions, _selectedAction.GetGridColorMaterial());
         }
         else
         {
@@ -98,15 +105,15 @@ public class GridSystemVisual : MonoBehaviour
         }
     }
 
-    public void ShowGridPositions(List<GridPosition> _gridPositions)
+    public void ShowGridPositions(List<GridPosition> _gridPositions, Material _material)
     {
         int _count = _gridPositions.Count;
 
         for (int i = 0; i < _count; i++)
         {
-            var _gridVisual = _gridSystemVisualSingles[_gridPositions[i].x, _gridPositions[i].z, _gridPositions[i].floor];
+            GridSystemVisualSingle _gridVisual = _gridSystemVisualSingles[_gridPositions[i].x, _gridPositions[i].z, _gridPositions[i].floor];
             _gridVisual.Show();
-            _gridVisual.SetMaterial(UnitActionSystem.Instance.GetSelectedAction().GetGridColorMaterial());
+            _gridVisual.SetMaterial(_material);
         }
     }
 }

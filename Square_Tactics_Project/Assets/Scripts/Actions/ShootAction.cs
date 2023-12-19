@@ -100,14 +100,13 @@ public class ShootAction : BaseAction
 
     public override List<GridPosition> GetValidActionGridPositions()
     {
-        var _myGridPosition = _unit.GetGridPosition();
+        GridPosition _myGridPosition = _unit.GetGridPosition();
         return GetValidActionGridPositions(_myGridPosition);
     }
 
     public List<GridPosition> GetValidActionGridPositions(GridPosition _myGridPosition)
     {
-        var _validGridPositions = new List<GridPosition>();
-        //var _myGridPosition = _unit.GetGridPosition();
+        List<GridPosition> _validGridPositions = new List<GridPosition>();
 
         for (int x = -_maxGridHorizontalDistance; x <= _maxGridHorizontalDistance; x++)
         {
@@ -160,6 +159,40 @@ public class ShootAction : BaseAction
         return _validGridPositions;
     }
 
+    public override List<GridPosition> GetFadedValidActionGridPositions()
+    {
+        List<GridPosition> _validGridPositions = new List<GridPosition>();
+        GridPosition _myGridPosition = _unit.GetGridPosition();
+
+        for (int x = -_maxGridHorizontalDistance; x <= _maxGridHorizontalDistance; x++)
+        {
+            for (int z = -_maxGridHorizontalDistance; z <= _maxGridHorizontalDistance; z++)
+            {
+                for (int f = -_maxGridHorizontalDistance; f <= _maxGridHorizontalDistance; f++)
+                {
+                    GridPosition _offset = new GridPosition(x, z, f);
+                    GridPosition _validGridPosition = _myGridPosition + _offset;
+
+                    int _testDistance = Mathf.Abs(x) + Mathf.Abs(z);
+
+                    if (_testDistance > _maxGridHorizontalDistance)
+                    {
+                        continue;
+                    }
+
+                    if (!LevelGrid.Instance.IsValidGridPosition(_validGridPosition))
+                    {
+                        continue;
+                    }
+
+                    _validGridPositions.Add(_validGridPosition);
+                }
+            }
+        }
+
+        return _validGridPositions;
+    }
+
     public override void TakeAction(GridPosition _gridPosition, Action _onComplete)
     {
         _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_gridPosition);
@@ -184,6 +217,11 @@ public class ShootAction : BaseAction
     //{
     //    return _shoulderTarget.position;
     //}
+
+    public override bool HasFadedGridVisual()
+    {
+        return true;
+    }
 
     public override EnemyAiAction GetEnemyAiAction(GridPosition _gridPosition)
     {

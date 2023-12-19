@@ -912,7 +912,7 @@ MonoBehaviour:
   _width: 32
   _height: 32
   _cellSize: 2
-  _floorAmount: 2
+  _floorAmount: 1
 --- !u!4 &290745378
 Transform:
   m_ObjectHideFlags: 0

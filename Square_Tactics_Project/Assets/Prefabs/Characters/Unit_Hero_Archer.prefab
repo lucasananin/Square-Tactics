@@ -1211,6 +1211,7 @@ MonoBehaviour:
   _unit: {fileID: 7742449936197641505}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
   _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
@@ -1239,6 +1240,7 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
@@ -1263,6 +1265,8 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
+    type: 2}
   _maxGridHorizontalDistance: 10
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
@@ -1290,6 +1294,7 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
   _buffDamageAction: {fileID: 0}
 --- !u!114 &8215577400400112874
@@ -1307,6 +1312,7 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
   _buffDamageAction: {fileID: 0}
   _timeToComplete: 1

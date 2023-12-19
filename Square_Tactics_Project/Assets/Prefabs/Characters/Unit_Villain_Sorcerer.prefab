@@ -656,7 +656,9 @@ MonoBehaviour:
   _unit: {fileID: 6916738671551120984}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
   _stoppingDistance: 0.1
   _currentPositionIndex: 0
@@ -683,8 +685,12 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
+  _damage: 1
+  _timeToDamage: 0.7
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}
@@ -704,7 +710,10 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
+    type: 2}
   _maxGridHorizontalDistance: 10
+  _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
   _damage: 1
   _shoulderTarget: {fileID: 5898673369302824193}
@@ -730,7 +739,9 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
 --- !u!114 &4199153243900853213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +757,9 @@ MonoBehaviour:
   _unit: {fileID: 0}
   _isActive: 0
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
   _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8717902403553910639
