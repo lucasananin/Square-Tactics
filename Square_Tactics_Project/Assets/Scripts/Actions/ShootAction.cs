@@ -9,6 +9,7 @@ public class ShootAction : BaseAction
     [Title("// Shoot")]
     [SerializeField] float _rotSpeed = 10f;
     [SerializeField] int _damage = 4;
+    [SerializeField] int _minGridDistance = 1;
     [SerializeField] Transform _shoulderTarget = null;
     [SerializeField] LayerMask _obstaclesLayerMask = default;
     [SerializeField, ReadOnly] State _state = State.Aiming;
@@ -117,6 +118,11 @@ public class ShootAction : BaseAction
                     GridPosition _offset = new GridPosition(x, z, f);
                     GridPosition _validGridPosition = _myGridPosition + _offset;
 
+                    if (_validGridPosition == _myGridPosition)
+                    {
+                        continue;
+                    }
+
                     int _testDistance = Mathf.Abs(x) + Mathf.Abs(z);
 
                     if (_testDistance > _maxGridHorizontalDistance)
@@ -129,6 +135,13 @@ public class ShootAction : BaseAction
                         continue;
                     }
 
+                    float _distance = Vector3.Distance(transform.position, LevelGrid.Instance.GetWorldPosition(_validGridPosition));
+
+                    if (_distance < LevelGrid.Instance.GetCellSize() * _minGridDistance + 0.1)
+                    {
+                        continue;
+                    }
+
                     if (!LevelGrid.Instance.HasAnyUnitOnThisGridPosition(_validGridPosition))
                     {
                         continue;
@@ -136,10 +149,10 @@ public class ShootAction : BaseAction
 
                     Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_validGridPosition);
 
-                    if (_unit.IsEnemy() == _targetUnit.IsEnemy())
-                    {
-                        continue;
-                    }
+                    //if (_unit.IsEnemy() == _targetUnit.IsEnemy())
+                    //{
+                    //    continue;
+                    //}
 
                     Vector3 _unitWorldPosition = LevelGrid.Instance.GetWorldPosition(_myGridPosition);
                     Vector3 _raycastOrigin = _unitWorldPosition + Vector3.up * GetShoulderTargetHeight();
@@ -173,6 +186,11 @@ public class ShootAction : BaseAction
                     GridPosition _offset = new GridPosition(x, z, f);
                     GridPosition _validGridPosition = _myGridPosition + _offset;
 
+                    if (_validGridPosition == _myGridPosition)
+                    {
+                        continue;
+                    }
+
                     int _testDistance = Mathf.Abs(x) + Mathf.Abs(z);
 
                     if (_testDistance > _maxGridHorizontalDistance)
@@ -181,6 +199,13 @@ public class ShootAction : BaseAction
                     }
 
                     if (!LevelGrid.Instance.IsValidGridPosition(_validGridPosition))
+                    {
+                        continue;
+                    }
+
+                    float _distance = Vector3.Distance(transform.position, LevelGrid.Instance.GetWorldPosition(_validGridPosition));
+
+                    if (_distance < LevelGrid.Instance.GetCellSize() * _minGridDistance + 0.1)
                     {
                         continue;
                     }
