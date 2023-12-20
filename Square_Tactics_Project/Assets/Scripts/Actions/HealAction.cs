@@ -42,7 +42,7 @@ public class HealAction : BaseAction
 
     public IEnumerator TakeAction_routine()
     {
-        GetComponent<UnitAnimator>().TriggerBuffAbility();
+        GetComponent<UnitAnimator>().TriggerSpecialAttack();
 
         yield return new WaitForSeconds(_timeToHeal);
 

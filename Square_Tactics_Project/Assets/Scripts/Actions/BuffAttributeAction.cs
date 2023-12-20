@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseDamageAction : BaseAction
+public class BuffAttributeAction : BaseAction
 {
     [Title("// Buff")]
     [SerializeField] float _timeToActivate = 1f;
@@ -25,7 +25,7 @@ public class IncreaseDamageAction : BaseAction
 
     public override string GetActionName()
     {
-        return $"Increase Damage";
+        return _displayName;
     }
 
     public override EnemyAiAction GetEnemyAiAction(GridPosition _gridPosition)
@@ -75,6 +75,7 @@ public class IncreaseDamageAction : BaseAction
         }
     }
 
+    [Button]
     private void DecreaseTurnCount()
     {
         _currentTurnCount--;

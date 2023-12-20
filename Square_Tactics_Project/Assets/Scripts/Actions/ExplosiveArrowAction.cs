@@ -10,7 +10,6 @@ public class ExplosiveArrowAction : BaseAction
     [SerializeField] float _rotSpeed = 10f;
     [SerializeField] int _damage = 4;
     [SerializeField] float _timeToEnd = 1f;
-    [SerializeField] Transform _shoulderTarget = null;
     [SerializeField] LayerMask _obstaclesLayerMask = default;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
 

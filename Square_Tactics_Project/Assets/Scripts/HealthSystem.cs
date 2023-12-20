@@ -9,6 +9,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] int _currentHealth = 12;
     [SerializeField] int _maxHealth = 12;
     [SerializeField] bool _isInvincible = false;
+    [SerializeField] BaseAction _buffDefenseAction = null;
 
     public event Action onTakeDamage = null;
     public event Action onDead = null;
@@ -19,12 +20,15 @@ public class HealthSystem : MonoBehaviour
         ResetHealth();
     }
 
-    public void TakeDamage(int _amount)
+    public void TakeDamage(int _damageAmount)
     {
         if (_isInvincible) return;
         if (IsDead()) return;
 
-        _currentHealth -= _amount;
+        _damageAmount /= GetDefenseReduction();
+        _damageAmount = Mathf.Clamp(_damageAmount, 1, int.MaxValue);
+
+        _currentHealth -= _damageAmount;
 
         if (_currentHealth <= 0)
         {
@@ -61,6 +65,12 @@ public class HealthSystem : MonoBehaviour
     public float GetHealthNormalized()
     {
         return (float)_currentHealth / _maxHealth;
+    }
+
+    public int GetDefenseReduction()
+    {
+        int _reduction = _buffDefenseAction != null && _buffDefenseAction.IsBuffActive() ? 2 : 1;
+        return _reduction;
     }
 
     [Button]
