@@ -58,7 +58,7 @@ public class SwordAction : BaseAction
 
                 if (_targetUnit != null)
                 {
-                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier());
+                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier() * GetAttackDirectionMultiplier());
                     onAnySwordHit?.Invoke(this, EventArgs.Empty);
                 }
                 break;
@@ -73,6 +73,22 @@ public class SwordAction : BaseAction
                 break;
             default:
                 break;
+        }
+    }
+
+    private int GetAttackDirectionMultiplier()
+    {
+        float _dot = Vector3.Dot(transform.forward, _targetUnit.transform.forward);
+        _dot = Mathf.RoundToInt(_dot);
+
+        switch (_dot)
+        {
+            case 1:
+                return 3;
+            case 0:
+                return 2;
+            default:
+                return 1;
         }
     }
 
