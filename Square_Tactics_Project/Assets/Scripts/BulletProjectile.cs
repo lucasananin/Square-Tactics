@@ -9,10 +9,11 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] TrailRenderer _trailRenderer = null;
     [SerializeField] float _moveSpeed = 200f;
     [SerializeField] ParticleSystem _hitVfx = null;
-    [SerializeField, ReadOnly] Unit _targetUnit = null;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
     [SerializeField, ReadOnly] bool _hasReachedTarget = false;
     [SerializeField, ReadOnly] int _damage = 0;
+
+    private ShootAction.OnShootEventArgs _shootArgs = null;
 
     public static event Action onAnyBulletHit = null;
 
@@ -29,7 +30,7 @@ public class BulletProjectile : MonoBehaviour
         if (_myPosition == _targetPosition)
         {
             _hasReachedTarget = true;
-            _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage);
+            _shootArgs.targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage  * GetAttackDirectionMultiplier());
             Instantiate(_hitVfx, _targetPosition, Quaternion.identity);
             onAnyBulletHit?.Invoke();
         }
@@ -43,16 +44,33 @@ public class BulletProjectile : MonoBehaviour
         }
     }
 
-    public void Setup(ShootAction.OnShootEventArgs _e)
+    public void Setup(ShootAction.OnShootEventArgs _args)
     {
         _hasReachedTarget = false;
 
-        _targetUnit = _e.targetUnit;
-        _targetPosition = _targetUnit.transform.position;
+        //_targetUnit = _e.targetUnit;
+        _shootArgs = _args;
+        _targetPosition = _args.targetUnit.transform.position;
         _targetPosition.y += 1.7f;
-        _damage = _e.damage;
+        _damage = _args.damage;
         //SetDamage(_e.damage);
         //SetTargetPosition(_targetPosition);
+    }
+
+    private int GetAttackDirectionMultiplier()
+    {
+        float _dot = Vector3.Dot(_shootArgs.shootingUnit.transform.forward, _shootArgs.targetUnit.transform.forward);
+        _dot = Mathf.RoundToInt(_dot);
+
+        switch (_dot)
+        {
+            case 1:
+                return 3;
+            case 0:
+                return 2;
+            default:
+                return 1;
+        }
     }
 
     //public void SetTargetPosition(Vector3 _targetPosition)
