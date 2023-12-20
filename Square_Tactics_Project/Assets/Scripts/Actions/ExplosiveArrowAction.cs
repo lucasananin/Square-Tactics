@@ -9,6 +9,7 @@ public class ExplosiveArrowAction : BaseAction
     [Title("// Shoot")]
     [SerializeField] float _rotSpeed = 10f;
     [SerializeField] int _damage = 4;
+    [SerializeField] int _minGridDistance = 1;
     [SerializeField] float _timeToEnd = 1f;
     [SerializeField] LayerMask _obstaclesLayerMask = default;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
@@ -66,6 +67,13 @@ public class ExplosiveArrowAction : BaseAction
                     }
 
                     if (!LevelGrid.Instance.IsValidGridPosition(_validGridPosition))
+                    {
+                        continue;
+                    }
+
+                    float _distance = Vector3.Distance(transform.position, LevelGrid.Instance.GetWorldPosition(_validGridPosition));
+
+                    if (_distance < LevelGrid.Instance.GetCellSize() * _minGridDistance + 0.1)
                     {
                         continue;
                     }
