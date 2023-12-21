@@ -711,7 +711,6 @@ GameObject:
   - component: {fileID: 6921990402936943866}
   - component: {fileID: 8398848717009937229}
   - component: {fileID: 8398562178188597038}
-  - component: {fileID: -612674197574263749}
   - component: {fileID: 3381847823311422380}
   m_Layer: 7
   m_Name: Unit_Hero_Warrior
@@ -931,25 +930,6 @@ MonoBehaviour:
   _particleSystem: {fileID: 4310089701478933870}
   _maxTurnCount: 6
   _currentTurnCount: 0
---- !u!114 &-612674197574263749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7742449936197641507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd582ba3770804d409700d025fe324cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 0}
-  _isActive: 0
-  _displayName: 
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
-  _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
-  _buffDamageAction: {fileID: 0}
 --- !u!114 &3381847823311422380
 MonoBehaviour:
   m_ObjectHideFlags: 0

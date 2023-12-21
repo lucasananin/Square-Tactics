@@ -2,8 +2,8 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.AI;
 
 public abstract class BaseAction : MonoBehaviour
 {
@@ -14,7 +14,8 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField] protected Material _fadedGridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
     //[SerializeField] protected int _maxGridVerticalDistance = 2;
-    [SerializeField] BaseAction _buffDamageAction = null;
+    [SerializeField] protected BaseAction _buffDamageAction = null;
+    //[SerializeField] protected BaseAction _aiAttackAction = null;
 
     public static EventHandler onAnyActionStarted = null;
     public static EventHandler onAnyActionCompleted = null;
@@ -80,7 +81,8 @@ public abstract class BaseAction : MonoBehaviour
 
         if (_enemyAiActions.Count > 0)
         {
-            _enemyAiActions.Sort((EnemyAiAction a, EnemyAiAction b) => b.actionValue - b.actionValue);
+            //_enemyAiActions.Sort((EnemyAiAction a, EnemyAiAction b) => b.actionValue - b.actionValue);
+            _enemyAiActions = _enemyAiActions.OrderByDescending(x => x.actionValue).ToList();
             return _enemyAiActions[0];
         }
         else
@@ -108,6 +110,57 @@ public abstract class BaseAction : MonoBehaviour
     public virtual List<GridPosition> GetFadedValidActionGridPositions()
     {
         return null;
+    }
+
+    public virtual int GetAttackDirectionMultiplier(GridPosition _targetGridPosition)
+    {
+        var _myGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        return GetAttackDirectionMultiplier(_myGridPosition, _targetGridPosition);
+
+        //Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_targetGridPosition);
+
+        //if (_targetUnit == null)
+        //{
+        //    return 1;
+        //}
+
+        //float _dot = Vector3.Dot(transform.forward, _targetUnit.transform.forward);
+        //_dot = Mathf.RoundToInt(_dot);
+
+        //switch (_dot)
+        //{
+        //    case 1:
+        //        return 3;
+        //    case 0:
+        //        return 2;
+        //    default:
+        //        return 1;
+        //}
+    }
+
+    public virtual int GetAttackDirectionMultiplier(GridPosition _gridPosition, GridPosition _targetGridPosition)
+    {
+        Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_targetGridPosition);
+
+        if (_targetUnit == null)
+        {
+            return 1;
+        }
+
+        var _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
+        var _gridWorldDirection = (_targetUnit.transform.position - _gridWorldPosition).normalized;
+        float _dot = Vector3.Dot(_gridWorldDirection, _targetUnit.transform.forward);
+        _dot = Mathf.RoundToInt(_dot);
+
+        switch (_dot)
+        {
+            case 1:
+                return 3;
+            case 0:
+                return 2;
+            default:
+                return 1;
+        }
     }
 
     public abstract void TakeAction(GridPosition _gridPosition, Action _onComplete);

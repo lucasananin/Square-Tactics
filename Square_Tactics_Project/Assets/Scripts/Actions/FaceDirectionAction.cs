@@ -30,7 +30,7 @@ public class FaceDirectionAction : BaseAction
         return new EnemyAiAction()
         {
             gridPosition = _gridPosition,
-            actionValue = 0,
+            actionValue = int.MinValue,
         };
     }
 

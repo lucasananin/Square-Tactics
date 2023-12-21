@@ -5421,7 +5421,6 @@ GameObject:
   - component: {fileID: 8571920552624945169}
   - component: {fileID: 2997493146820917899}
   - component: {fileID: 5672557880670639921}
-  - component: {fileID: 7027046825083637968}
   - component: {fileID: 4041120186303745863}
   m_Layer: 7
   m_Name: Unit_Hero_Knight
@@ -5641,25 +5640,6 @@ MonoBehaviour:
   _particleSystem: {fileID: 8733425004968109076}
   _maxTurnCount: 6
   _currentTurnCount: 0
---- !u!114 &7027046825083637968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9045753601613507016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd582ba3770804d409700d025fe324cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 0}
-  _isActive: 0
-  _displayName: 
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
-  _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
-  _buffDamageAction: {fileID: 0}
 --- !u!114 &4041120186303745863
 MonoBehaviour:
   m_ObjectHideFlags: 0

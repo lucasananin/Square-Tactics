@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class MoveAction : BaseAction
 {
@@ -260,12 +261,50 @@ public class MoveAction : BaseAction
 
     public override EnemyAiAction GetEnemyAiAction(GridPosition _gridPosition)
     {
-        int _targetCountAtGridPosition = _unit.GetAction<ShootAction>().GetTargetCountAtPosition(_gridPosition);
+        // ShootAction, se move para onde tiver mais alvos.
+        // SwordAction, se move para o alvo mais proximo ou usar a mesma logica do ShootAction?
+        bool _isShootAction = _unit.GetAction<ShootAction>() != null;
 
-        return new EnemyAiAction()
+        if (_isShootAction)
         {
-            gridPosition = _gridPosition,
-            actionValue = _targetCountAtGridPosition * 10,
-        };
+            // tiver algum inimigo muito proximo, se afasta.
+            var _shootAction = _unit.GetAction<ShootAction>();
+            int _targetCountAtGridPosition = _shootAction.GetTargetCountAtPosition(_gridPosition);
+
+            return new EnemyAiAction()
+            {
+                gridPosition = _gridPosition,
+                actionValue = _targetCountAtGridPosition * 10,
+            };
+        }
+        else
+        {
+            // se move para o inimigo mais proximo.
+            //var _swordAction = _unit.GetAction<SwordAction>();
+
+            var _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
+            var _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
+            float _distanceToNearest = Vector3.Distance(_gridWorldPosition, _nearestUnit.position);
+            //_distanceToNearest = Mathf.RoundToInt(_distanceToNearest * 10);
+            _distanceToNearest = _distanceToNearest * 10;
+            //int _distanceMultiplier = Mathf.RoundToInt((/*_distanceToNearest **/ 10f) - _distanceToNearest);
+            int _distanceMultiplier = Mathf.RoundToInt(10f - _distanceToNearest);
+            //_distanceMultiplier += 1000;
+            //Debug.Log($"// _nearestUnit: {_nearestUnit.name}, _distanceToNearest : {_distanceToNearest}, _distanceMultiplier {_distanceMultiplier}");
+
+            //var _units = _swordAction.GetTargetCountAtPosition(_gridPosition);
+            //int _targetCount = _units.Count;
+            //var _targetGridPosition = LevelGrid.Instance.GetGridPosition(_nearestUnit.position);
+            //int _attackDirectionMultiplier = _swordAction.GetAttackDirectionMultiplier(_gridPosition, _targetGridPosition);
+            //Debug.Log($"// _targetCount: {_targetCount}, _directionMulti: {_attackDirectionMultiplier}, {10}");
+            //Debug.Log($"// _distanceMultiplier: {_distanceMultiplier}, _attackDirectionMultiplier: {_attackDirectionMultiplier}, {10}");
+            //Debug.Log($"// _distanceMultiplier: {_distanceMultiplier}, {10}");
+
+            return new EnemyAiAction()
+            {
+                gridPosition = _gridPosition,
+                actionValue = /*_targetCount * */_distanceMultiplier /** _attackDirectionMultiplier*/ * 10,
+            };
+        }
     }
 }

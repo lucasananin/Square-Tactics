@@ -58,7 +58,7 @@ public class SwordAction : BaseAction
 
                 if (_targetUnit != null)
                 {
-                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier() * GetAttackDirectionMultiplier());
+                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier() * GetAttackDirectionMultiplier(_targetUnit.GetGridPosition()));
                     onAnySwordHit?.Invoke(this, EventArgs.Empty);
                 }
                 break;
@@ -76,22 +76,6 @@ public class SwordAction : BaseAction
         }
     }
 
-    private int GetAttackDirectionMultiplier()
-    {
-        float _dot = Vector3.Dot(transform.forward, _targetUnit.transform.forward);
-        _dot = Mathf.RoundToInt(_dot);
-
-        switch (_dot)
-        {
-            case 1:
-                return 3;
-            case 0:
-                return 2;
-            default:
-                return 1;
-        }
-    }
-
     public override string GetActionName()
     {
         return "Sword";
@@ -99,10 +83,24 @@ public class SwordAction : BaseAction
 
     public override EnemyAiAction GetEnemyAiAction(GridPosition _gridPosition)
     {
+        Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_gridPosition);
+
+        if (_targetUnit != null)
+        {
+            if (_unit.IsEnemy() != _targetUnit.IsEnemy())
+            {
+                return new EnemyAiAction()
+                {
+                    gridPosition = _gridPosition,
+                    actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * 100),
+                };
+            }
+        }
+
         return new EnemyAiAction()
         {
             gridPosition = _gridPosition,
-            actionValue = 0,
+            actionValue = int.MinValue,
         };
     }
 
@@ -145,6 +143,53 @@ public class SwordAction : BaseAction
         }
 
         return _validGridPositions;
+    }
+
+    public List<Unit> GetTargetCountAtPosition(GridPosition _myGridPosition)
+    {
+        var _validUnits = new List<Unit>();
+
+        for (int x = -_maxGridHorizontalDistance; x <= _maxGridHorizontalDistance; x++)
+        {
+            for (int z = -_maxGridHorizontalDistance; z <= _maxGridHorizontalDistance; z++)
+            {
+                GridPosition _offset = new GridPosition(x, z, 0);
+                GridPosition _validGridPosition = _myGridPosition + _offset;
+
+                int _testDistance = Mathf.Abs(x) + Mathf.Abs(z);
+
+                if (_testDistance > _maxGridHorizontalDistance)
+                {
+                    continue;
+                }
+
+                if (!LevelGrid.Instance.IsValidGridPosition(_validGridPosition))
+                {
+                    continue;
+                }
+
+                if (!LevelGrid.Instance.HasAnyUnitOnThisGridPosition(_validGridPosition))
+                {
+                    continue;
+                }
+
+                Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_validGridPosition);
+
+                if (_unit.IsEnemy() == _targetUnit.IsEnemy())
+                {
+                    continue;
+                }
+
+                if (_validGridPosition == _myGridPosition)
+                {
+                    continue;
+                }
+
+                _validUnits.Add(_unit);
+            }
+        }
+
+        return _validUnits;
     }
 
     public override void TakeAction(GridPosition _gridPosition, Action _onComplete)

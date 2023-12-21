@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
     [SerializeField] HealthSystem _healthSystem = null;
     [SerializeField] bool _isEnemy = false;
     [SerializeField, ReadOnly] BaseAction[] _baseActions = null;
-    [SerializeField, ReadOnly] int _actionPoints = 2;
+    [SerializeField/*, ReadOnly*/] int _actionPoints = 2;
 
     private GridPosition _gridPosition = default;
 

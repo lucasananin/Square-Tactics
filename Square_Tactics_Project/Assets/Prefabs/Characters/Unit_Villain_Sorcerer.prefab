@@ -529,7 +529,6 @@ GameObject:
   - component: {fileID: 8897510396678631357}
   - component: {fileID: 6088969526747420547}
   - component: {fileID: 3277362551203473950}
-  - component: {fileID: 4895654750907055938}
   - component: {fileID: 4199153243900853213}
   m_Layer: 7
   m_Name: Unit_Villain_Sorcerer
@@ -587,7 +586,7 @@ MonoBehaviour:
   _healthSystem: {fileID: 4840068659767744622}
   _isEnemy: 1
   _baseActions: []
-  _actionPoints: 30
+  _actionPoints: 2
 --- !u!114 &6916738671551120985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,12 +603,14 @@ MonoBehaviour:
   _unit: {fileID: 6916738671551120984}
   _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: f68ec1cf547ee964f9dd864da56ec19c,
     type: 3}
+  _explosiveArrowActionProjectile: {fileID: 0}
   _rifleGameObject: {fileID: 0}
   _swordGameObject: {fileID: 0}
   _shootPoint: {fileID: 8642165776681738617}
   _shootAction: {fileID: 0}
   _swordAction: {fileID: 0}
   _timeToShoot: 0.6
+  _timeToShootExplosiveArrow: 1
 --- !u!114 &398068310960250320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +642,7 @@ MonoBehaviour:
   _currentHealth: 12
   _maxHealth: 12
   _isInvincible: 0
+  _buffDefenseAction: {fileID: 0}
 --- !u!114 &8897510396678631357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,6 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 6916738671551120984}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
@@ -684,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
@@ -709,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
     type: 2}
@@ -716,6 +721,7 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
   _damage: 1
+  _minGridDistance: 1
   _shoulderTarget: {fileID: 5898673369302824193}
   _obstaclesLayerMask:
     serializedVersion: 2
@@ -724,24 +730,6 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _canShootBullet: 0
---- !u!114 &4895654750907055938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6916738671551120986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd582ba3770804d409700d025fe324cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 0}
-  _isActive: 0
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
-  _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
-  _buffDamageAction: {fileID: 0}
 --- !u!114 &4199153243900853213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1

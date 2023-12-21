@@ -638,7 +638,6 @@ GameObject:
   - component: {fileID: 7797583315686652700}
   - component: {fileID: 6082035343029767375}
   - component: {fileID: 8907462542872524017}
-  - component: {fileID: 7848974212666645552}
   - component: {fileID: 3854180543698322343}
   m_Layer: 7
   m_Name: Unit_Villain_Warrior
@@ -712,12 +711,14 @@ MonoBehaviour:
   _unit: {fileID: 8133717908073604394}
   _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: f68ec1cf547ee964f9dd864da56ec19c,
     type: 3}
+  _explosiveArrowActionProjectile: {fileID: 0}
   _rifleGameObject: {fileID: 0}
   _swordGameObject: {fileID: 142366174795238639}
   _shootPoint: {fileID: 0}
   _shootAction: {fileID: 0}
   _swordAction: {fileID: 0}
   _timeToShoot: 1
+  _timeToShootExplosiveArrow: 1
 --- !u!114 &3070273512986312354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +750,7 @@ MonoBehaviour:
   _currentHealth: 12
   _maxHealth: 12
   _isInvincible: 0
+  _buffDefenseAction: {fileID: 0}
 --- !u!114 &6082035343029767375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,8 +765,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 8133717908073604394}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
   _stoppingDistance: 0.1
   _currentPositionIndex: 0
@@ -790,29 +795,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
+  _damage: 1
+  _timeToDamage: 0.7
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
---- !u!114 &7848974212666645552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8133717908073604392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd582ba3770804d409700d025fe324cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 0}
-  _isActive: 0
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
-  _maxGridHorizontalDistance: 1
 --- !u!114 &3854180543698322343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,8 +821,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
+  _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _buffDamageAction: {fileID: 0}
   _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8269389148815024185

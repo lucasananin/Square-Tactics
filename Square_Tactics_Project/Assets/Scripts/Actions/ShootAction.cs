@@ -149,10 +149,10 @@ public class ShootAction : BaseAction
 
                     Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_validGridPosition);
 
-                    //if (_unit.IsEnemy() == _targetUnit.IsEnemy())
-                    //{
-                    //    continue;
-                    //}
+                    if (_unit.IsEnemy() == _targetUnit.IsEnemy())
+                    {
+                        continue;
+                    }
 
                     Vector3 _unitWorldPosition = LevelGrid.Instance.GetWorldPosition(_myGridPosition);
                     Vector3 _raycastOrigin = _unitWorldPosition + Vector3.up * GetShoulderTargetHeight();

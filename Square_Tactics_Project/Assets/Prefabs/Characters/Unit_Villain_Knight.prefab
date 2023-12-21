@@ -466,7 +466,6 @@ GameObject:
   - component: {fileID: 6005809095339292637}
   - component: {fileID: 7712913336780242958}
   - component: {fileID: 4968550960558405680}
-  - component: {fileID: 6017749523771920625}
   - component: {fileID: 725840349403909990}
   m_Layer: 7
   m_Name: Unit_Villain_Knight
@@ -579,6 +578,7 @@ MonoBehaviour:
   _currentHealth: 12
   _maxHealth: 12
   _isInvincible: 0
+  _buffDefenseAction: {fileID: 0}
 --- !u!114 &7712913336780242958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,25 +635,6 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
---- !u!114 &6017749523771920625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5732724352323168745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd582ba3770804d409700d025fe324cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 0}
-  _isActive: 0
-  _displayName: 
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
-  _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
-  _buffDamageAction: {fileID: 0}
 --- !u!114 &725840349403909990
 MonoBehaviour:
   m_ObjectHideFlags: 0
