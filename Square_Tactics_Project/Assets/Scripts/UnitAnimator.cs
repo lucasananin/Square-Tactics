@@ -131,6 +131,7 @@ public class UnitAnimator : MonoBehaviour
 
     private void _healthSystem_onDead()
     {
+        _animator.applyRootMotion = true;
         _animator.SetTrigger(_dieTriggerHash);
     }
 
