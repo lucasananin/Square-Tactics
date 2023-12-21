@@ -121,6 +121,11 @@ public abstract class BaseAction : MonoBehaviour
 
     public virtual int GetAttackDirectionMultiplier(GridPosition _gridPosition, GridPosition _targetGridPosition)
     {
+        if (_unit.IsEnemy())
+        {
+            return 1;
+        }
+
         Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_targetGridPosition);
 
         if (_targetUnit == null)

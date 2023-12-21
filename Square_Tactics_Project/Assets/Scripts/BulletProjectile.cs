@@ -59,6 +59,11 @@ public class BulletProjectile : MonoBehaviour
 
     private int GetAttackDirectionMultiplier()
     {
+        if (_shootArgs.shootingUnit.IsEnemy())
+        {
+            return 1;
+        }
+
         float _dot = Vector3.Dot(_shootArgs.shootingUnit.transform.forward, _shootArgs.targetUnit.transform.forward);
         _dot = Mathf.RoundToInt(_dot);
 
