@@ -92,7 +92,7 @@ public class SwordAction : BaseAction
                 return new EnemyAiAction()
                 {
                     gridPosition = _gridPosition,
-                    actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * 100),
+                    actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * _actionValuePriority),
                 };
             }
         }

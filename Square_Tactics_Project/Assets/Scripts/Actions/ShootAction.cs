@@ -17,6 +17,8 @@ public class ShootAction : BaseAction
     [SerializeField, ReadOnly] Unit _targetUnit = null;
     [SerializeField, ReadOnly] bool _canShootBullet = false;
 
+    public int MinGridDistance { get => _minGridDistance; private set => _minGridDistance = value; }
+
     public event EventHandler<OnShootEventArgs> onShoot = null;
     public static event EventHandler<OnShootEventArgs> onAnyShoot = null;
 
@@ -255,7 +257,7 @@ public class ShootAction : BaseAction
         return new EnemyAiAction()
         {
             gridPosition = _gridPosition,
-            actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * 100),
+            actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * _actionValuePriority),
         };
     }
 

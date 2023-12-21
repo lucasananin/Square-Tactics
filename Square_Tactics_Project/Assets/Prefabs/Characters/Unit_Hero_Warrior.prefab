@@ -843,6 +843,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
   _stoppingDistance: 0.1
@@ -873,6 +874,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 8398562178188597038}
   _rotSpeed: 15
   _damage: 1
@@ -899,6 +901,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 8398562178188597038}
   _timeToAttack: 1
   _timeToEnd: 1
@@ -920,10 +923,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
-  _displayName: 
+  _displayName: Fury
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _timeToActivate: 0.4
   _timeToEnd: 1
@@ -948,6 +952,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}

@@ -13,6 +13,7 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField] protected Material _gridColorMaterial = null;
     [SerializeField] protected Material _fadedGridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
+    [SerializeField] protected int _actionValuePriority = 10;
     //[SerializeField] protected int _maxGridVerticalDistance = 2;
     [SerializeField] protected BaseAction _buffDamageAction = null;
     //[SerializeField] protected BaseAction _aiAttackAction = null;
@@ -116,26 +117,6 @@ public abstract class BaseAction : MonoBehaviour
     {
         var _myGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         return GetAttackDirectionMultiplier(_myGridPosition, _targetGridPosition);
-
-        //Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_targetGridPosition);
-
-        //if (_targetUnit == null)
-        //{
-        //    return 1;
-        //}
-
-        //float _dot = Vector3.Dot(transform.forward, _targetUnit.transform.forward);
-        //_dot = Mathf.RoundToInt(_dot);
-
-        //switch (_dot)
-        //{
-        //    case 1:
-        //        return 3;
-        //    case 0:
-        //        return 2;
-        //    default:
-        //        return 1;
-        //}
     }
 
     public virtual int GetAttackDirectionMultiplier(GridPosition _gridPosition, GridPosition _targetGridPosition)
