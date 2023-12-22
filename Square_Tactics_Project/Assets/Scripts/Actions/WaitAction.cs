@@ -15,7 +15,7 @@ public class WaitAction : BaseAction
         return new EnemyAiAction()
         {
             gridPosition = _gridPosition,
-            actionValue = int.MinValue,
+            actionValue = int.MinValue + 100,
         };
     }
 
@@ -27,8 +27,14 @@ public class WaitAction : BaseAction
 
     public override void TakeAction(GridPosition _gridPosition, Action _onComplete)
     {
-        ActionStart(_onComplete);
         _unit.SpendAllActionPoints();
+        ActionStart(_onComplete);
+        StartCoroutine(TakeAction_routine());
+    }
+
+    private IEnumerator TakeAction_routine()
+    {
+        yield return new WaitForSeconds(1);
         ActionComplete();
     }
 }

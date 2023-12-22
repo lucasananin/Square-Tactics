@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Utilities;
 
 public class ShootAction : BaseAction
 {
@@ -254,21 +253,12 @@ public class ShootAction : BaseAction
 
     public override EnemyAiAction GetEnemyAiAction(GridPosition _gridPosition)
     {
-        //Vector3 _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
-        //Transform _nearestUnit = TransformMethods.GetNearest(transform.position, UnitManager.Instance.GetFriendlyUnitList().ToArray());
-        //float _distanceToNearest = Vector3.Distance(transform.position, _nearestUnit.position) * 10;
-        //int _distanceMultiplier = Mathf.RoundToInt(10 - _distanceToNearest);
-        //var _log10 = Mathf.Log10(_distanceMultiplier) * 20;
-        //Debug.Log($"// _nearestUnit: {_nearestUnit}, _distanceToNearest: {_distanceToNearest}, _log10: {_log10 }, _distanceMultiplier: {_distanceMultiplier}");
-        //Debug.Log($"// _a : {_log10 }");
-
         Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_gridPosition);
 
         return new EnemyAiAction()
         {
             gridPosition = _gridPosition,
             actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * _actionValuePriority),
-            //actionValue = 100 * _distanceMultiplier,
         };
     }
 

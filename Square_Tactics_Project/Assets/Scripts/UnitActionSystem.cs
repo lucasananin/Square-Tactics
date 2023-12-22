@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UnitActionSystem : Singleton<UnitActionSystem>
 {
+    [SerializeField] bool _canSelectUnitByInput = false;
     [SerializeField] LayerMask _unitsLayerMask = default;
     [SerializeField, ReadOnly] Unit _selectedUnit = null;
     [SerializeField, ReadOnly] BaseAction _selectedAction = null;
@@ -18,6 +19,8 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
     public System.Action onSelectedActionChanged = null;
     public System.Action<bool> onBusyStateChanged = null;
 
+    public bool CanSelectUnitByInput { get => _canSelectUnitByInput; private set => _canSelectUnitByInput = value; }
+
     private void Update()
     {
         //Debug.Log($"// {LevelGrid.Instance.GetGridPosition(MouseWorld.Instance.GetHitPoint())}");
@@ -26,10 +29,10 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!TurnSystem.Instance.IsPlayerTurn()) return;
 
-        //if (InputManager.Instance.HasPressedSelectionButtonDown())
-        //{
-        //    HandleUnitSelection();
-        //}
+        if (_canSelectUnitByInput && InputManager.Instance.HasPressedSelectionButtonDown())
+        {
+            HandleUnitSelection();
+        }
 
         HandleSelectedAction();
     }

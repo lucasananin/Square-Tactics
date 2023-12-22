@@ -301,6 +301,15 @@ public class MoveAction : BaseAction
             }
             else
             {
+                if (!_swordAction.CanAttackSomeone() && _unit.GetActionPoints() <= 1)
+                {
+                    return new EnemyAiAction()
+                    {
+                        gridPosition = _gridPosition,
+                        actionValue = int.MinValue,
+                    };
+                }
+
                 Vector3 _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
                 Transform _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
                 float _distanceToNearest = Vector3.Distance(_gridWorldPosition, _nearestUnit.position) * 10;

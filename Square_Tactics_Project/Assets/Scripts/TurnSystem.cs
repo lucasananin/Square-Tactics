@@ -9,7 +9,7 @@ public class TurnSystem : Singleton<TurnSystem>
     [SerializeField] int _turn = 1;
     [SerializeField, ReadOnly] bool _isPlayerTurn = true;
 
-    public Action onTurnChanged = null;
+    public event Action onTurnChanged = null;
 
     public void NextTurn()
     {
