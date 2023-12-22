@@ -36,7 +36,7 @@ public class ScreenShaker : Singleton<ScreenShaker>
         Shake();
     }
 
-    private void GrenadeProjectile_onAnyGrenadeExploded()
+    public void GrenadeProjectile_onAnyGrenadeExploded()
     {
         Shake(5f);
     }

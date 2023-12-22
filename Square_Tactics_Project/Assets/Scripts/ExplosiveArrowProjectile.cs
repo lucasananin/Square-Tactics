@@ -14,7 +14,7 @@ public class ExplosiveArrowProjectile : MonoBehaviour
     [SerializeField, ReadOnly] bool _hasReachedTarget = false;
     [SerializeField, ReadOnly] ExplosiveArrowAction _explosiveArrowAction = null;
 
-    public static event Action onAnyBulletHit = null;
+    //public static event Action onAnyBulletHit = null;
 
     private void Update()
     {
@@ -46,7 +46,8 @@ public class ExplosiveArrowProjectile : MonoBehaviour
 
             if (_count > 0)
             {
-                onAnyBulletHit?.Invoke();
+                //onAnyBulletHit?.Invoke();
+                ScreenShaker.Instance.GrenadeProjectile_onAnyGrenadeExploded();
             }
 
             Instantiate(_hitVfx, _targetPosition, Quaternion.identity);

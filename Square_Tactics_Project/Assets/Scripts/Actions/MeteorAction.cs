@@ -97,6 +97,7 @@ public class MeteorAction : BaseAction
         if (_count > 0)
         {
             //onAnyHit?.Invoke(this, EventArgs.Empty);
+            ScreenShaker.Instance.GrenadeProjectile_onAnyGrenadeExploded();
         }
 
         yield return new WaitForSeconds(_timeToEnd);

@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
 
     [Title("// Movement")]
     [SerializeField] float _moveSpeed = 10f;
-    [SerializeField] float _selectUnitMoveDuration = 0.4f;
+    //[SerializeField] float _selectUnitMoveDuration = 0.8f;
     [SerializeField, ReadOnly] Transform _target = null;
 
     [Title("// Rotation")]
