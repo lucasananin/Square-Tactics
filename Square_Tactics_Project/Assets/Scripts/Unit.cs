@@ -105,6 +105,11 @@ public class Unit : MonoBehaviour
         _actionPoints -= _amount;
     }
 
+    public void SpendAllActionPoints()
+    {
+        _actionPoints = 0;
+    }
+
     private void ResetActionPoints()
     {
         //bool _isPlayerTurn = TurnSystem.Instance.IsPlayerTurn();

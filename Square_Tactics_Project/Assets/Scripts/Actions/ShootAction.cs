@@ -100,7 +100,7 @@ public class ShootAction : BaseAction
 
     public override string GetActionName()
     {
-        return $"Shoot";
+        return _displayName;
     }
 
     public override List<GridPosition> GetValidActionGridPositions()

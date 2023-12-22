@@ -19,6 +19,6 @@ public class PathfindingUpdater : MonoBehaviour
     {
         HealthSystem _senderTransform = _sender as HealthSystem;
         GridPosition _myGridPosition = LevelGrid.Instance.GetGridPosition(_senderTransform.transform.position);
-        Pathfinding.Instance.SetIsWalkableGridPosition(_myGridPosition, true);
+        Pathfinding.Instance.SetIsWalkableGridPosition(_myGridPosition, false);
     }
 }

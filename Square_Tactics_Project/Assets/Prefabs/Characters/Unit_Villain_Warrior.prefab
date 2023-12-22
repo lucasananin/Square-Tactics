@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 7797583315686652700}
   - component: {fileID: 6082035343029767375}
   - component: {fileID: 8907462542872524017}
-  - component: {fileID: 3854180543698322343}
+  - component: {fileID: 2491813782103491801}
   m_Layer: 7
   m_Name: Unit_Villain_Warrior
   m_TagString: Untagged
@@ -810,7 +810,7 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
---- !u!114 &3854180543698322343
+--- !u!114 &2491813782103491801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -819,19 +819,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8133717908073604392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc5ec97cd685fa45bd7dd8a9227851f, type: 3}
+  m_Script: {fileID: 11500000, guid: 978c059d78a641b4abecd4975b9427b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
   _displayName: 
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _gridColorMaterial: {fileID: 2100000, guid: 08674d50718b9a6428ebe1958ad2723c, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
+  _maxGridHorizontalDistance: 4
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _timeToComplete: 1
-  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8269389148815024185
 GameObject:
   m_ObjectHideFlags: 0

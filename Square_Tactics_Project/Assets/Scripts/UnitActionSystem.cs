@@ -26,10 +26,10 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!TurnSystem.Instance.IsPlayerTurn()) return;
 
-        if (InputManager.Instance.HasPressedSelectionButtonDown())
-        {
-            HandleUnitSelection();
-        }
+        //if (InputManager.Instance.HasPressedSelectionButtonDown())
+        //{
+        //    HandleUnitSelection();
+        //}
 
         HandleSelectedAction();
     }
@@ -42,6 +42,20 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
 
         if (_unit != null && _unit.IsEnemy()) return;
 
+        SelectUnit(_unit);
+
+        //Unit _lastUnitSelected = _selectedUnit;
+        //_selectedUnit = _unit;
+
+        //if (_selectedUnit != _lastUnitSelected)
+        //{
+        //    SetSelectedAction(HasUnitSelected() ? _unit.GetAction<MoveAction>() : null);
+        //    onSelectedUnitChanged?.Invoke();
+        //}
+    }
+
+    public void SelectUnit(Unit _unit)
+    {
         Unit _lastUnitSelected = _selectedUnit;
         _selectedUnit = _unit;
 
@@ -132,6 +146,11 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
             _isBusy = false;
             onBusyStateChanged?.Invoke(false);
         }
+    }
+
+    public bool IsBusy()
+    {
+        return _isBusy;
     }
 
     //public bool IsBusy()

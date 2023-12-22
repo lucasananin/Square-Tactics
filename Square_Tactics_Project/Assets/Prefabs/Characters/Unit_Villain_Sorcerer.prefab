@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 8897510396678631357}
   - component: {fileID: 6088969526747420547}
   - component: {fileID: 3277362551203473950}
-  - component: {fileID: 4199153243900853213}
+  - component: {fileID: -6195525235192207346}
   m_Layer: 7
   m_Name: Unit_Villain_Sorcerer
   m_TagString: Untagged
@@ -735,7 +735,7 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _canShootBullet: 0
---- !u!114 &4199153243900853213
+--- !u!114 &-6195525235192207346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,19 +744,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6916738671551120986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc5ec97cd685fa45bd7dd8a9227851f, type: 3}
+  m_Script: {fileID: 11500000, guid: 978c059d78a641b4abecd4975b9427b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _unit: {fileID: 0}
   _isActive: 0
   _displayName: 
-  _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
+  _gridColorMaterial: {fileID: 2100000, guid: 08674d50718b9a6428ebe1958ad2723c, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
+  _maxGridHorizontalDistance: 4
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _timeToComplete: 1
-  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8717902403553910639
 GameObject:
   m_ObjectHideFlags: 0
