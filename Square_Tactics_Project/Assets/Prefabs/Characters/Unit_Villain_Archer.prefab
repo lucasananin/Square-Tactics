@@ -743,6 +743,7 @@ MonoBehaviour:
   _rotSpeed: 15
   _damage: 1
   _timeToDamage: 0.7
+  _hasAttackedSomeone: 0
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}
@@ -771,6 +772,7 @@ MonoBehaviour:
   _rotSpeed: 15
   _damage: 1
   _minGridDistance: 1
+  _timeToEnd: 2
   _shoulderTarget: {fileID: 4198838845869031517}
   _obstaclesLayerMask:
     serializedVersion: 2

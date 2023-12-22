@@ -16,7 +16,6 @@ public class SwordAction : BaseAction
     [SerializeField, ReadOnly] Unit _targetUnit = null;
     [SerializeField, ReadOnly] Vector3 _targetGridWorldPosition = default;
 
-    //public Unit LastUnitTargeted { get => _targetUnit; set => _targetUnit = value; }
     public bool HasAttackedSomeone { get => _hasAttackedSomeone; private set => _hasAttackedSomeone = value; }
 
     public static event EventHandler onAnySwordHit = null;
@@ -54,9 +53,6 @@ public class SwordAction : BaseAction
             NextState();
         }
 
-        //if (_targetUnit == null) return;
-
-        //Vector3 _moveDir = (_targetUnit.transform.position - transform.position).normalized;
         Vector3 _moveDir = (_targetGridWorldPosition - transform.position).normalized;
         Quaternion _newRot = Quaternion.LookRotation(_moveDir, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, _newRot, _rotSpeed * Time.deltaTime);
@@ -92,7 +88,7 @@ public class SwordAction : BaseAction
 
     public override string GetActionName()
     {
-        return "Sword";
+        return _displayName;
     }
 
     public override EnemyAiAction GetEnemyAiAction(GridPosition _gridPosition)
@@ -103,9 +99,6 @@ public class SwordAction : BaseAction
         {
             if (_unit.IsEnemy() != _targetUnit.IsEnemy())
             {
-                var _attackDirectionMultiplier = GetAttackDirectionMultiplier(_unit.GetGridPosition(), _gridPosition);
-                int _m = 10;
-
                 return new EnemyAiAction()
                 {
                     gridPosition = _gridPosition,
@@ -160,58 +153,6 @@ public class SwordAction : BaseAction
         }
 
         return _validGridPositions;
-    }
-
-    public bool CanAttackSomeone()
-    {
-        return GetTargetCountAtPosition(_unit.GetGridPosition()).Count > 0;
-    }
-
-    public List<Unit> GetTargetCountAtPosition(GridPosition _myGridPosition)
-    {
-        var _validUnits = new List<Unit>();
-
-        for (int x = -_maxGridHorizontalDistance; x <= _maxGridHorizontalDistance; x++)
-        {
-            for (int z = -_maxGridHorizontalDistance; z <= _maxGridHorizontalDistance; z++)
-            {
-                GridPosition _offset = new GridPosition(x, z, 0);
-                GridPosition _validGridPosition = _myGridPosition + _offset;
-
-                int _testDistance = Mathf.Abs(x) + Mathf.Abs(z);
-
-                if (_testDistance > _maxGridHorizontalDistance)
-                {
-                    continue;
-                }
-
-                if (!LevelGrid.Instance.IsValidGridPosition(_validGridPosition))
-                {
-                    continue;
-                }
-
-                if (!LevelGrid.Instance.HasAnyUnitOnThisGridPosition(_validGridPosition))
-                {
-                    continue;
-                }
-
-                Unit _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_validGridPosition);
-
-                if (_unit.IsEnemy() == _targetUnit.IsEnemy())
-                {
-                    continue;
-                }
-
-                if (_validGridPosition == _myGridPosition)
-                {
-                    continue;
-                }
-
-                _validUnits.Add(_unit);
-            }
-        }
-
-        return _validUnits;
     }
 
     public override void TakeAction(GridPosition _gridPosition, Action _onComplete)

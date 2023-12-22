@@ -842,6 +842,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
   _stoppingDistance: 0.1
@@ -872,10 +873,12 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
   _damage: 1
   _timeToDamage: 0.7
+  _hasAttackedSomeone: 0
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}
@@ -899,10 +902,12 @@ MonoBehaviour:
   _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
     type: 2}
   _maxGridHorizontalDistance: 10
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
   _damage: 1
   _minGridDistance: 1
+  _timeToEnd: 2
   _shoulderTarget: {fileID: 7301399545472390776}
   _obstaclesLayerMask:
     serializedVersion: 2
@@ -929,6 +934,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 3
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _timeToAttack: 1
   _timeToEnd: 1
@@ -955,6 +961,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _timeToComplete: 1
   _targetPosition: {x: 0, y: 0, z: 0}

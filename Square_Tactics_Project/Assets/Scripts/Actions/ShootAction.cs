@@ -10,6 +10,7 @@ public class ShootAction : BaseAction
     [SerializeField] float _rotSpeed = 10f;
     [SerializeField] int _damage = 4;
     [SerializeField] int _minGridDistance = 1;
+    [SerializeField] float _timeToEnd = 0.5f;
     [SerializeField] Transform _shoulderTarget = null;
     [SerializeField] LayerMask _obstaclesLayerMask = default;
     [SerializeField, ReadOnly] State _state = State.Aiming;
@@ -84,7 +85,7 @@ public class ShootAction : BaseAction
                 break;
             case State.Shooting:
                 _state = State.Cooloff;
-                _stateTimer = 0.5f;
+                _stateTimer = _timeToEnd;
                 //Debug.Log($"// Cooloff");
                 break;
             case State.Cooloff:
