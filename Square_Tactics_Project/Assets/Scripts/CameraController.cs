@@ -9,10 +9,13 @@ public class CameraController : MonoBehaviour
 {
     [Title("// General")]
     [SerializeField] CinemachineVirtualCamera _virtualCamera = null;
+    [SerializeField] bool _useInputToMove = false;
+    [SerializeField] bool _useSmoothMovement = true;
 
     [Title("// Movement")]
     [SerializeField] float _moveSpeed = 10f;
     [SerializeField] float _selectUnitMoveDuration = 0.4f;
+    [SerializeField, ReadOnly] Transform _target = null;
 
     [Title("// Rotation")]
     [SerializeField] float _rotationSpeed = 10f;
@@ -33,15 +36,17 @@ public class CameraController : MonoBehaviour
         _zoomDir = _transposer.m_FollowOffset;
     }
 
-    //private void OnEnable()
-    //{
-    //    UnitActionSystem.Instance.onSelectedUnitChanged += MoveToUnit;
-    //}
+    private void OnEnable()
+    {
+        UnitActionSystem.Instance.onSelectedUnitChanged += MoveToUnit;
+        EnemyAi.onEnemyUnitSelected += MoveToEnemyUnit;
+    }
 
-    //private void OnDisable()
-    //{
-    //    UnitActionSystem.Instance.onSelectedUnitChanged -= MoveToUnit;
-    //}
+    private void OnDisable()
+    {
+        UnitActionSystem.Instance.onSelectedUnitChanged -= MoveToUnit;
+        EnemyAi.onEnemyUnitSelected -= MoveToEnemyUnit;
+    }
 
     private void Update()
     {
@@ -52,12 +57,27 @@ public class CameraController : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 _movementAxis = InputManager.Instance.GetMovementAxis();
-        float _inputX = _movementAxis.x;
-        float _inputY = _movementAxis.y;
-        Vector3 _moveVector = transform.forward * _inputY + transform.right * _inputX;
-        Vector3 _velocity = _moveVector.normalized * _moveSpeed * Time.deltaTime;
-        transform.position += _velocity;
+        if (_useInputToMove)
+        {
+            Vector2 _movementAxis = InputManager.Instance.GetMovementAxis();
+            float _inputX = _movementAxis.x;
+            float _inputY = _movementAxis.y;
+            Vector3 _moveVector = transform.forward * _inputY + transform.right * _inputX;
+            Vector3 _velocity = _moveVector.normalized * _moveSpeed * Time.deltaTime;
+            transform.position += _velocity;
+        }
+        else
+        {
+            if (_target == null) return;
+
+            float _step = _moveSpeed * Time.deltaTime;
+            Vector3 _currentVelocity = Vector3.zero;
+            Vector3 _position = _useSmoothMovement ?
+                Vector3.SmoothDamp(transform.position, _target.position, ref _currentVelocity, _step) :
+                Vector3.MoveTowards(transform.position, _target.position, _step);
+
+            transform.position = _position;
+        }
     }
 
     private void HandleRotation()
@@ -104,8 +124,19 @@ public class CameraController : MonoBehaviour
     {
         if (UnitActionSystem.Instance.HasUnitSelected())
         {
-            transform.DOKill();
-            transform.DOMove(UnitActionSystem.Instance.GetSelectedUnit().transform.position, _selectUnitMoveDuration);
+            _target = UnitActionSystem.Instance.GetSelectedUnit().transform;
+            //transform.DOKill();
+            //transform.DOMove(UnitActionSystem.Instance.GetSelectedUnit().transform.position, _selectUnitMoveDuration);
         }
+    }
+
+    private void MoveToEnemyUnit(Unit _enemyUnit)
+    {
+        _target = _enemyUnit.transform;
+    }
+
+    public void SetTargetTransform(Transform _transform)
+    {
+        _target = _transform;
     }
 }

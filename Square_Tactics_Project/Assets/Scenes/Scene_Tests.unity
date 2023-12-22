@@ -3096,6 +3096,7 @@ MonoBehaviour:
   _virtualCamera: {fileID: 1686879981}
   _moveSpeed: 10
   _selectUnitMoveDuration: 0.8
+  _target: {fileID: 0}
   _rotationSpeed: 10
   _isDragging: 0
   _zoomSpeed: 20
@@ -4967,6 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af443c685653e9545810eee33619fecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEnabled: 0
   _playerUnits:
   - {fileID: 1400625273}
   - {fileID: 1885986448}
@@ -6110,7 +6112,7 @@ PrefabInstance:
     - target: {fileID: 8133717908073604392, guid: 8b38071c34242584a8a9bc93f3edd368,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8133717908073604393, guid: 8b38071c34242584a8a9bc93f3edd368,
         type: 3}
@@ -6319,7 +6321,7 @@ PrefabInstance:
     - target: {fileID: 5732724352323168745, guid: 54cf49adff43fb5479d6e72607403d3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54cf49adff43fb5479d6e72607403d3e, type: 3}

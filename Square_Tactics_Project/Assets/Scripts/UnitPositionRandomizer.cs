@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UnitPositionRandomizer : MonoBehaviour
 {
+    [SerializeField] bool _isEnabled = false;
     [SerializeField] List<Unit> _playerUnits = null;
     [SerializeField] List<Unit> _enemyUnits = null;
     [SerializeField] int _obstaclesCount = 8;
@@ -13,6 +14,8 @@ public class UnitPositionRandomizer : MonoBehaviour
 
     public void SetUnitPositions()
     {
+        if (!_isEnabled) return;
+
         int _count = _playerUnits.Count;
         Vector3 _position;
 

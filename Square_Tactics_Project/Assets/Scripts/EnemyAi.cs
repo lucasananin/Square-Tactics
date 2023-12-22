@@ -8,6 +8,8 @@ public class EnemyAi : MonoBehaviour
     [SerializeField, ReadOnly] State _state = State.WaitingForEnemyTurn;
     [SerializeField, ReadOnly] float _timer = 0f;
 
+    public static event System.Action<Unit> onEnemyUnitSelected = null;
+
     private void OnEnable()
     {
         TurnSystem.Instance.onTurnChanged += ResetTimer;
@@ -105,6 +107,7 @@ public class EnemyAi : MonoBehaviour
         if (_bestEnemyAiAction != null && _enemyUnit.TrySpendActionPointsToTakeAction(_bestBaseAction))
         {
             _bestBaseAction.TakeAction(_bestEnemyAiAction.gridPosition, _onEnemyAiActionComplete);
+            onEnemyUnitSelected?.Invoke(_enemyUnit);
             return true;
         }
         else
