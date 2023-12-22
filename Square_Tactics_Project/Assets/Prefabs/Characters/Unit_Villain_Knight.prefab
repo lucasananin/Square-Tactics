@@ -632,7 +632,7 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
   _damage: 1
-  _timeToDamage: 0.7
+  _timeToDamage: 0.3
   _state: 0
   _stateTimer: 0
   _targetUnit: {fileID: 0}

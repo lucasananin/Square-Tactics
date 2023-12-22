@@ -10,14 +10,28 @@ public class SwordAction : BaseAction
     [SerializeField] float _rotSpeed = 10f;
     [SerializeField] int _damage = 1;
     [SerializeField] float _timeToDamage = 0.7f;
+    [SerializeField, ReadOnly] bool _hasAttackedSomeone = false;
     [SerializeField, ReadOnly] State _state = State.SwingingSwordBeforeHit;
     [SerializeField, ReadOnly] float _stateTimer = 0;
     [SerializeField, ReadOnly] Unit _targetUnit = null;
     [SerializeField, ReadOnly] Vector3 _targetGridWorldPosition = default;
 
+    //public Unit LastUnitTargeted { get => _targetUnit; set => _targetUnit = value; }
+    public bool HasAttackedSomeone { get => _hasAttackedSomeone; private set => _hasAttackedSomeone = value; }
+
     public static event EventHandler onAnySwordHit = null;
     public event EventHandler onSwordActionStarted = null;
     public event EventHandler onSwordActionCompleted = null;
+
+    private void OnEnable()
+    {
+        TurnSystem.Instance.onTurnChanged += ResetHasAttacked;
+    }
+
+    private void OnDisable()
+    {
+        TurnSystem.Instance.onTurnChanged -= ResetHasAttacked;
+    }
 
     private void Update()
     {
@@ -89,10 +103,13 @@ public class SwordAction : BaseAction
         {
             if (_unit.IsEnemy() != _targetUnit.IsEnemy())
             {
+                var _attackDirectionMultiplier = GetAttackDirectionMultiplier(_unit.GetGridPosition(), _gridPosition);
+                int _m = 10;
+
                 return new EnemyAiAction()
                 {
                     gridPosition = _gridPosition,
-                    actionValue = 100 + Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * _actionValuePriority),
+                    actionValue = /*100 +*/ Mathf.RoundToInt((1 - _targetUnit.GetHealthNormalized()) * _actionValuePriority),
                 };
             }
         }
@@ -145,6 +162,11 @@ public class SwordAction : BaseAction
         return _validGridPositions;
     }
 
+    public bool CanAttackSomeone()
+    {
+        return GetTargetCountAtPosition(_unit.GetGridPosition()).Count > 0;
+    }
+
     public List<Unit> GetTargetCountAtPosition(GridPosition _myGridPosition)
     {
         var _validUnits = new List<Unit>();
@@ -194,6 +216,7 @@ public class SwordAction : BaseAction
 
     public override void TakeAction(GridPosition _gridPosition, Action _onComplete)
     {
+        _hasAttackedSomeone = true;
         _targetUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(_gridPosition);
         _targetGridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
 
@@ -202,6 +225,11 @@ public class SwordAction : BaseAction
 
         onSwordActionStarted?.Invoke(this, EventArgs.Empty);
         ActionStart(_onComplete);
+    }
+
+    private void ResetHasAttacked()
+    {
+        _hasAttackedSomeone = false;
     }
 
     private enum State

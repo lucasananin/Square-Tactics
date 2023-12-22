@@ -265,18 +265,18 @@ public class MoveAction : BaseAction
 
         if (_isShootAction)
         {
-            var _shootAction = _unit.GetAction<ShootAction>();
-            int _targetCountAtGridPosition = _shootAction.GetTargetCountAtPosition(_gridPosition);
-            //_targetCountAtGridPosition = Mathf.Clamp(_targetCountAtGridPosition, 0, 1);
+            ShootAction _shootAction = _unit.GetAction<ShootAction>();
 
-            var _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
-            var _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
+            int _targetCountAtGridPosition = _shootAction.GetTargetCountAtPosition(_gridPosition);
+
+            Vector3 _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
+            Transform _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
             float _distanceToNearest = Vector3.Distance(_gridWorldPosition, _nearestUnit.position);
             int _distanceMultiplier = Mathf.RoundToInt(_distanceToNearest);
 
             float _distanceToNeighbour = Vector3.Distance(transform.position, _nearestUnit.position);
-            int _neighbourDistance = _distanceToNeighbour < LevelGrid.Instance.GetCellSize() * _shootAction.MinGridDistance + 0.1 ? 100 : 1;
-            //Debug.Log($"// {name} => _nearestUnit: {_nearestUnit.name} _m: {_neighbourDistance}");
+            bool _isTooCloseToAnEnemy = _distanceToNeighbour < LevelGrid.Instance.GetCellSize() * _shootAction.MinGridDistance + 0.1;
+            int _neighbourDistance = _isTooCloseToAnEnemy ? 100 : 1;
 
             return new EnemyAiAction()
             {
@@ -286,16 +286,77 @@ public class MoveAction : BaseAction
         }
         else
         {
-            var _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
-            var _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
-            float _distanceToNearest = Vector3.Distance(_gridWorldPosition, _nearestUnit.position) * 10;
-            int _distanceMultiplier = Mathf.RoundToInt(10 - _distanceToNearest);
+            // se eu puder atacar alguem, procura a melhor posicao para atacar.
+            // senao, só se move até o oponente mais proximo.
 
-            return new EnemyAiAction()
+            SwordAction _swordAction = _unit.GetAction<SwordAction>();
+
+            //if (_swordAction.CanAttackSomeone())
+            if (_swordAction.HasAttackedSomeone)
             {
-                gridPosition = _gridPosition,
-                actionValue = _distanceMultiplier * 10,
-            };
+                var _randomValue = UnityEngine.Random.value * 100;
+                int _actionValue = Mathf.RoundToInt(_randomValue * 10);
+                Debug.Log($"// _actionValue: {_actionValue}");
+
+                return new EnemyAiAction()
+                {
+                    gridPosition = _gridPosition,
+                    actionValue = _actionValue,
+                };
+
+                //List<Unit> _playerUnitsList = new List<Unit>(UnitManager.Instance.GetFriendlyUnitList());
+                //_playerUnitsList.Remove(_swordAction.LastUnitTargeted);
+
+                Vector3 _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
+                Transform _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
+                var _nTwo = TransformMethods.GetTwoNearest(transform.position, UnitManager.Instance.GetFriendlyUnitList().ToArray());
+
+                //Debug.Log($"// {name} => LastUnitTargeted: {_swordAction.LastUnitTargeted}, _nearestUnit: {_nearestUnit}", this);
+
+                float _distanceToNearest = Vector3.Distance(_gridWorldPosition, _nearestUnit.position) * 10;
+                int _distanceMultiplier = Mathf.RoundToInt(10 - _distanceToNearest);
+
+                //var _nUnit = LevelGrid.Instance.GetUnitOnThisGridPosition(LevelGrid.Instance.GetGridPosition(_nearestUnit.position));
+                //bool _isNearestTargetAlreadyAttacked = _swordAction.LastUnitTargeted == _nUnit;
+                //int _m = _isNearestTargetAlreadyAttacked ? Mathf.RoundToInt(UnityEngine.Random.value * -10) : 10;
+                //int _m = _isNearestTargetAlreadyAttacked ? -10 : 10;
+                //int _m = 10;
+                //Debug.Log($"// {name} => _m : {_m}", this);
+
+                var _a = _swordAction.GetAttackDirectionMultiplier(LevelGrid.Instance.GetGridPosition(_nearestUnit.position));
+
+                if (_randomValue == 3)
+                {
+                    return new EnemyAiAction()
+                    {
+                        gridPosition = _gridPosition,
+                        actionValue = _distanceMultiplier * 10,
+                    };
+                }
+                else
+                {
+                    var _attackDirectionMultiplier = _swordAction.GetAttackDirectionMultiplier(_gridPosition, LevelGrid.Instance.GetGridPosition(_nearestUnit.position));
+
+                    return new EnemyAiAction()
+                    {
+                        gridPosition = _gridPosition,
+                        actionValue = _attackDirectionMultiplier * 10,
+                    };
+                }
+            }
+            else
+            {
+                Vector3 _gridWorldPosition = LevelGrid.Instance.GetWorldPosition(_gridPosition);
+                Transform _nearestUnit = TransformMethods.GetNearest(_gridWorldPosition, UnitManager.Instance.GetFriendlyUnitList().ToArray());
+                float _distanceToNearest = Vector3.Distance(_gridWorldPosition, _nearestUnit.position) * 10;
+                int _distanceMultiplier = Mathf.RoundToInt(10 - _distanceToNearest);
+
+                return new EnemyAiAction()
+                {
+                    gridPosition = _gridPosition,
+                    actionValue = _distanceMultiplier * 10,
+                };
+            }
         }
     }
 }
