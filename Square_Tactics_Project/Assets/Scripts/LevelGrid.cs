@@ -28,6 +28,7 @@ public class LevelGrid : Singleton<LevelGrid>
             this._gridSystemList.Add(_gridSystem);
         }
 
+        FindObjectOfType<UnitPositionRandomizer>().SetUnitPositions();
         //_gridSystemList[0].CreateDebugObjects(_gridDebugPrefab, transform);
     }
 
