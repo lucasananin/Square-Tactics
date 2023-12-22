@@ -3087,7 +3087,6 @@ MonoBehaviour:
   _useInputToMove: 0
   _useSmoothMovement: 1
   _moveSpeed: 10
-  _selectUnitMoveDuration: 0.8
   _target: {fileID: 0}
   _rotationSpeed: 10
   _isDragging: 0
@@ -5003,7 +5002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af443c685653e9545810eee33619fecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isEnabled: 0
+  _isEnabled: 1
   _playerUnits:
   - {fileID: 1400625273}
   - {fileID: 1885986448}
@@ -5249,7 +5248,7 @@ PrefabInstance:
     - target: {fileID: 6916738671551120986, guid: 8eb454ba908ec0b42bc0f7f22bd9c4b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6916738671551120987, guid: 8eb454ba908ec0b42bc0f7f22bd9c4b7,
         type: 3}
@@ -6444,7 +6443,7 @@ PrefabInstance:
     - target: {fileID: 3775204710579467014, guid: 0ffba5e8b55e7ee41b3dda3a6df58cc9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3775204710579467015, guid: 0ffba5e8b55e7ee41b3dda3a6df58cc9,
         type: 3}

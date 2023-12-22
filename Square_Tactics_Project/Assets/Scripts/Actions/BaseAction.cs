@@ -13,6 +13,7 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField] protected Material _gridColorMaterial = null;
     [SerializeField] protected Material _fadedGridColorMaterial = null;
     [SerializeField] protected int _maxGridHorizontalDistance = 4;
+    [SerializeField] protected int _actionPointsCost = 1;
     [SerializeField] protected int _actionValuePriority = 10;
     //[SerializeField] protected int _maxGridVerticalDistance = 2;
     [SerializeField] protected BaseAction _buffDamageAction = null;
@@ -37,7 +38,7 @@ public abstract class BaseAction : MonoBehaviour
 
     public virtual int GetActionPointsCost()
     {
-        return 1;
+        return _actionPointsCost;
     }
 
     protected void ActionStart(Action _onCompleteAction)
