@@ -7,7 +7,9 @@ using UnityEngine;
 public class BulletProjectile : MonoBehaviour
 {
     [SerializeField] TrailRenderer _trailRenderer = null;
+    [SerializeField] ParticleSystem _particleVfx = null;
     [SerializeField] float _moveSpeed = 200f;
+    [SerializeField] float _yOffset = 1.7f;
     [SerializeField] ParticleSystem _hitVfx = null;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
     [SerializeField, ReadOnly] bool _hasReachedTarget = false;
@@ -30,15 +32,23 @@ public class BulletProjectile : MonoBehaviour
         if (_myPosition == _targetPosition)
         {
             _hasReachedTarget = true;
-            _shootArgs.targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage  * GetAttackDirectionMultiplier());
+            _shootArgs.targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetAttackDirectionMultiplier());
             Instantiate(_hitVfx, _targetPosition, Quaternion.identity);
             onAnyBulletHit?.Invoke();
+
+            if (_particleVfx != null)
+                _particleVfx.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
     }
 
     private void LateUpdate()
     {
-        if (_hasReachedTarget && _trailRenderer.positionCount <= 0)
+        if (_trailRenderer != null && _hasReachedTarget && _trailRenderer.positionCount <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        if (_particleVfx != null && !_particleVfx.isPlaying)
         {
             Destroy(gameObject);
         }
@@ -51,7 +61,7 @@ public class BulletProjectile : MonoBehaviour
         //_targetUnit = _e.targetUnit;
         _shootArgs = _args;
         _targetPosition = _args.targetUnit.transform.position;
-        _targetPosition.y += 1.7f;
+        _targetPosition.y += _yOffset;
         _damage = _args.damage;
         //SetDamage(_e.damage);
         //SetTargetPosition(_targetPosition);

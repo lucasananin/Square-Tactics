@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5646734850015063073}
-  - component: {fileID: -286181103850536152}
+  - component: {fileID: -5553894315879748873}
   m_Layer: 0
-  m_Name: ExplosiveArrowProjectile
+  m_Name: Projectile_Arrow_Hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5646734850015063072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.31, y: 0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-286181103850536152
+--- !u!114 &-5553894315879748873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,18 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5646734850015063072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14212db8dbe42d6439d392d819c87736, type: 3}
+  m_Script: {fileID: 11500000, guid: 481ff88855e7bdd4d89238be147462a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 200
-  _hitLayers:
-    serializedVersion: 2
-    m_Bits: 128
   _trailRenderer: {fileID: 5646734850234969655}
-  _hitVfx: {fileID: 2203160342083436198, guid: 7255fe6d1e71b1c4a938e70cb42dce4f, type: 3}
+  _moveSpeed: 200
+  _hitVfx: {fileID: 2203160342083436198, guid: 2a0b0f01617a82b4099665e260b4cf0f, type: 3}
   _targetPosition: {x: 0, y: 0, z: 0}
   _hasReachedTarget: 0
-  _explosiveArrowAction: {fileID: 0}
+  _damage: 0
 --- !u!1 &5646734850234969609
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +104,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 731922915a42e204089a400d54703b22, type: 2}
+  - {fileID: 2100000, guid: b1b03eca16001a44283a4af59d3331e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,7 +156,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 0.8, g: 0.8, b: 0.8, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

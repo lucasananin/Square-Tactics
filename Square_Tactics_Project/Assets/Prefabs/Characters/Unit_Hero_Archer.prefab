@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1195034449128494207}
   _unit: {fileID: 7742449936197641505}
-  _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: f68ec1cf547ee964f9dd864da56ec19c,
+  _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: df591a1fb88e4f941bbf7d94c863c83f,
     type: 3}
   _explosiveArrowActionProjectile: {fileID: -286181103850536152, guid: a44ad35a3e528f343aa63a9d33ab9442,
     type: 3}
