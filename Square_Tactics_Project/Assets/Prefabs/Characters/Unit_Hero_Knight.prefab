@@ -5617,12 +5617,14 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _timeToHeal: 1
+  _timeToHeal: 0.5
   _timeToEnd: 0.5
   _healValue: 1
   _hitLayers:
     serializedVersion: 2
     m_Bits: 128
+  _healVfxPrefab: {fileID: 8805755976095885467, guid: 969d3df1f209f0845934c05463bd355d,
+    type: 3}
 --- !u!114 &5672557880670639921
 MonoBehaviour:
   m_ObjectHideFlags: 0

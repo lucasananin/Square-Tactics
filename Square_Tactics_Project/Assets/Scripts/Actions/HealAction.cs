@@ -11,6 +11,7 @@ public class HealAction : BaseAction
     [SerializeField] float _timeToEnd = 1f;
     [SerializeField] int _healValue = 1;
     [SerializeField] LayerMask _hitLayers = default;
+    [SerializeField] ParticleSystem _healVfxPrefab = null;
 
     public static event EventHandler onAnyHit = null;
 
@@ -63,6 +64,8 @@ public class HealAction : BaseAction
                 {
                     _healthSystem.RecoverHealth(_healValue);
                 }
+
+                Instantiate(_healVfxPrefab, _collidersHit[i].transform.position, Quaternion.identity);
             }
         }
 
