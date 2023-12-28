@@ -10,6 +10,7 @@ public class MeteorAction : BaseAction
     [SerializeField] float _timeToEnd = 1f;
     [SerializeField] int _damage = 1;
     [SerializeField] LayerMask _hitLayers = default;
+    [SerializeField] ParticleSystem _particleVfx = null;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
 
     public override string GetActionName()
@@ -78,7 +79,8 @@ public class MeteorAction : BaseAction
 
         yield return new WaitForSeconds(_timeToAttack);
 
-        // INVOCA UM METEORO QUE CAI NA POSICAO DO ALVO.
+        _particleVfx.transform.position = _targetPosition;
+        _particleVfx.Play();
 
         Vector3 _halfExtents = Vector3.one * LevelGrid.Instance.GetCellSize() * _maxGridHorizontalDistance * 0.5f;
         Collider[] _collidersHit = Physics.OverlapBox(_targetPosition, _halfExtents, Quaternion.identity, _hitLayers);
