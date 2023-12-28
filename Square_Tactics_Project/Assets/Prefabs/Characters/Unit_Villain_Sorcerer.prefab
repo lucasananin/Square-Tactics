@@ -601,7 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4459799246701840021}
   _unit: {fileID: 6916738671551120984}
-  _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: f68ec1cf547ee964f9dd864da56ec19c,
+  _bulletProjectilePrefab: {fileID: -5553894315879748873, guid: 61eea958e4d1ca947be206f7ecbe50ba,
     type: 3}
   _explosiveArrowActionProjectile: {fileID: 0}
   _rifleGameObject: {fileID: 0}
@@ -661,6 +661,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
@@ -692,6 +693,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
@@ -721,6 +723,7 @@ MonoBehaviour:
   _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
     type: 2}
   _maxGridHorizontalDistance: 10
+  _actionPointsCost: 1
   _actionValuePriority: 100
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
@@ -753,6 +756,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: 08674d50718b9a6428ebe1958ad2723c, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
 --- !u!1 &8717902403553910639
