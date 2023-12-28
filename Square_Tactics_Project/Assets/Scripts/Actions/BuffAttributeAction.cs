@@ -9,7 +9,8 @@ public class BuffAttributeAction : BaseAction
     [Title("// Buff")]
     [SerializeField] float _timeToActivate = 1f;
     [SerializeField] float _timeToEnd = 1f;
-    [SerializeField] ParticleSystem _particleSystem = null;
+    [SerializeField] ParticleSystem _oneTimeVfx = null;
+    [SerializeField] ParticleSystem _persistentVfx = null;
     [SerializeField] int _maxTurnCount = 2;
     [SerializeField, ReadOnly] int _currentTurnCount = 0;
 
@@ -52,26 +53,30 @@ public class BuffAttributeAction : BaseAction
     public IEnumerator TakeAction_routine()
     {
         GetComponent<UnitAnimator>().TriggerBuffAbility();
+        _persistentVfx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        _oneTimeVfx.Play();
 
         yield return new WaitForSeconds(_timeToActivate);
 
         _currentTurnCount = _maxTurnCount;
-        CheckEffect();
+        CheckPersistentFx();
 
         yield return new WaitForSeconds(_timeToEnd);
 
         ActionComplete();
     }
 
-    private void CheckEffect()
+    private void CheckPersistentFx()
     {
-        if (_currentTurnCount > 0 && !_particleSystem.isPlaying)
+        if (_persistentVfx == null) return;
+
+        if (_currentTurnCount > 0 && !_persistentVfx.isPlaying)
         {
-            _particleSystem.Play();
+            _persistentVfx.Play();
         }
-        else if (_currentTurnCount <= 0 && _particleSystem.isPlaying)
+        else if (_currentTurnCount <= 0 && _persistentVfx.isPlaying)
         {
-            _particleSystem.Stop();
+            _persistentVfx.Stop();
         }
     }
 
@@ -80,7 +85,7 @@ public class BuffAttributeAction : BaseAction
     {
         _currentTurnCount--;
         _currentTurnCount = Mathf.Clamp(_currentTurnCount, 0, _maxTurnCount);
-        CheckEffect();
+        CheckPersistentFx();
     }
 
     public override bool IsBuffActive()

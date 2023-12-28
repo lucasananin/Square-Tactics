@@ -33,7 +33,8 @@ public class EnemyAi : MonoBehaviour
 
                 if (_timer <= 0)
                 {
-                    //TurnSystem.Instance.NextTurn();
+                    TurnSystem.Instance.NextTurn();
+                    break;
 
                     if (TryTakeEnemyAiAction(SetStateTakingTurn))
                     {
