@@ -9,10 +9,12 @@ public class BuffAttributeAction : BaseAction
     [Title("// Buff")]
     [SerializeField] float _timeToActivate = 1f;
     [SerializeField] float _timeToEnd = 1f;
-    [SerializeField] ParticleSystem _oneTimeVfx = null;
-    [SerializeField] ParticleSystem _persistentVfx = null;
     [SerializeField] int _maxTurnCount = 2;
     [SerializeField, ReadOnly] int _currentTurnCount = 0;
+    [Space]
+    [SerializeField] bool _playOneTimeVfxOnTakeAction = true;
+    [SerializeField] ParticleSystem _oneTimeVfx = null;
+    [SerializeField] ParticleSystem _persistentVfx = null;
 
     private void OnEnable()
     {
@@ -54,9 +56,14 @@ public class BuffAttributeAction : BaseAction
     {
         GetComponent<UnitAnimator>().TriggerBuffAbility();
         _persistentVfx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        _oneTimeVfx.Play();
+
+        if (_playOneTimeVfxOnTakeAction)
+            _oneTimeVfx.Play();
 
         yield return new WaitForSeconds(_timeToActivate);
+
+        if (!_playOneTimeVfxOnTakeAction)
+            _oneTimeVfx.Play();
 
         _currentTurnCount = _maxTurnCount;
         CheckPersistentFx();

@@ -147,6 +147,6 @@ public class Unit : MonoBehaviour
     [Button]
     private void Debug_IncreaseActionPoints()
     {
-        SpendActionPoints(-12);
+        SpendActionPoints(-123);
     }
 }
