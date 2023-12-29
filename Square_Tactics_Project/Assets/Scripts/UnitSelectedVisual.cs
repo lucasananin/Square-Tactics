@@ -24,6 +24,7 @@ public class UnitSelectedVisual : MonoBehaviour
 
     private void UpdateVisuals()
     {
-        _meshRenderer.enabled = _unit == UnitActionSystem.Instance.GetSelectedUnit();
+        _meshRenderer.enabled = false;
+        //_meshRenderer.enabled = _unit == UnitActionSystem.Instance.GetSelectedUnit();
     }
 }
