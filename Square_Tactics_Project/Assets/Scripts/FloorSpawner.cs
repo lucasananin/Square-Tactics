@@ -5,6 +5,7 @@ using UnityEngine;
 public class FloorSpawner : MonoBehaviour
 {
     [SerializeField] bool _isEnable = true;
+    [SerializeField] bool _randomizeRotation = false;
     //[SerializeField] int _maxLength = 5;
     [SerializeField] int _width = 12;
     [SerializeField] int _height = 16;
@@ -31,9 +32,8 @@ public class FloorSpawner : MonoBehaviour
             for (int z = 0; z < _height; z++)
             {
                 Vector3 _pos = new Vector3(x * _floorSize, 0, z * _floorSize);
-                //Quaternion _randomRotation = Quaternion.Euler(0, Random.Range(0, 3) * 90, 0);
-                //var _instance = Instantiate(_floorPrefab, _pos, _randomRotation, transform);
-                var _instance = Instantiate(_floorPrefab, _pos, Quaternion.identity, _floorParent);
+                var _rotation = _randomizeRotation ? Quaternion.Euler(0, Random.Range(0, 3) * 90, 0) : Quaternion.identity;
+                var _instance = Instantiate(_floorPrefab, _pos, _rotation, _floorParent);
                 _instance.gameObject.SetActive(true);
             }
         }
