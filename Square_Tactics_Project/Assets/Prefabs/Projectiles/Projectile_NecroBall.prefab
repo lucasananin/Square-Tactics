@@ -50,7 +50,7 @@ MonoBehaviour:
   _particleVfx: {fileID: 1808496214431305351}
   _moveSpeed: 25
   _yOffset: 1.3
-  _hitVfx: {fileID: 2203160342083436198, guid: 2a0b0f01617a82b4099665e260b4cf0f, type: 3}
+  _hitVfx: {fileID: 198195352207415246, guid: 6cf90ca687a5e3948838cd84a51d2d5b, type: 3}
   _targetPosition: {x: 0, y: 0, z: 0}
   _hasReachedTarget: 0
   _damage: 0
@@ -331,6 +331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198238224484258984, guid: 4b21d5ab091be5a46ad6e87699fab62c,
         type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 34630
+      objectReference: {fileID: 0}
+    - target: {fileID: 198238224484258984, guid: 4b21d5ab091be5a46ad6e87699fab62c,
+        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime2
       value: 43562
       objectReference: {fileID: 0}
@@ -392,12 +397,12 @@ PrefabInstance:
     - target: {fileID: 198238224484258984, guid: 4b21d5ab091be5a46ad6e87699fab62c,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key3.g
-      value: 0.3333335
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198238224484258984, guid: 4b21d5ab091be5a46ad6e87699fab62c,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key3.r
-      value: 0
+      value: 0.33333302
       objectReference: {fileID: 0}
     - target: {fileID: 198238224484258984, guid: 4b21d5ab091be5a46ad6e87699fab62c,
         type: 3}

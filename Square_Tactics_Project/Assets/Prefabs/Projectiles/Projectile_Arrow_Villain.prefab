@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trailRenderer: {fileID: 5646734850234969655}
+  _particleVfx: {fileID: 0}
   _moveSpeed: 200
-  _hitVfx: {fileID: 2203160342083436198, guid: 2a0b0f01617a82b4099665e260b4cf0f, type: 3}
+  _yOffset: 1.7
+  _hitVfx: {fileID: 198104090543139058, guid: 4430919f14c50f84085d287cbcb2c30e, type: 3}
   _targetPosition: {x: 0, y: 0, z: 0}
   _hasReachedTarget: 0
   _damage: 0

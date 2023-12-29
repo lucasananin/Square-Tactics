@@ -50,7 +50,7 @@ MonoBehaviour:
   _particleVfx: {fileID: 1808496214431305351}
   _moveSpeed: 25
   _yOffset: 1.3
-  _hitVfx: {fileID: 2203160342083436198, guid: 2a0b0f01617a82b4099665e260b4cf0f, type: 3}
+  _hitVfx: {fileID: 198195352207415246, guid: a44cb0a3020ce8b448f2ce552ca7f827, type: 3}
   _targetPosition: {x: 0, y: 0, z: 0}
   _hasReachedTarget: 0
   _damage: 0
