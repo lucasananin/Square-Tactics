@@ -11,6 +11,7 @@ public class SpinAttackAction : BaseAction
     [SerializeField] float _timeToEnd = 1f;
     [SerializeField] int _damage = 1;
     [SerializeField] LayerMask _hitLayers = default;
+    [SerializeField] ParticleSystem _vfx = null;
 
     public static event EventHandler onAnyHit = null;
 
@@ -43,12 +44,14 @@ public class SpinAttackAction : BaseAction
     public IEnumerator TakeAction_routine()
     {
         GetComponent<UnitAnimator>().TriggerSpecialAttack();
+        _vfx.Play();
 
         yield return new WaitForSeconds(_timeToAttack);
 
         Vector3 _halfExtents = Vector3.one * LevelGrid.Instance.GetCellSize() * _maxGridHorizontalDistance;
         Collider[] _collidersHit = Physics.OverlapBox(transform.position, _halfExtents, Quaternion.identity, _hitLayers);
         int _count = _collidersHit.Length;
+        bool _hasHitSomeone = false;
 
         for (int i = 0; i < _count; i++)
         {
@@ -57,10 +60,11 @@ public class SpinAttackAction : BaseAction
                 if (_unit.IsMyHealthSystem(_healthSystem)) continue;
 
                 _healthSystem.TakeDamage(_damage  * GetDamageBuffMultiplier());
+                _hasHitSomeone = true;
             }
         }
 
-        if (_count > 0)
+        if (_hasHitSomeone)
         {
             onAnyHit?.Invoke(this, EventArgs.Empty);
         }
