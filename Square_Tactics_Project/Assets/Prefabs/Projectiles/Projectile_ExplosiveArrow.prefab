@@ -50,7 +50,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _trailRenderer: {fileID: 5646734850234969655}
-  _hitVfx: {fileID: 2203160342083436198, guid: 7255fe6d1e71b1c4a938e70cb42dce4f, type: 3}
+  _hitVfx: {fileID: 198258662121256016, guid: 4cf45cdce36e66e4a93614abb5ae7821, type: 3}
   _targetPosition: {x: 0, y: 0, z: 0}
   _hasReachedTarget: 0
   _explosiveArrowAction: {fileID: 0}
