@@ -70,6 +70,7 @@ public class SwordAction : BaseAction
                 {
                     _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier() * GetAttackDirectionMultiplier(_targetUnit.GetGridPosition()));
                     onAnySwordHit?.Invoke(this, EventArgs.Empty);
+                    //TimeScaleManager.Instance.Play();
                 }
                 break;
             case State.SwingingSwordAfterHit:
