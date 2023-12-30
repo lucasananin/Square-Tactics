@@ -28,7 +28,6 @@ public class TurnSystemUi : MonoBehaviour
 
     private void UpdateTurnText()
     {
-        //_scoreText.text = _scoreCount.ToString("D2");
-        _text.text = $"Turn <size=48>{TurnSystem.Instance.GetTurn():D2}";
+        _text.text = $"Turn <size=72>{TurnSystem.Instance.GetTurn():D2}";
     }
 }
