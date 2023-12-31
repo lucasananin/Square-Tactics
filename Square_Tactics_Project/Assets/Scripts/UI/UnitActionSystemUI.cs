@@ -18,6 +18,7 @@ public class UnitActionSystemUI : MonoBehaviour
     private void OnDisable()
     {
         UnitActionSystem.Instance.onSelectedUnitChanged -= UpdateButtons;
+        UnitActionSystem.Instance.onBusyStateChanged -= Instance_onBusyStateChanged;
     }
 
     public void UpdateButtons()

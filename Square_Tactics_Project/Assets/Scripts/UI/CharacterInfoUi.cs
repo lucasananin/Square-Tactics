@@ -23,21 +23,26 @@ public class CharacterInfoUi : MonoBehaviour
         if (TurnSystem.Instance.IsPlayerTurn())
         {
             Unit _unit = UnitActionSystem.Instance.GetSelectedUnit();
-
-            if (_unit == null) return;
-
-            UnitInfo _unitInfo = _unit.GetUnitInfo();
-
-            _image.sprite = _unitInfo.GetSprite();
-            _hpFill.fillAmount = _unitInfo.GetHealthNormalized();
-            _apFill.fillAmount = _unitInfo.GetActionPointsNormalized();
-            _nameText.text = _unitInfo.GetDisplayName();
-            _hpText.text = _unitInfo.GetHealthString();
-            _apText.text = _unitInfo.GetActionPointsString();
+            SetInfo(_unit);
         }
         else
         {
-            // Pega as informacoes do inimigo.
+            Unit _unit = EnemyAi.Instance.GetSelectedUnit();
+            SetInfo(_unit);
         }
+    }
+
+    private void SetInfo(Unit _unit)
+    {
+        if (_unit == null) return;
+
+        UnitInfo _unitInfo = _unit.GetUnitInfo();
+
+        _image.sprite = _unitInfo.GetSprite();
+        _hpFill.fillAmount = _unitInfo.GetHealthNormalized();
+        _apFill.fillAmount = _unitInfo.GetActionPointsNormalized();
+        _nameText.text = _unitInfo.GetDisplayName();
+        _hpText.text = _unitInfo.GetHealthString();
+        _apText.text = _unitInfo.GetActionPointsString();
     }
 }

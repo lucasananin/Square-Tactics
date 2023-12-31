@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAi : Singleton<EnemyAi>
 {
     [SerializeField, ReadOnly] State _state = State.WaitingForEnemyTurn;
     [SerializeField, ReadOnly] float _timer = 0f;
+    [SerializeField, ReadOnly] Unit _selectedUnit = null;
 
     public static event System.Action<Unit> onEnemyUnitSelected = null;
 
@@ -108,6 +109,7 @@ public class EnemyAi : MonoBehaviour
         if (_bestEnemyAiAction != null && _enemyUnit.TrySpendActionPointsToTakeAction(_bestBaseAction))
         {
             _bestBaseAction.TakeAction(_bestEnemyAiAction.gridPosition, _onEnemyAiActionComplete);
+            _selectedUnit = _enemyUnit;
             onEnemyUnitSelected?.Invoke(_enemyUnit);
             return true;
         }
@@ -139,6 +141,11 @@ public class EnemyAi : MonoBehaviour
             _state = State.TakingTurn;
             _timer = 2f;
         }
+    }
+
+    public Unit GetSelectedUnit()
+    {
+        return _selectedUnit;
     }
 
     private enum State
