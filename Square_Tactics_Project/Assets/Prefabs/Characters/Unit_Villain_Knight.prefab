@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 5732724352323168744}
   - component: {fileID: 7916055649541323873}
   - component: {fileID: 5732724352323168747}
+  - component: {fileID: -2048168644944796726}
   - component: {fileID: 5732724352323168746}
   - component: {fileID: 1582366854491877987}
   - component: {fileID: 6005809095339292637}
@@ -520,9 +521,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSystem: {fileID: 6005809095339292637}
+  _unitInfo: {fileID: -2048168644944796726}
   _isEnemy: 1
   _baseActions: []
   _actionPoints: 2
+--- !u!114 &-2048168644944796726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732724352323168745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a478168fd8cf545963a713a1605c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterSprite: {fileID: 0}
+  _characterName: 
+  _characterHealth: {fileID: 6005809095339292637}
+  _characterUnit: {fileID: 5732724352323168747}
 --- !u!114 &5732724352323168746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +615,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _rotationSpeed: 15
@@ -628,6 +647,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 1
+  _actionPointsCost: 1
   _actionValuePriority: 100
   _buffDamageAction: {fileID: 0}
   _rotSpeed: 15
@@ -656,6 +676,7 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: 08674d50718b9a6428ebe1958ad2723c, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
   _maxGridHorizontalDistance: 4
+  _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
 --- !u!1 &6675699873898651266

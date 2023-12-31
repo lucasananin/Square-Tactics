@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 6916738671551120987}
   - component: {fileID: 9054753047285421010}
   - component: {fileID: 6916738671551120984}
+  - component: {fileID: 3775982514958747821}
   - component: {fileID: 6916738671551120985}
   - component: {fileID: 398068310960250320}
   - component: {fileID: 4840068659767744622}
@@ -584,9 +585,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSystem: {fileID: 4840068659767744622}
+  _unitInfo: {fileID: 3775982514958747821}
   _isEnemy: 1
   _baseActions: []
   _actionPoints: 2
+--- !u!114 &3775982514958747821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916738671551120986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a478168fd8cf545963a713a1605c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterSprite: {fileID: 0}
+  _characterName: 
+  _characterHealth: {fileID: 4840068659767744622}
+  _characterUnit: {fileID: 6916738671551120984}
 --- !u!114 &6916738671551120985
 MonoBehaviour:
   m_ObjectHideFlags: 0

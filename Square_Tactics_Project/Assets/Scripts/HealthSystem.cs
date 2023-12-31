@@ -67,6 +67,11 @@ public class HealthSystem : MonoBehaviour
         return (float)_currentHealth / _maxHealth;
     }
 
+    public string GetHealthString()
+    {
+        return $"{_currentHealth:D3}/{_maxHealth:D3}";
+    }
+
     public int GetDefenseReduction()
     {
         int _reduction = _buffDefenseAction != null && _buffDefenseAction.IsBuffActive() ? 2 : 1;

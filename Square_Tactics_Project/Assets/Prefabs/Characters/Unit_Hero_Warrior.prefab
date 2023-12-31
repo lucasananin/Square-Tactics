@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 7742449936197641506}
   - component: {fileID: 5271311574728454315}
   - component: {fileID: 7742449936197641505}
+  - component: {fileID: -2222131335774539804}
   - component: {fileID: 7742449936197641504}
   - component: {fileID: 3533563310461779625}
   - component: {fileID: 8621267184162208535}
@@ -800,9 +801,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSystem: {fileID: 8621267184162208535}
+  _unitInfo: {fileID: -2222131335774539804}
   _isEnemy: 0
   _baseActions: []
   _actionPoints: 2
+--- !u!114 &-2222131335774539804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742449936197641507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a478168fd8cf545963a713a1605c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterSprite: {fileID: 0}
+  _characterName: Orc Warrior
+  _characterHealth: {fileID: 8621267184162208535}
+  _characterUnit: {fileID: 7742449936197641505}
 --- !u!114 &7742449936197641504
 MonoBehaviour:
   m_ObjectHideFlags: 0

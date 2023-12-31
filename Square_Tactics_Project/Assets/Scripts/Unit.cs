@@ -7,6 +7,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     [SerializeField] HealthSystem _healthSystem = null;
+    [SerializeField] UnitInfo _unitInfo = null;
     [SerializeField] bool _isEnemy = false;
     [SerializeField, ReadOnly] BaseAction[] _baseActions = null;
     [SerializeField/*, ReadOnly*/] int _actionPoints = 2;
@@ -95,6 +96,11 @@ public class Unit : MonoBehaviour
         return _actionPoints >= _baseAction.GetActionPointsCost();
     }
 
+    public bool HasActionPoints()
+    {
+        return _actionPoints > 0;
+    }
+
     public void SpendActionPoints(BaseAction _baseAction)
     {
         _actionPoints -= _baseAction.GetActionPointsCost();
@@ -122,9 +128,24 @@ public class Unit : MonoBehaviour
         return _actionPoints;
     }
 
+    public float GetActionPointsNormalized()
+    {
+        return (float)_actionPoints / 2;
+    }
+
+    public string GetActionPointsString()
+    {
+        return $"{_actionPoints:D3}/{2:D3}";
+    }
+
     public bool IsEnemy()
     {
         return _isEnemy;
+    }
+
+    public UnitInfo GetUnitInfo()
+    {
+        return _unitInfo;
     }
 
     public float GetHealthNormalized()

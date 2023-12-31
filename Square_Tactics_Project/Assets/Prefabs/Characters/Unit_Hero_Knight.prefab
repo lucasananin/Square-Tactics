@@ -5414,6 +5414,7 @@ GameObject:
   - component: {fileID: 9045753601613507017}
   - component: {fileID: 6907739223734123584}
   - component: {fileID: 9045753601613507018}
+  - component: {fileID: -1923464834266807896}
   - component: {fileID: 9045753601613507019}
   - component: {fileID: 2878909365258105410}
   - component: {fileID: 7016231193894205436}
@@ -5478,9 +5479,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSystem: {fileID: 7016231193894205436}
+  _unitInfo: {fileID: -1923464834266807896}
   _isEnemy: 0
   _baseActions: []
   _actionPoints: 2
+--- !u!114 &-1923464834266807896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045753601613507016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a478168fd8cf545963a713a1605c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterSprite: {fileID: 0}
+  _characterName: Human Paladin
+  _characterHealth: {fileID: 7016231193894205436}
+  _characterUnit: {fileID: 9045753601613507018}
 --- !u!114 &9045753601613507019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5650,10 +5668,10 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 0}
   _timeToActivate: 0.3
   _timeToEnd: 1
-  _oneTimeVfx: {fileID: 8241674255082403280}
-  _persistentVfx: {fileID: 1388010822941427436}
   _maxTurnCount: 6
   _currentTurnCount: 0
+  _oneTimeVfx: {fileID: 8241674255082403280}
+  _persistentVfx: {fileID: 1388010822941427436}
 --- !u!114 &8562653828363930159
 MonoBehaviour:
   m_ObjectHideFlags: 0
