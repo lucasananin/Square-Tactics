@@ -601,8 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a478168fd8cf545963a713a1605c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterSprite: {fileID: 0}
-  _characterName: 
+  _characterSprite: {fileID: 21300000, guid: a6fa2b4b2ece12c48a841d75d38caec6, type: 3}
+  _characterName: _s
   _characterHealth: {fileID: 4840068659767744622}
   _characterUnit: {fileID: 6916738671551120984}
 --- !u!114 &6916738671551120985

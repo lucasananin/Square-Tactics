@@ -709,8 +709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a478168fd8cf545963a713a1605c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterSprite: {fileID: 0}
-  _characterName: 
+  _characterSprite: {fileID: 21300000, guid: 53a8b917fdcac5c41a3ce12e2948af87, type: 3}
+  _characterName: _s
   _characterHealth: {fileID: 7797583315686652700}
   _characterUnit: {fileID: 8133717908073604394}
 --- !u!114 &8133717908073604395
