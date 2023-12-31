@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class UnitWorldUi : MonoBehaviour
 {
-    [Title("// General")] 
+    [Title("// General")]
+    [SerializeField] Canvas _canvas = null;
     [SerializeField] Unit _unit = null;
     [SerializeField] HealthSystem _healthSystem = null;
 
@@ -18,15 +19,17 @@ public class UnitWorldUi : MonoBehaviour
     [SerializeField] Image _healthBar = null;
     [SerializeField] Gradient _healthGradient = null;
 
-    //private void OnEnable()
-    //{
-    //    UnitActionSystem.Instance.onBusyStateChanged += UpdateActionPointsText;
-    //}
+    private void OnEnable()
+    {
+        //UnitActionSystem.Instance.onBusyStateChanged += UpdateActionPointsText;
+        _healthSystem.onDead += Hide;
+    }
 
-    //private void OnDisable()
-    //{
-    //    UnitActionSystem.Instance.onBusyStateChanged -= UpdateActionPointsText;
-    //}
+    private void OnDisable()
+    {
+        //UnitActionSystem.Instance.onBusyStateChanged -= UpdateActionPointsText;
+        _healthSystem.onDead -= Hide;
+    }
 
     //private void UpdateActionPointsText(bool _value)
     //{
@@ -49,5 +52,10 @@ public class UnitWorldUi : MonoBehaviour
         float _healthNormalized = _healthSystem.GetHealthNormalized();
         _healthBar.fillAmount = _healthNormalized;
         _healthBar.color = _healthGradient.Evaluate(_healthNormalized);
+    }
+
+    private void Hide()
+    {
+        _canvas.enabled = false;
     }
 }
