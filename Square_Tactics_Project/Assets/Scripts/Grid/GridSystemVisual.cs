@@ -69,12 +69,17 @@ public class GridSystemVisual : MonoBehaviour
 
     public void UpdateVisuals()
     {
-        //var _unit = UnitActionSystem.Instance.GetSelectedUnit();
+        var _unit = UnitActionSystem.Instance.GetSelectedUnit();
         BaseAction _selectedAction = UnitActionSystem.Instance.GetSelectedAction();
 
         if (_selectedAction != null)
         {
             HideAllGridPositions();
+
+            if (!_unit.HasActionPoints())
+            {
+                return;
+            }
 
             if (_selectedAction.HasFadedGridVisual())
             {
