@@ -132,16 +132,16 @@ MonoBehaviour:
   _healthBar: {fileID: 839759983618752253}
   _healthGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.19999999, b: 0.19999999, a: 1}
-    key1: {r: 1, g: 0.8666667, b: 0.19999999, a: 1}
-    key2: {r: 0.4666666, g: 1, b: 0.19999999, a: 0}
+    key0: {r: 0.4, g: 0.34640524, b: 0.07843137, a: 1}
+    key1: {r: 0.19607845, g: 0.86666673, b: 1, a: 1}
+    key2: {r: 0.19607845, g: 0.86666673, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 65535
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
 --- !u!1 &707058023954754752
 GameObject:
@@ -388,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9221145414590489330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1241477575005591055
 MonoBehaviour:
   m_ObjectHideFlags: 0

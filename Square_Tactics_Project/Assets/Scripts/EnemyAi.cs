@@ -43,6 +43,7 @@ public class EnemyAi : Singleton<EnemyAi>
                     }
                     else
                     {
+                        _selectedUnit = null;
                         TurnSystem.Instance.NextTurn();
                     }
                 }
