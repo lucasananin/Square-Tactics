@@ -19,10 +19,10 @@ public class ActionPointsUi : MonoBehaviour
     //    UnitActionSystem.Instance.onBusyStateChanged -= UpdateVisuals;
     //}
 
-    private void LateUpdate()
-    {
-        UpdateVisuals();
-    }
+    //private void LateUpdate()
+    //{
+    //    UpdateVisuals();
+    //}
 
     //private void UpdateVisuals(bool _value)
     //{

@@ -6,11 +6,13 @@ public class UnitActionSystemUI : MonoBehaviour
 {
     [SerializeField] ActionButtonUI _actionButtonPrefab = null;
     [SerializeField] Transform _actionButtonParent = null;
-    [SerializeField] List<ActionButtonUI> _actionButtonUIs = null;
+    [SerializeField] CanvasGroup _canvasGroup = null;
+    [SerializeField] List<ActionButtonUI> _actionButtonUis = null;
 
     private void OnEnable()
     {
         UnitActionSystem.Instance.onSelectedUnitChanged += UpdateButtons;
+        UnitActionSystem.Instance.onBusyStateChanged += Instance_onBusyStateChanged;
     }
 
     private void OnDisable()
@@ -28,7 +30,7 @@ public class UnitActionSystemUI : MonoBehaviour
             Destroy(_actionButtonParent.GetChild(i).gameObject);
         }
 
-        _actionButtonUIs.Clear();
+        _actionButtonUis.Clear();
 
         if (!UnitActionSystem.Instance.HasUnitSelected()) return;
 
@@ -38,7 +40,12 @@ public class UnitActionSystemUI : MonoBehaviour
         {
             var _instance = Instantiate(_actionButtonPrefab, _actionButtonParent);
             _instance.SetBaseAction(_unit.GetBaseActions()[i]);
-            _actionButtonUIs.Add(_instance);
+            _actionButtonUis.Add(_instance);
         }
+    }
+
+    private void Instance_onBusyStateChanged(bool _isBusy)
+    {
+        _canvasGroup.alpha = _isBusy ? 0 : 1;
     }
 }

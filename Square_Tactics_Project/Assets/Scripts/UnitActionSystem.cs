@@ -15,9 +15,9 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
     //[Title("// Debug")]
     //[SerializeField] Collider2D _collider2D = null;
 
-    public System.Action onSelectedUnitChanged = null;
-    public System.Action onSelectedActionChanged = null;
-    public System.Action<bool> onBusyStateChanged = null;
+    public event System.Action onSelectedUnitChanged = null;
+    public event System.Action onSelectedActionChanged = null;
+    public event System.Action<bool> onBusyStateChanged = null;
 
     public bool CanSelectUnitByInput { get => _canSelectUnitByInput; private set => _canSelectUnitByInput = value; }
 

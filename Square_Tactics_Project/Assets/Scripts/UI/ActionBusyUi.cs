@@ -11,15 +11,15 @@ public class ActionBusyUi : MonoBehaviour
         _busyPanel.SetActive(false);
     }
 
-    private void OnEnable()
-    {
-        UnitActionSystem.Instance.onBusyStateChanged += UpdateBusyPanel;
-    }
+    //private void OnEnable()
+    //{
+    //    UnitActionSystem.Instance.onBusyStateChanged += UpdateBusyPanel;
+    //}
 
-    private void OnDisable()
-    {
-        UnitActionSystem.Instance.onBusyStateChanged -= UpdateBusyPanel;
-    }
+    //private void OnDisable()
+    //{
+    //    UnitActionSystem.Instance.onBusyStateChanged -= UpdateBusyPanel;
+    //}
 
     private void UpdateBusyPanel(bool _isBusy)
     {
