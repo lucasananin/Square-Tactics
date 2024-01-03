@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469d807dd573cc241a959eb99eed1243, type: 3}
+  m_Name: Pool_GenericObject
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6490135511656584465, guid: 7bd142d0d778817498590d1713f0b4f6, type: 3}
+  _initialSpawn: 4
+  _enabledOnInstantiated: 0
+  _enabledOnGet: 1
+  _enabledOnReturn: 0
+  _inPoolList: []
+  _inUseList: []
