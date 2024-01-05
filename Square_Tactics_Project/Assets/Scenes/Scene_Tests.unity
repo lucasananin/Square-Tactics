@@ -9399,12 +9399,6 @@ PrefabInstance:
       propertyPath: _maxGridHorizontalDistance
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 6916738671551120985, guid: 8eb454ba908ec0b42bc0f7f22bd9c4b7,
-        type: 3}
-      propertyPath: _shootAudio
-      value: 
-      objectReference: {fileID: 11400000, guid: 21c036b9c87d2ce4bae25ca8624332d3,
-        type: 2}
     - target: {fileID: 6916738671551120986, guid: 8eb454ba908ec0b42bc0f7f22bd9c4b7,
         type: 3}
       propertyPath: m_Name

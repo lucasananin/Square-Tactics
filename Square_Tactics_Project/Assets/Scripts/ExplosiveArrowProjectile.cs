@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class ExplosiveArrowProjectile : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class ExplosiveArrowProjectile : MonoBehaviour
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
     [SerializeField, ReadOnly] bool _hasReachedTarget = false;
     [SerializeField, ReadOnly] ExplosiveArrowAction _explosiveArrowAction = null;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _explosionAudio = null;
 
     //public static event Action onAnyBulletHit = null;
 
@@ -50,6 +54,7 @@ public class ExplosiveArrowProjectile : MonoBehaviour
                 ScreenShaker.Instance.GrenadeProjectile_onAnyGrenadeExploded();
             }
 
+            _explosionAudio?.PlayAsSfx();
             Instantiate(_hitVfx, _targetPosition, Quaternion.identity);
         }
     }

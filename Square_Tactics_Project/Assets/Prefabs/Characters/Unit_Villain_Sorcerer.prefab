@@ -179,6 +179,7 @@ MonoBehaviour:
   _swordAction: {fileID: 0}
   _timeToShoot: 0.6
   _timeToShootExplosiveArrow: 1
+  _shootAudio: {fileID: 11400000, guid: 6ee60f1af35a043489c134a103635f81, type: 2}
 --- !u!114 &398068310960250320
 MonoBehaviour:
   m_ObjectHideFlags: 0
