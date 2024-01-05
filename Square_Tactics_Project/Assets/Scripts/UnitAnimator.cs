@@ -21,6 +21,7 @@ public class UnitAnimator : MonoBehaviour
     [SerializeField] float _timeToShootExplosiveArrow = 1f;
 
     [Title("// Audio")]
+    [SerializeField] AudioDataSO _pullAudio = null;
     [SerializeField] AudioDataSO _shootAudio = null;
 
     private int _horizontalVelocityHash = Animator.StringToHash("HorizontalVelocity");
@@ -99,6 +100,8 @@ public class UnitAnimator : MonoBehaviour
 
     private IEnumerator TriggerShoot_routine(ShootAction.OnShootEventArgs _e)
     {
+        _pullAudio?.PlayAsSfx();
+
         yield return new WaitForSeconds(_timeToShoot);
 
         var _bullet = Instantiate(_bulletProjectilePrefab, _shootPoint.position, Quaternion.identity);
