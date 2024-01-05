@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class BuffAttributeAction : BaseAction
 {
@@ -15,6 +16,10 @@ public class BuffAttributeAction : BaseAction
     //[SerializeField] bool _playOneTimeVfxOnTakeAction = true;
     [SerializeField] ParticleSystem _oneTimeVfx = null;
     [SerializeField] ParticleSystem _persistentVfx = null;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _sfx_1 = null;
+    [SerializeField] AudioDataSO _sfx_2 = null;
 
     private void OnEnable()
     {
@@ -57,10 +62,12 @@ public class BuffAttributeAction : BaseAction
         GetComponent<UnitAnimator>().TriggerBuffAbility();
         _persistentVfx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         _oneTimeVfx.Play();
+        _sfx_1?.PlayAsSfx();
 
         yield return new WaitForSeconds(_timeToActivate);
 
         _currentTurnCount = _maxTurnCount;
+        _sfx_2?.PlayAsSfx();
         CheckPersistentFx();
 
         yield return new WaitForSeconds(_timeToEnd);
