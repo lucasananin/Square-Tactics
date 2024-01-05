@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class UnitAnimator : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class UnitAnimator : MonoBehaviour
     [Title("// Values")]
     [SerializeField] float _timeToShoot = 1f;
     [SerializeField] float _timeToShootExplosiveArrow = 1f;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _shootAudio = null;
 
     private int _horizontalVelocityHash = Animator.StringToHash("HorizontalVelocity");
     private int _verticalVelocityHash = Animator.StringToHash("VerticalVelocity");
@@ -99,6 +103,7 @@ public class UnitAnimator : MonoBehaviour
 
         var _bullet = Instantiate(_bulletProjectilePrefab, _shootPoint.position, Quaternion.identity);
         _bullet.Setup(_e);
+        _shootAudio?.PlayAsSfx();
     }
 
     private void _swordAction_onSwordActionStarted(object sender, System.EventArgs e)
