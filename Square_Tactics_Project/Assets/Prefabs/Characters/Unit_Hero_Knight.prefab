@@ -5061,6 +5061,7 @@ MonoBehaviour:
   _swordAction: {fileID: 0}
   _timeToShoot: 1
   _timeToShootExplosiveArrow: 1
+  _shootAudio: {fileID: 0}
 --- !u!114 &2878909365258105410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5210,6 +5211,8 @@ MonoBehaviour:
   _currentTurnCount: 0
   _oneTimeVfx: {fileID: 8241674255082403280}
   _persistentVfx: {fileID: 1388010822941427436}
+  _sfx_1: {fileID: 11400000, guid: 9522c3b9e96e1d4439d08ebe9b440d6c, type: 2}
+  _sfx_2: {fileID: 0}
 --- !u!114 &8562653828363930159
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,7 +23,15 @@ namespace Utilities.Audio
         public void Play(AudioDataSO _audio)
         {
             _audio.ApplySettings(ref _audioSource);
-            _audioSource.Play();
+
+            if (_audio.DelayInSeconds <= 0)
+            {
+                _audioSource.Play();
+            }
+            else
+            {
+                _audioSource.PlayDelayed(_audio.DelayInSeconds);
+            }
 
             _timeToReturn = _audio.GetClipLength() + 0.2f;
             StartCoroutine(ReturnRoutine());

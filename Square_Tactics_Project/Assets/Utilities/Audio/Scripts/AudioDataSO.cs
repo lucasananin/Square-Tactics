@@ -30,9 +30,14 @@ namespace Utilities.Audio
         [SerializeField, Range(0, 360)] float _minDistance = 1;
         [SerializeField, Range(0, 360)] float _maxDistance = 500;
 
+        [Title("// Delay")]
+        [SerializeField, Range(0, 10)] float _delayInSeconds = 0f;
+
+        public float DelayInSeconds { get => _delayInSeconds; }
+
         public float GetClipLength()
         {
-            return _clip.length;
+            return _clip.length + _delayInSeconds;
         }
 
         public void ApplySettings(ref AudioSource _source)
