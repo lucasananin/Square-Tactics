@@ -59,7 +59,7 @@ namespace Utilities.Audio
             _timer = 0;
             _nextMusic = _audio.GetClipLength() + _timeBetweenSongs;
 
-            _channelSO.InvokePlayMusic(_audio);
+            _channelSO.PlayMusicEvent(_audio);
         }
     }
 }

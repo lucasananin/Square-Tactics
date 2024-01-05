@@ -10,6 +10,7 @@ namespace Utilities.Audio
     public class AudioDataSO : ScriptableObject
     {
         [Title("// General")]
+        [SerializeField] AudioChannelSO _audioChannelSO = null;
         [SerializeField] AudioClip _clip = null;
         [SerializeField] AudioMixerGroup _group = null;
         [Space]
@@ -53,6 +54,21 @@ namespace Utilities.Audio
             _source.rolloffMode = _volumeRolloff;
             _source.minDistance = _minDistance;
             _source.maxDistance = _maxDistance;
+        }
+
+        public AudioEmitter PlayAsMusic()
+        {
+            return _audioChannelSO.PlayMusicEvent(this);
+        }
+
+        public AudioEmitter PlayAsSfx()
+        {
+            return _audioChannelSO.PlaySfxEvent(this);
+        }
+
+        public AudioEmitter PlayAsSfx(Vector3 _positionValue)
+        {
+            return _audioChannelSO.PlaySfxEvent(this, _positionValue);
         }
     }
 }

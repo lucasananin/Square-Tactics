@@ -24,7 +24,7 @@ namespace Utilities.Audio
         [Button]
         public override void Play()
         {
-            _channelSO.InvokePlaySfx(_audioSO, Vector3.zero);
+            _channelSO.PlaySfxEvent(_audioSO, Vector3.zero);
         }
     }
 }

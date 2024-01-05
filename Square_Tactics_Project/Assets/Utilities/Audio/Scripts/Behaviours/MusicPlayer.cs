@@ -22,7 +22,7 @@ namespace Utilities.Audio
         [Button]
         public override void Play()
         {
-            _channelSO.InvokePlayMusic(_audioSO);
+            _channelSO.PlayMusicEvent(_audioSO);
         }
     }
 }

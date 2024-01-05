@@ -22,7 +22,7 @@ namespace Utilities.Audio
         [Button]
         public override void Stop()
         {
-            _channelSO.InvokeStopMusic();
+            _channelSO.StopMusicEvent();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Utilities.Audio
         [Button]
         public override void Play()
         {
-            _channelSO.InvokePlaySfx(_audioSO, transform.position);
+            _channelSO.PlaySfxEvent(_audioSO, transform.position);
         }
     }
 }
