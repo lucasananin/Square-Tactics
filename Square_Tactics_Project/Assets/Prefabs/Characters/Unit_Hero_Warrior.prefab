@@ -376,6 +376,7 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
+  _hitAudio: {fileID: 11400000, guid: 24b960438699aed47943c56650c11d81, type: 2}
 --- !u!114 &8398848717009937229
 MonoBehaviour:
   m_ObjectHideFlags: 0

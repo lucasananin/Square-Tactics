@@ -656,7 +656,6 @@ MonoBehaviour:
   _maxHealth: 12
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
-  _hitAudio: {fileID: 0}
 --- !u!114 &5761734011320962244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,6 +717,7 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
+  _hitAudio: {fileID: 11400000, guid: 90c28b307ebd63141a15a624c738abc4, type: 2}
 --- !u!114 &1870124137690417511
 MonoBehaviour:
   m_ObjectHideFlags: 0

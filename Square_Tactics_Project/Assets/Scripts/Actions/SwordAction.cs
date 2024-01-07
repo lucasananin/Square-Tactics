@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class SwordAction : BaseAction
 {
@@ -15,6 +16,9 @@ public class SwordAction : BaseAction
     [SerializeField, ReadOnly] float _stateTimer = 0;
     [SerializeField, ReadOnly] Unit _targetUnit = null;
     [SerializeField, ReadOnly] Vector3 _targetGridWorldPosition = default;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _hitAudio = null;
 
     public bool HasAttackedSomeone { get => _hasAttackedSomeone; private set => _hasAttackedSomeone = value; }
 
@@ -68,7 +72,8 @@ public class SwordAction : BaseAction
 
                 if (_targetUnit != null)
                 {
-                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetDamageBuffMultiplier() * GetAttackDirectionMultiplier(_targetUnit.GetGridPosition()));
+                    var _damageValue = _damage * GetDamageBuffMultiplier() * GetAttackDirectionMultiplier(_targetUnit.GetGridPosition());
+                    _targetUnit.GetComponent<HealthSystem>().TakeDamage(_damageValue, _hitAudio);
                     onAnySwordHit?.Invoke(this, EventArgs.Empty);
                     //TimeScaleManager.Instance.Play();
                 }
