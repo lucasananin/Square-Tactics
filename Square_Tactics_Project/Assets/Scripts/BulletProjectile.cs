@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class BulletProjectile : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
     [SerializeField, ReadOnly] bool _hasReachedTarget = false;
     [SerializeField, ReadOnly] int _damage = 0;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _hitAudio = null;
 
     private ShootAction.OnShootEventArgs _shootArgs = null;
 
@@ -32,7 +36,7 @@ public class BulletProjectile : MonoBehaviour
         if (_myPosition == _targetPosition)
         {
             _hasReachedTarget = true;
-            _shootArgs.targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetAttackDirectionMultiplier());
+            _shootArgs.targetUnit.GetComponent<HealthSystem>().TakeDamage(_damage * GetAttackDirectionMultiplier(), _hitAudio);
             Instantiate(_hitVfx, _targetPosition, Quaternion.identity);
             onAnyBulletHit?.Invoke();
 

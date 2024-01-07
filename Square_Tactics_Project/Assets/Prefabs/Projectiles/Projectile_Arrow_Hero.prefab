@@ -53,6 +53,7 @@ MonoBehaviour:
   _targetPosition: {x: 0, y: 0, z: 0}
   _hasReachedTarget: 0
   _damage: 0
+  _hitAudio: {fileID: 11400000, guid: 90c28b307ebd63141a15a624c738abc4, type: 2}
 --- !u!1 &5646734850234969609
 GameObject:
   m_ObjectHideFlags: 0

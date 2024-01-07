@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AudioData_Hit_Spell
   m_EditorClassIdentifier: 
   _audioChannelSO: {fileID: 11400000, guid: 9790db9ee9918484d9951ff5ad57f94c, type: 2}
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 498f3ebc9757dbf4186aa6269735526c, type: 3}
   _group: {fileID: 7266298520388891378, guid: 7f3803ffc5c269949b938bf8339bf3ea, type: 2}
   _loop: 0
   _priority: 128
