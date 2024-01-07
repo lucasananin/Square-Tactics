@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class HealAction : BaseAction
 {
@@ -12,6 +13,9 @@ public class HealAction : BaseAction
     [SerializeField] int _healValue = 1;
     [SerializeField] LayerMask _hitLayers = default;
     [SerializeField] ParticleSystem _healVfxPrefab = null;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _healAudio = null;
 
     public static event EventHandler onAnyHit = null;
 
@@ -71,6 +75,7 @@ public class HealAction : BaseAction
 
         if (_count > 0)
         {
+            _healAudio?.PlayAsSfx();
             onAnyHit?.Invoke(this, EventArgs.Empty);
         }
 

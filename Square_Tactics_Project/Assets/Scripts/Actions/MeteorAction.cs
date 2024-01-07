@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class MeteorAction : BaseAction
 {
@@ -12,6 +13,9 @@ public class MeteorAction : BaseAction
     [SerializeField] LayerMask _hitLayers = default;
     [SerializeField] ParticleSystem _particleVfx = null;
     [SerializeField, ReadOnly] Vector3 _targetPosition = default;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _thunderAudio = null;
 
     public override string GetActionName()
     {
@@ -99,6 +103,7 @@ public class MeteorAction : BaseAction
         if (_count > 0)
         {
             //onAnyHit?.Invoke(this, EventArgs.Empty);
+            _thunderAudio?.PlayAsSfx();
             ScreenShaker.Instance.GrenadeProjectile_onAnyGrenadeExploded();
         }
 

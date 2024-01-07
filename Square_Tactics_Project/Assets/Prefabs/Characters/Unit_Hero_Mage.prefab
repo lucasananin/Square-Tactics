@@ -247,6 +247,7 @@ MonoBehaviour:
   _swordAction: {fileID: 0}
   _timeToShoot: 1.2
   _timeToShootExplosiveArrow: 1
+  _pullAudio: {fileID: 0}
   _shootAudio: {fileID: 11400000, guid: 21c036b9c87d2ce4bae25ca8624332d3, type: 2}
 --- !u!114 &3533563310461779625
 MonoBehaviour:
@@ -280,6 +281,7 @@ MonoBehaviour:
   _maxHealth: 12
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
+  _hitAudio: {fileID: 0}
 --- !u!114 &5761734011320962244
 MonoBehaviour:
   m_ObjectHideFlags: 0

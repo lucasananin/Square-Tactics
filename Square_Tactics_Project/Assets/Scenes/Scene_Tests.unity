@@ -5570,6 +5570,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2984164040291483444, guid: 7356d804c31bc744fae7c77e73156806,
+        type: 3}
+      propertyPath: _thunderAudio
+      value: 
+      objectReference: {fileID: 11400000, guid: 1610626da14c58a409d1f3f6e94eaeb9,
+        type: 2}
     - target: {fileID: 7742449936197641506, guid: 7356d804c31bc744fae7c77e73156806,
         type: 3}
       propertyPath: m_RootOrder
@@ -8961,7 +8967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af443c685653e9545810eee33619fecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isEnabled: 1
+  _isEnabled: 0
   _playerUnits:
   - {fileID: 1400625273}
   - {fileID: 1885986448}

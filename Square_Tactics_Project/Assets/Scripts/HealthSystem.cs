@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] int _maxHealth = 12;
     [SerializeField] bool _isInvincible = false;
     [SerializeField] BaseAction _buffDefenseAction = null;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _hitAudio = null;
 
     public event Action onTakeDamage = null;
     public event Action onDead = null;
@@ -38,6 +42,7 @@ public class HealthSystem : MonoBehaviour
         }
         else
         {
+            _hitAudio?.PlayAsSfx();
             onTakeDamage?.Invoke();
         }
     }

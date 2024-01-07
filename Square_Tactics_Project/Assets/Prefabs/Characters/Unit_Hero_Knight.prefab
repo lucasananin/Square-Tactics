@@ -5061,6 +5061,7 @@ MonoBehaviour:
   _swordAction: {fileID: 0}
   _timeToShoot: 1
   _timeToShootExplosiveArrow: 1
+  _pullAudio: {fileID: 0}
   _shootAudio: {fileID: 0}
 --- !u!114 &2878909365258105410
 MonoBehaviour:
@@ -5094,6 +5095,7 @@ MonoBehaviour:
   _maxHealth: 12
   _isInvincible: 0
   _buffDefenseAction: {fileID: 5672557880670639921}
+  _hitAudio: {fileID: 0}
 --- !u!114 &6417496724796784687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5184,6 +5186,7 @@ MonoBehaviour:
     m_Bits: 128
   _healVfxPrefab: {fileID: 8805755976095885467, guid: 969d3df1f209f0845934c05463bd355d,
     type: 3}
+  _healAudio: {fileID: 11400000, guid: 1ada7cebfcc210143ae988d4f24f59f4, type: 2}
 --- !u!114 &5672557880670639921
 MonoBehaviour:
   m_ObjectHideFlags: 0

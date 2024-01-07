@@ -595,6 +595,7 @@ MonoBehaviour:
   _maxHealth: 12
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
+  _hitAudio: {fileID: 0}
 --- !u!114 &1216894470195550945
 MonoBehaviour:
   m_ObjectHideFlags: 0
