@@ -315,7 +315,6 @@ MonoBehaviour:
   _maxHealth: 12
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
-  _hitAudio: {fileID: 0}
 --- !u!114 &5761734011320962244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +404,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _vfx: {fileID: 2983680321851533452}
+  _windAudio: {fileID: 11400000, guid: 65c907517f751e645b1c1bdd0378e870, type: 2}
+  _hitAudio: {fileID: 11400000, guid: 24b960438699aed47943c56650c11d81, type: 2}
 --- !u!114 &8398562178188597038
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class SpinAttackAction : BaseAction
 {
@@ -12,6 +13,10 @@ public class SpinAttackAction : BaseAction
     [SerializeField] int _damage = 1;
     [SerializeField] LayerMask _hitLayers = default;
     [SerializeField] ParticleSystem _vfx = null;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _windAudio = null;
+    [SerializeField] AudioDataSO _hitAudio = null;
 
     public static event EventHandler onAnyHit = null;
 
@@ -45,6 +50,7 @@ public class SpinAttackAction : BaseAction
     {
         GetComponent<UnitAnimator>().TriggerSpecialAttack();
         _vfx.Play();
+        _windAudio?.PlayAsSfx();
 
         yield return new WaitForSeconds(_timeToAttack);
 
@@ -59,7 +65,7 @@ public class SpinAttackAction : BaseAction
             {
                 if (_unit.IsMyHealthSystem(_healthSystem)) continue;
 
-                _healthSystem.TakeDamage(_damage  * GetDamageBuffMultiplier());
+                _healthSystem.TakeDamage(_damage  * GetDamageBuffMultiplier(), _hitAudio);
                 _hasHitSomeone = true;
             }
         }

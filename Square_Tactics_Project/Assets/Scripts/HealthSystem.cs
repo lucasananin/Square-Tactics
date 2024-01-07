@@ -12,9 +12,6 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] bool _isInvincible = false;
     [SerializeField] BaseAction _buffDefenseAction = null;
 
-    [Title("// Audio")]
-    [SerializeField] AudioDataSO _hitAudio = null;
-
     public event Action onTakeDamage = null;
     public event Action onDead = null;
     public static event EventHandler onAnyDead = null;
@@ -24,7 +21,7 @@ public class HealthSystem : MonoBehaviour
         ResetHealth();
     }
 
-    public void TakeDamage(int _damageAmount)
+    public void TakeDamage(int _damageAmount, AudioDataSO _hitAudio = null)
     {
         if (_isInvincible) return;
         if (IsDead()) return;
