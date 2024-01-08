@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterSprite: {fileID: 21300000, guid: f284547f571315b4583f9927ace85925, type: 3}
-  _characterName: Human Mage
+  _characterName: Gerard
   _characterHealth: {fileID: 8621267184162208535}
   _characterUnit: {fileID: 7742449936197641505}
 --- !u!114 &7742449936197641504

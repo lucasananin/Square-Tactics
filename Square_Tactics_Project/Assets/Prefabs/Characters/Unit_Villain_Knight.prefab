@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterSprite: {fileID: 21300000, guid: fe0b9edf6a8f5d447b6e6b6c01ff712b, type: 3}
-  _characterName: _s
+  _characterName: Skeleton Knight
   _characterHealth: {fileID: 6005809095339292637}
   _characterUnit: {fileID: 5732724352323168747}
 --- !u!114 &5732724352323168746

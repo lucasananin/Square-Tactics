@@ -5034,7 +5034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterSprite: {fileID: 21300000, guid: bb540b51eb1a5fb42957235d8fc10bba, type: 3}
-  _characterName: Human Paladin
+  _characterName: Bektor
   _characterHealth: {fileID: 7016231193894205436}
   _characterUnit: {fileID: 9045753601613507018}
 --- !u!114 &9045753601613507019
