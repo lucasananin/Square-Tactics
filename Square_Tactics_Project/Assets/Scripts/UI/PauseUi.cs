@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PauseUi : MonoBehaviour
 {
     [SerializeField] CanvasGroup _canvasGroup = null;
+    [SerializeField] CanvasGroup _gameCanvasGroup = null;
     [SerializeField] Button _quitButton = null;
     [SerializeField, ReadOnly] bool _isPaused = false;
     [SerializeField, ReadOnly] float _timeScale = 0;
@@ -51,6 +52,10 @@ public class PauseUi : MonoBehaviour
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
+
+        _gameCanvasGroup.alpha = 0;
+        _gameCanvasGroup.blocksRaycasts = false;
+        _gameCanvasGroup.interactable = false;
     }
 
     private void Hide()
@@ -58,6 +63,10 @@ public class PauseUi : MonoBehaviour
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.interactable = false;
+
+        _gameCanvasGroup.alpha = 1;
+        _gameCanvasGroup.blocksRaycasts = true;
+        _gameCanvasGroup.interactable = true;
     }
 
     private void QuitGame()
