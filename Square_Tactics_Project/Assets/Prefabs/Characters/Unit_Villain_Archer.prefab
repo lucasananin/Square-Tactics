@@ -595,7 +595,6 @@ MonoBehaviour:
   _maxHealth: 12
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
-  _hitAudio: {fileID: 0}
 --- !u!114 &1216894470195550945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +616,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
+  _descriptionString: Move the character through the environment.
   _rotationSpeed: 15
   _stoppingDistance: 0.1
   _currentPositionIndex: 0
@@ -649,6 +649,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
+  _descriptionString: 
   _rotSpeed: 15
   _damage: 1
   _timeToDamage: 0.7
@@ -657,6 +658,7 @@ MonoBehaviour:
   _stateTimer: 0
   _targetUnit: {fileID: 0}
   _targetGridWorldPosition: {x: 0, y: 0, z: 0}
+  _hitAudio: {fileID: 0}
 --- !u!114 &5107801479400251202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +681,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 100
   _buffDamageAction: {fileID: 0}
+  _descriptionString: 
   _rotSpeed: 15
   _damage: 1
   _minGridDistance: 1
@@ -712,6 +715,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
+  _descriptionString: 
 --- !u!1 &8303537377166994705
 GameObject:
   m_ObjectHideFlags: 0

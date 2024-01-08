@@ -336,6 +336,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
+  _descriptionString: Move the character through the environment.
   _rotationSpeed: 15
   _stoppingDistance: 0.1
   _currentPositionIndex: 0
@@ -368,6 +369,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 8398562178188597038}
+  _descriptionString: 
   _rotSpeed: 15
   _damage: 1
   _timeToDamage: 0.7
@@ -398,6 +400,7 @@ MonoBehaviour:
   _actionPointsCost: 2
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 8398562178188597038}
+  _descriptionString: 
   _timeToAttack: 1
   _timeToEnd: 1
   _damage: 1
@@ -428,6 +431,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
+  _descriptionString: 
   _timeToActivate: 0.4
   _timeToEnd: 1
   _maxTurnCount: 6
@@ -457,6 +461,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
+  _descriptionString: 
 --- !u!1 &8541082130104511679
 GameObject:
   m_ObjectHideFlags: 0

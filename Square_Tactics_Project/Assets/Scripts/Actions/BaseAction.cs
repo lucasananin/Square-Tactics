@@ -17,6 +17,7 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField] protected int _actionValuePriority = 10;
     //[SerializeField] protected int _maxGridVerticalDistance = 2;
     [SerializeField] protected BaseAction _buffDamageAction = null;
+    [SerializeField, TextArea(3, 6)] protected string _descriptionString = null;
     //[SerializeField] protected BaseAction _aiAttackAction = null;
 
     public static EventHandler onAnyActionStarted = null;
@@ -148,6 +149,11 @@ public abstract class BaseAction : MonoBehaviour
             default:
                 return 1;
         }
+    }
+
+    public virtual string GetDescription()
+    {
+        return _descriptionString;
     }
 
     public abstract void TakeAction(GridPosition _gridPosition, Action _onComplete);
