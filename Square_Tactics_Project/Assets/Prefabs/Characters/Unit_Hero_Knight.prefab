@@ -5149,7 +5149,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Hit the enemy with your mace.
   _rotSpeed: 15
   _damage: 1
   _timeToDamage: 0.3
@@ -5180,7 +5180,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Heal yourself and your allies wounds.
   _timeToHeal: 0.5
   _timeToEnd: 0.5
   _healValue: 1
@@ -5211,7 +5211,7 @@ MonoBehaviour:
   _actionPointsCost: 2
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Increase your defense by 50%.
   _timeToActivate: 0.3
   _timeToEnd: 1
   _maxTurnCount: 6
@@ -5241,7 +5241,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Wait until your next turn.
 --- !u!1001 &1261974457427720770
 PrefabInstance:
   m_ObjectHideFlags: 0

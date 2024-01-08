@@ -710,7 +710,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Punch a single enemy on the face.
   _rotSpeed: 15
   _damage: 1
   _timeToDamage: 0.4
@@ -742,7 +742,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Shoot an arrow to damage a single target.
   _rotSpeed: 15
   _damage: 1
   _minGridDistance: 1
@@ -776,7 +776,7 @@ MonoBehaviour:
   _actionPointsCost: 2
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Shoot an explosive arrow to damage a group of targets.
   _rotSpeed: 15
   _damage: 4
   _minGridDistance: 1
@@ -806,7 +806,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Wait until your next turn.
 --- !u!1 &8671917429047366216
 GameObject:
   m_ObjectHideFlags: 0

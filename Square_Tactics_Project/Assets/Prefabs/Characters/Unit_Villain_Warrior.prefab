@@ -394,7 +394,7 @@ MonoBehaviour:
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
-  _descriptionString: 
+  _descriptionString: Skip your choice of actions.
 --- !u!1001 &142366174795113333
 PrefabInstance:
   m_ObjectHideFlags: 0
