@@ -85,6 +85,7 @@ public class MeteorAction : BaseAction
 
         _particleVfx.transform.position = _targetPosition;
         _particleVfx.Play();
+        _thunderAudio?.PlayAsSfx();
 
         Vector3 _halfExtents = Vector3.one * LevelGrid.Instance.GetCellSize() * _maxGridHorizontalDistance * 0.5f;
         Collider[] _collidersHit = Physics.OverlapBox(_targetPosition, _halfExtents, Quaternion.identity, _hitLayers);
@@ -103,7 +104,6 @@ public class MeteorAction : BaseAction
         if (_count > 0)
         {
             //onAnyHit?.Invoke(this, EventArgs.Empty);
-            _thunderAudio?.PlayAsSfx();
             ScreenShaker.Instance.GrenadeProjectile_onAnyGrenadeExploded();
         }
 

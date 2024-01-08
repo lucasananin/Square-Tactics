@@ -5479,6 +5479,7 @@ MonoBehaviour:
   _maxZoom: 10
   _rotationMinDrag: 0.2
   _zoomDir: {x: 0, y: 0, z: 0}
+  _changeUnitAudio: {fileID: 11400000, guid: b8102da747418e94aa9d65770983446e, type: 2}
 --- !u!1 &1032647258
 GameObject:
   m_ObjectHideFlags: 0
@@ -7881,6 +7882,7 @@ MonoBehaviour:
   _selectedUnit: {fileID: 0}
   _selectedAction: {fileID: 0}
   _isBusy: 0
+  _takeActionAudio: {fileID: 11400000, guid: 1e32667dbfc29b9458609d057cd22c4e, type: 2}
 --- !u!4 &1484578697
 Transform:
   m_ObjectHideFlags: 0

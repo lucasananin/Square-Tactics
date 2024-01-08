@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Audio;
 
 public class CameraController : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] float _maxZoom = 10;
     [SerializeField] float _rotationMinDrag = 0.2f;
     [SerializeField, ReadOnly] Vector3 _zoomDir = Vector3.zero;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _changeUnitAudio = null;
 
     private CinemachineTransposer _transposer = null;
 
@@ -125,6 +129,7 @@ public class CameraController : MonoBehaviour
         if (UnitActionSystem.Instance.HasUnitSelected())
         {
             _target = UnitActionSystem.Instance.GetSelectedUnit().transform;
+            _changeUnitAudio?.PlayAsSfx();
             //transform.DOKill();
             //transform.DOMove(UnitActionSystem.Instance.GetSelectedUnit().transform.position, _selectUnitMoveDuration);
         }
@@ -132,11 +137,14 @@ public class CameraController : MonoBehaviour
 
     private void MoveToEnemyUnit(Unit _enemyUnit)
     {
+        if (_target == _enemyUnit.transform) return;
+
         _target = _enemyUnit.transform;
+        _changeUnitAudio?.PlayAsSfx();
     }
 
-    public void SetTargetTransform(Transform _transform)
-    {
-        _target = _transform;
-    }
+    //public void SetTargetTransform(Transform _transform)
+    //{
+    //    _target = _transform;
+    //}
 }

@@ -1,8 +1,10 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities.Audio;
 
 public class ActionButtonUI : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class ActionButtonUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _apCostText = null;
     [SerializeField] Button _button = null;
     [SerializeField] Image _borderImage = null;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _clickAudio = null;
 
     private BaseAction _baseAction = null;
 
@@ -42,6 +47,7 @@ public class ActionButtonUI : MonoBehaviour
 
         _button.onClick.AddListener(() =>
         {
+            _clickAudio?.PlayAsSfx();
             UnitActionSystem.Instance.SetSelectedAction(_baseActionValue);
         });
     }

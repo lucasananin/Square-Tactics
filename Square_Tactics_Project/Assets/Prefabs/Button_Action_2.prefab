@@ -506,3 +506,4 @@ MonoBehaviour:
   _apCostText: {fileID: 4121263250083501803}
   _button: {fileID: 8871655860642693601}
   _borderImage: {fileID: 1280094979985340134}
+  _clickAudio: {fileID: 11400000, guid: 8b0ad409a8681b149ad55a4fc793d2dd, type: 2}

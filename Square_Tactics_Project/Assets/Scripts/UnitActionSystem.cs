@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Utilities.Audio;
 
 public class UnitActionSystem : Singleton<UnitActionSystem>
 {
@@ -11,6 +12,9 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
     [SerializeField, ReadOnly] Unit _selectedUnit = null;
     [SerializeField, ReadOnly] BaseAction _selectedAction = null;
     [SerializeField, ReadOnly] bool _isBusy = false;
+
+    [Title("// Audio")]
+    [SerializeField] AudioDataSO _takeActionAudio = null;
 
     //[Title("// Debug")]
     //[SerializeField] Collider2D _collider2D = null;
@@ -86,6 +90,11 @@ public class UnitActionSystem : Singleton<UnitActionSystem>
                 SetBusy();
                 _selectedUnit.SpendActionPoints(_selectedAction);
                 _selectedAction.TakeAction(_mouseGridPosition, ClearBusy);
+
+                if (TurnSystem.Instance.IsPlayerTurn())
+                {
+                    _takeActionAudio?.PlayAsSfx();
+                }
             }
 
             //switch (_selectedAction)
