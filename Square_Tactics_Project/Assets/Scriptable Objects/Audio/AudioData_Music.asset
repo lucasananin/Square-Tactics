@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d297f95d8cc7af45899fd2b7feec205, type: 3}
+  m_Name: AudioData_Music
+  m_EditorClassIdentifier: 
+  _audioChannelSO: {fileID: 11400000, guid: 9790db9ee9918484d9951ff5ad57f94c, type: 2}
+  _clip: {fileID: 8300000, guid: 0c70e738abb5a7346ad4ab76314a2ea6, type: 3}
+  _group: {fileID: 7266298520388891378, guid: 7f3803ffc5c269949b938bf8339bf3ea, type: 2}
+  _loop: 1
+  _priority: 128
+  _volume: 1
+  _pitch: 1
+  _stereoPan: 0
+  _spatialBlend: 0
+  _reverbZoneMix: 1
+  _dopplerLevel: 1
+  _spread: 0
+  _volumeRolloff: 0
+  _minDistance: 1
+  _maxDistance: 360
+  _delayInSeconds: 0

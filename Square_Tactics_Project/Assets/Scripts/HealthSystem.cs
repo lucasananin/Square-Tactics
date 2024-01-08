@@ -39,9 +39,10 @@ public class HealthSystem : MonoBehaviour
         }
         else
         {
-            _hitAudio?.PlayAsSfx();
             onTakeDamage?.Invoke();
         }
+
+        _hitAudio?.PlayAsSfx();
     }
 
     public void RecoverHealth(int _amount)
