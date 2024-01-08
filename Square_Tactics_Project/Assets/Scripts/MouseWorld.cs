@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseWorld : Singleton<MouseWorld>
 {
     [SerializeField] LayerMask _mouseLayerMask = default;
-    [SerializeField] LayerMask _unitLayerMask = default;
+    //[SerializeField] LayerMask _unitLayerMask = default;
 
     private void Update()
     {
@@ -22,7 +22,7 @@ public class MouseWorld : Singleton<MouseWorld>
     public RaycastHit GetHitInfo()
     {
         Ray _ray = Camera.main.ScreenPointToRay(InputManager.Instance.GetMousePosition());
-        Physics.Raycast(_ray, out RaycastHit _hitInfo, float.MaxValue, _unitLayerMask);
+        Physics.Raycast(_ray, out RaycastHit _hitInfo, float.MaxValue, _mouseLayerMask);
         return _hitInfo;
     }
 }

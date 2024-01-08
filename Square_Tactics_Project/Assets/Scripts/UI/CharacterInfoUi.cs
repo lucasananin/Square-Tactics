@@ -37,9 +37,18 @@ public class CharacterInfoUi : MonoBehaviour
             return;
         }
 
-        var _unit = _hitinfo.collider.GetComponent<Unit>();
+        var _gridPosition = LevelGrid.Instance.GetGridPosition(_hitinfo.transform.position);
+        var _hasAnyUnitOnThisGridPosition = LevelGrid.Instance.HasAnyUnitOnThisGridPosition(_gridPosition);
 
-        if (_unit == null || _unit == UnitActionSystem.Instance.GetSelectedUnit() || _unit == EnemyAi.Instance.GetSelectedUnit())
+        if (!_hasAnyUnitOnThisGridPosition)
+        {
+            Hide();
+            return;
+        }
+
+        var _unit = LevelGrid.Instance.GetUnitOnThisGridPosition(_gridPosition);
+
+        if (_unit == UnitActionSystem.Instance.GetSelectedUnit() || _unit == EnemyAi.Instance.GetSelectedUnit())
         {
             Hide();
             return;
