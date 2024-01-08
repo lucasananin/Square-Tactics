@@ -20,6 +20,9 @@ public class ActionDescriptionUi : MonoBehaviour
     private void Instance_onSelectedActionChanged()
     {
         var _selectedAction = UnitActionSystem.Instance.GetSelectedAction();
+
+        if (_selectedAction == null) return;
+
         _text.text = _selectedAction.GetDescription();
     }
 }

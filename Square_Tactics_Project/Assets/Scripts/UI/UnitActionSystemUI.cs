@@ -33,7 +33,11 @@ public class UnitActionSystemUI : MonoBehaviour
 
         _actionButtonUis.Clear();
 
-        if (!UnitActionSystem.Instance.HasUnitSelected()) return;
+        if (!UnitActionSystem.Instance.HasUnitSelected())
+        {
+            Hide();
+            return;
+        }
 
         _count = _unit.GetBaseActions().Length;
 
@@ -43,10 +47,33 @@ public class UnitActionSystemUI : MonoBehaviour
             _instance.SetBaseAction(_unit.GetBaseActions()[i]);
             _actionButtonUis.Add(_instance);
         }
+
+        Show();
     }
 
     private void Instance_onBusyStateChanged(bool _isBusy)
     {
-        _canvasGroup.alpha = _isBusy ? 0 : 1;
+        if (_isBusy)
+        {
+            Hide();
+        }
+        else
+        {
+            Show();
+        }
+    }
+
+    private void Show()
+    {
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
+        _canvasGroup.interactable = true;
+    }
+
+    private void Hide()
+    {
+        _canvasGroup.alpha = 0;
+        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.interactable = false;
     }
 }
