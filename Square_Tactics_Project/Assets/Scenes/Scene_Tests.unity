@@ -7875,7 +7875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPersistent: 0
-  _canSelectUnitByInput: 1
+  _canSelectUnitByInput: 0
   _unitsLayerMask:
     serializedVersion: 2
     m_Bits: 128

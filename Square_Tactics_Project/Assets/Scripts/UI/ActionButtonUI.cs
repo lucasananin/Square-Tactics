@@ -37,9 +37,9 @@ public class ActionButtonUI : MonoBehaviour
         _actionNameText.text = $"{_baseActionValue.GetActionName()}";
 
         if (_baseActionValue is WaitAction)
-            _apCostText.text = $"--";
+            _apCostText.text = $"";
         else
-            _apCostText.text = $"{_baseActionValue.GetActionPointsCost():D2}";
+            _apCostText.text = $"{_baseActionValue.GetActionPointsCost():D2}<size=14>Ap";
 
         UnitActionSystem.Instance.onSelectedActionChanged += UpdateSelectedVisuals;
         UnitActionSystem.Instance.onBusyStateChanged += Instance_onBusyStateChanged;
