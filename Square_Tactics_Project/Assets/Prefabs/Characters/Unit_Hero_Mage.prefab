@@ -338,7 +338,7 @@ MonoBehaviour:
   _descriptionString: Bash a single enemy with your staff.
   _rotSpeed: 15
   _damage: 1
-  _timeToDamage: 0.7
+  _timeToDamage: 0.5
   _hasAttackedSomeone: 0
   _state: 0
   _stateTimer: 0
