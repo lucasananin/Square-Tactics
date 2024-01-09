@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class UnitManager : Singleton<UnitManager>
     [SerializeField] List<Unit> _unitList = null;
     [SerializeField] List<Unit> _friendlyUnitList = null;
     [SerializeField] List<Unit> _enemyUnitList = null;
+
+    public static event Action onAllEnemyUnitsDied = null;
+    public static event Action onAllPlayerUnitsDied = null;
 
     private void OnEnable()
     {
@@ -43,10 +47,20 @@ public class UnitManager : Singleton<UnitManager>
         if (_unit.IsEnemy())
         {
             _enemyUnitList.Remove(_unit);
+
+            if (_enemyUnitList.Count <= 0)
+            {
+                onAllEnemyUnitsDied?.Invoke();
+            }
         }
         else
         {
             _friendlyUnitList.Remove(_unit);
+
+            if (_friendlyUnitList.Count <= 0)
+            {
+                onAllPlayerUnitsDied?.Invoke();
+            }
         }
 
         _unitList.Remove(_unit);

@@ -145,6 +145,11 @@ public class CameraController : MonoBehaviour
         _changeUnitAudio?.PlayAsSfx();
     }
 
+    public void ResetTarget()
+    {
+        _target = null;
+    }
+
     //public void SetTargetTransform(Transform _transform)
     //{
     //    _target = _transform;

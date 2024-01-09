@@ -66,7 +66,7 @@ namespace Utilities.Audio
             return _sfxSource;
         }
 
-        private bool StopMusic()
+        public bool StopMusic()
         {
             if (_musicEmitter.IsPlaying())
             {

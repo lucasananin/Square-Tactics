@@ -34,6 +34,8 @@ public class EnemyAi : Singleton<EnemyAi>
 
                 if (_timer <= 0)
                 {
+                    if (!GameManager.Instance.IsPlaying) break;
+
                     //TurnSystem.Instance.NextTurn();
                     //break;
 
