@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class IntroController : MonoBehaviour
 {
+    [SerializeField] bool _skipIntro = false;
     [SerializeField] Transform _cameraController = null;
     [SerializeField] CanvasGroup _gameCanvasGroup = null;
     [Space]
@@ -18,6 +19,21 @@ public class IntroController : MonoBehaviour
 
     private void Start()
     {
+        if (_skipIntro)
+        {
+            _fadeCanvasGroup.alpha = 0;
+            _fadeCanvasGroup.blocksRaycasts = false;
+            _fadeCanvasGroup.interactable = false;
+
+            _rotationSpeed = 0;
+            GameManager.Instance.IsPlaying = true;
+            _gameCanvasGroup.alpha = 1;
+            _gameCanvasGroup.blocksRaycasts = true;
+            _gameCanvasGroup.interactable = true;
+            Destroy(this);
+            return;
+        }
+
         StartCoroutine(SlowDown_routine());
         StartCoroutine(FadeUi_Routine());
     }

@@ -71,6 +71,12 @@ public class GridSystemVisual : MonoBehaviour
 
     public void UpdateVisuals()
     {
+        if (!GameManager.Instance.IsPlaying)
+        {
+            HideAllGridPositions();
+            return;
+        }
+
         var _unit = UnitActionSystem.Instance.GetSelectedUnit();
         BaseAction _selectedAction = UnitActionSystem.Instance.GetSelectedAction();
 

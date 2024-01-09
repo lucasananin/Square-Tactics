@@ -3798,6 +3798,7 @@ GameObject:
   - component: {fileID: 274828845}
   - component: {fileID: 274828844}
   - component: {fileID: 274828843}
+  - component: {fileID: 274828847}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -3923,6 +3924,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274828841}
   m_CullTransparentMesh: 1
+--- !u!114 &274828847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274828841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe10756e17f6dc4986d134821c7cccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 274828844}
 --- !u!1 &285237597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +4991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f99a49bf5d990a4c84ed3563b0fc218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skipIntro: 0
   _cameraController: {fileID: 1005301647}
   _gameCanvasGroup: {fileID: 139686068}
   _rotationSpeed: 30
@@ -8245,6 +8260,8 @@ GameObject:
   - component: {fileID: 476297344}
   - component: {fileID: 476297345}
   - component: {fileID: 476297346}
+  - component: {fileID: 476297347}
+  - component: {fileID: 476297348}
   m_Layer: 5
   m_Name: '[Scripts]'
   m_TagString: Untagged
@@ -8412,6 +8429,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1144425858}
+--- !u!114 &476297347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476297336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a763939c6994e94e8d4b5c4630c4100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeCanvasGroup: {fileID: 305879530}
+  _buttonsPanel: {fileID: 2101954453}
+  _button: {fileID: 1013818085}
+  _sceneName: Scene_Game
+--- !u!114 &476297348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476297336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a763939c6994e94e8d4b5c4630c4100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeCanvasGroup: {fileID: 305879530}
+  _buttonsPanel: {fileID: 857494906}
+  _button: {fileID: 1998454108}
+  _sceneName: Scene_Game
 --- !u!1001 &476944804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17272,6 +17321,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3371628525263093597, guid: b5a052c2ab18e3a43ab943928816973e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3371628525263093598, guid: b5a052c2ab18e3a43ab943928816973e,
         type: 3}
       propertyPath: m_Name
@@ -17645,6 +17699,7 @@ GameObject:
   - component: {fileID: 1137989069}
   - component: {fileID: 1137989068}
   - component: {fileID: 1137989067}
+  - component: {fileID: 1137989071}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -17770,6 +17825,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137989065}
   m_CullTransparentMesh: 1
+--- !u!114 &1137989071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137989065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe10756e17f6dc4986d134821c7cccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1137989068}
 --- !u!1 &1138674211
 GameObject:
   m_ObjectHideFlags: 0
@@ -29917,37 +29985,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2096094810}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2097024873
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2097024874}
-  m_Layer: 0
-  m_Name: ArenaCenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2097024874
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097024873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: 11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 46
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2101954453
 GameObject:
   m_ObjectHideFlags: 0
