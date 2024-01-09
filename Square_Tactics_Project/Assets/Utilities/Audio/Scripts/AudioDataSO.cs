@@ -75,5 +75,10 @@ namespace Utilities.Audio
         {
             return _audioChannelSO.PlaySfxEvent(this, _positionValue);
         }
+
+        public void PlayAsSfx_ui()
+        {
+            _audioChannelSO.PlaySfxEvent(this, default);
+        }
     }
 }
