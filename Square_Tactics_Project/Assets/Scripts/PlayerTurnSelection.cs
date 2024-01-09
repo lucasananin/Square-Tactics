@@ -28,6 +28,7 @@ public class PlayerTurnSelection : MonoBehaviour
     private void Update()
     {
         if (!_canCheck) return;
+        if (!GameManager.Instance.IsPlaying) return;
         if (!TurnSystem.Instance.IsPlayerTurn()) return;
         if (UnitActionSystem.Instance.CanSelectUnitByInput) return;
 

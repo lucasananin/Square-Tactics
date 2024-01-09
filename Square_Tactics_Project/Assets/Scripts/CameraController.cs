@@ -86,6 +86,8 @@ public class CameraController : MonoBehaviour
 
     private void HandleRotation()
     {
+        if (!GameManager.Instance.IsPlaying) return;
+
         float _inputX = InputManager.Instance.GetRotationHorizontalAxis();
         _isDragging = InputManager.Instance.IsHoldingRotationButton();
         //bool _isHoldingMouseButton = Input.GetMouseButton(1);

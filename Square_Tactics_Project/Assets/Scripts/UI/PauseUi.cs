@@ -29,6 +29,8 @@ public class PauseUi : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.IsPlaying) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_isPaused)

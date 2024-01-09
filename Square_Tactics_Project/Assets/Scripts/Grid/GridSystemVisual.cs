@@ -34,6 +34,8 @@ public class GridSystemVisual : MonoBehaviour
                 }
             }
         }
+
+        HideAllGridPositions();
     }
 
     private void OnEnable()
