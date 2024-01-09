@@ -71,7 +71,8 @@ public class InputManager : Singleton<InputManager>
 
     public bool IsHoldingRotationButton()
     {
-        return Mouse.current.middleButton.isPressed;
+        return Mouse.current.rightButton.isPressed;
+        //return Mouse.current.middleButton.isPressed;
         //return Input.GetMouseButton(2);
     }
 }
