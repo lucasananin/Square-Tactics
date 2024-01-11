@@ -371,7 +371,7 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 8398562178188597038}
   _descriptionString: Swing your sword to damage a single target.
   _rotSpeed: 15
-  _damage: 1
+  _damage: 2
   _timeToDamage: 0.7
   _hasAttackedSomeone: 0
   _state: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   _descriptionString: Spin your sword to damage multiple enemies.
   _timeToAttack: 1
   _timeToEnd: 1
-  _damage: 1
+  _damage: 3
   _hitLayers:
     serializedVersion: 2
     m_Bits: 128

@@ -677,13 +677,13 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
     type: 2}
-  _maxGridHorizontalDistance: 5
+  _maxGridHorizontalDistance: 4
   _actionPointsCost: 1
   _actionValuePriority: 100
   _buffDamageAction: {fileID: 0}
   _descriptionString: 
   _rotSpeed: 15
-  _damage: 1
+  _damage: 2
   _minGridDistance: 2
   _timeToEnd: 2
   _shoulderTarget: {fileID: 4198838845869031517}

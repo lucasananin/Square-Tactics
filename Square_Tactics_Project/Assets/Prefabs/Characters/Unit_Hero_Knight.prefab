@@ -5151,7 +5151,7 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 0}
   _descriptionString: Hit the enemy with your mace.
   _rotSpeed: 15
-  _damage: 1
+  _damage: 2
   _timeToDamage: 0.3
   _hasAttackedSomeone: 0
   _state: 0
@@ -5183,7 +5183,7 @@ MonoBehaviour:
   _descriptionString: Heal yourself and your allies wounds.
   _timeToHeal: 0.5
   _timeToEnd: 0.5
-  _healValue: 1
+  _healValue: 3
   _hitLayers:
     serializedVersion: 2
     m_Bits: 128
