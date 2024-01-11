@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +8,8 @@ public class UnitManager : Singleton<UnitManager>
     [SerializeField] List<Unit> _friendlyUnitList = null;
     [SerializeField] List<Unit> _enemyUnitList = null;
 
-    public static event Action onAllEnemyUnitsDied = null;
-    public static event Action onAllPlayerUnitsDied = null;
+    public static event System.Action onAllEnemyUnitsDied = null;
+    public static event System.Action onAllPlayerUnitsDied = null;
 
     private void OnEnable()
     {
