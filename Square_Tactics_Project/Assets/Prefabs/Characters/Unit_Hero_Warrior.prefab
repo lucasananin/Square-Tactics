@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083c558afc9a20e4cb7309414cf5f5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 12
-  _maxHealth: 12
+  _maxHealth: 10
+  _currentHealth: 10
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
 --- !u!114 &5761734011320962244
@@ -332,7 +332,7 @@ MonoBehaviour:
   _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 4
+  _maxGridHorizontalDistance: 3
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
@@ -427,7 +427,7 @@ MonoBehaviour:
   _displayName: Wrath
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 4
+  _maxGridHorizontalDistance: 1
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}

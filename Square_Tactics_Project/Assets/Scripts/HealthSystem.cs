@@ -7,8 +7,8 @@ using Utilities.Audio;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] int _currentHealth = 12;
     [SerializeField] int _maxHealth = 12;
+    [SerializeField] int _currentHealth = 12;
     [SerializeField] bool _isInvincible = false;
     [SerializeField] BaseAction _buffDefenseAction = null;
 

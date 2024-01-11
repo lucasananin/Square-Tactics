@@ -305,8 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083c558afc9a20e4cb7309414cf5f5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 12
-  _maxHealth: 12
+  _maxHealth: 11
+  _currentHealth: 11
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
 --- !u!114 &6082035343029767375
@@ -326,7 +326,7 @@ MonoBehaviour:
   _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 4
+  _maxGridHorizontalDistance: 3
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}

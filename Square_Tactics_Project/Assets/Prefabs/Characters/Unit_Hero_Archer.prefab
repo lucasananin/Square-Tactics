@@ -652,8 +652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083c558afc9a20e4cb7309414cf5f5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 12
-  _maxHealth: 12
+  _maxHealth: 8
+  _currentHealth: 8
   _isInvincible: 0
   _buffDefenseAction: {fileID: 0}
 --- !u!114 &5761734011320962244
@@ -673,7 +673,7 @@ MonoBehaviour:
   _displayName: 
   _gridColorMaterial: {fileID: 2100000, guid: d089223b772f28a4f986deeff97aecdb, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 4
+  _maxGridHorizontalDistance: 3
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
@@ -738,14 +738,14 @@ MonoBehaviour:
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 2100000, guid: 87fad337a1540e14a95087b44892f147,
     type: 2}
-  _maxGridHorizontalDistance: 10
+  _maxGridHorizontalDistance: 5
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _descriptionString: Shoot an arrow to damage a single target.
   _rotSpeed: 15
   _damage: 1
-  _minGridDistance: 1
+  _minGridDistance: 2
   _timeToEnd: 2
   _shoulderTarget: {fileID: 7301399545472390776}
   _obstaclesLayerMask:
@@ -772,14 +772,14 @@ MonoBehaviour:
   _displayName: Explosive Arrow
   _gridColorMaterial: {fileID: 2100000, guid: c6e192e9d5cc7e741ac0fee4e4692603, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 3
+  _maxGridHorizontalDistance: 5
   _actionPointsCost: 2
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
   _descriptionString: Shoot an explosive arrow to damage a group of targets.
   _rotSpeed: 15
   _damage: 4
-  _minGridDistance: 1
+  _minGridDistance: 2
   _timeToEnd: 1.5
   _obstaclesLayerMask:
     serializedVersion: 2

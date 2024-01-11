@@ -4994,7 +4994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f99a49bf5d990a4c84ed3563b0fc218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skipIntro: 0
+  _skipIntro: 1
   _cameraController: {fileID: 1005301647}
   _gameCanvasGroup: {fileID: 139686068}
   _rotationSpeed: 30
@@ -22674,7 +22674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPersistent: 0
-  _canSelectUnitByInput: 0
+  _canSelectUnitByInput: 1
   _unitsLayerMask:
     serializedVersion: 2
     m_Bits: 128
