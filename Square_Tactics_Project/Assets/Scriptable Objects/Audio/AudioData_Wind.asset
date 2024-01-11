@@ -17,7 +17,7 @@ MonoBehaviour:
   _group: {fileID: 7266298520388891378, guid: 7f3803ffc5c269949b938bf8339bf3ea, type: 2}
   _loop: 0
   _priority: 128
-  _volume: 0.5
+  _volume: 1
   _pitch: 0.7
   _stereoPan: 0
   _spatialBlend: 0
