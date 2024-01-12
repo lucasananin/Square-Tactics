@@ -25,8 +25,8 @@ public class InputManager : Singleton<InputManager>
 
     public Vector2 GetMousePosition()
     {
-        return Mouse.current.position.ReadValue();
-        //return Input.mousePosition;
+        //return Mouse.current.position.ReadValue();
+        return Input.mousePosition;
     }
 
     public Vector2 GetMouseScrollDelta()
@@ -59,8 +59,8 @@ public class InputManager : Singleton<InputManager>
 
     public bool HasPressedActionButtonDown()
     {
-        return Mouse.current.leftButton.wasPressedThisFrame;
-        //return Input.GetMouseButtonDown(0);
+        //return Mouse.current.leftButton.wasPressedThisFrame;
+        return Input.GetMouseButtonDown(0);
     }
 
     public bool HasPressedSelectionButtonDown()
@@ -72,7 +72,6 @@ public class InputManager : Singleton<InputManager>
     public bool IsHoldingRotationButton()
     {
         return Mouse.current.rightButton.isPressed;
-        //return Mouse.current.middleButton.isPressed;
-        //return Input.GetMouseButton(2);
+        //return Input.GetMouseButton(1);
     }
 }
