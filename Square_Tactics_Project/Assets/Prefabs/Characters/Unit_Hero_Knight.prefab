@@ -5176,7 +5176,7 @@ MonoBehaviour:
   _displayName: Heal
   _gridColorMaterial: {fileID: 2100000, guid: e27711ce2117f1b4d8afb58e19f3c306, type: 2}
   _fadedGridColorMaterial: {fileID: 0}
-  _maxGridHorizontalDistance: 1
+  _maxGridHorizontalDistance: 2
   _actionPointsCost: 1
   _actionValuePriority: 10
   _buffDamageAction: {fileID: 0}
