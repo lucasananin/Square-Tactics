@@ -11,6 +11,13 @@ public class UnitManager : Singleton<UnitManager>
     public static event System.Action onAllEnemyUnitsDied = null;
     public static event System.Action onAllPlayerUnitsDied = null;
 
+    private IEnumerator Start()
+    {
+        yield return null;
+        Shuffle(_enemyUnitList);
+        Shuffle(_friendlyUnitList);
+    }
+
     private void OnEnable()
     {
         Unit.onAnyUnitSpawned += AddUnitToList;
@@ -63,6 +70,19 @@ public class UnitManager : Singleton<UnitManager>
         }
 
         _unitList.Remove(_unit);
+    }
+
+    private void Shuffle(List<Unit> _list)
+    {
+        int _count = _list.Count;
+
+        for (int i = 0; i < _count; i++)
+        {
+            var _tempUnit = _list[i];
+            var _randomIndex = Random.Range(0, _count);
+            _list[i] = _list[_randomIndex];
+            _list[_randomIndex] = _tempUnit;
+        }
     }
 
     public List<Unit> GetUnitList() => _unitList;
