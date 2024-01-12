@@ -301,7 +301,7 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 0}
   _descriptionString: 
   _rotSpeed: 15
-  _damage: 2
+  _damage: 1
   _minGridDistance: 2
   _timeToEnd: 1.5
   _shoulderTarget: {fileID: 5898673369302824193}

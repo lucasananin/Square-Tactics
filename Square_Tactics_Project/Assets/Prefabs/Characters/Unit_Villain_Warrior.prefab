@@ -365,7 +365,7 @@ MonoBehaviour:
   _buffDamageAction: {fileID: 0}
   _descriptionString: 
   _rotSpeed: 15
-  _damage: 2
+  _damage: 1
   _timeToDamage: 0.7
   _hasAttackedSomeone: 0
   _state: 0
