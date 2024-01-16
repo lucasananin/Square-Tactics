@@ -319,7 +319,8 @@ public class Pathfinding : Singleton<Pathfinding>
 
     public void SetIsWalkableGridPosition(GridPosition _gridPosition, bool _isWalkable)
     {
-        GetGridSystem(_gridPosition.floor).GetGridObject(_gridPosition).SetIsWalkable(_isWalkable);
+        var _gridObject = GetGridSystem(_gridPosition.floor).GetGridObject(_gridPosition);
+        _gridObject.SetIsWalkable(_isWalkable);
     }
 
     public bool IsWalkableGridPosition(GridPosition _gridPosition)

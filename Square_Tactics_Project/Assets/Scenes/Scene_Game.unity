@@ -20824,8 +20824,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302632375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0040609497, y: 0.023954663, z: 0}
-  m_LocalScale: {x: 2.7333333, y: 2.0666666, z: 0}
+  m_LocalPosition: {x: 0.0040609157, y: -0.020489762, z: 0}
+  m_LocalScale: {x: 3.6000001, y: 2.0444446, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1811007412}
@@ -23486,7 +23486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1542845164
 Transform:
   m_ObjectHideFlags: 0
@@ -30336,8 +30336,8 @@ RenderTexture:
   m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
   serializedVersion: 5
-  m_Width: 328
-  m_Height: 248
+  m_Width: 648
+  m_Height: 368
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthStencilFormat: 90
@@ -30881,8 +30881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pixelMultiplier: 3
   ditherRepeatSize: 8
-  screenSize: {x: 960, y: 720}
-  renderTextureSize: {x: 328, y: 248}
+  screenSize: {x: 1920, y: 1080}
+  renderTextureSize: {x: 648, y: 368}
   graphicsFormat: 8
   uPixelatorCam: {fileID: 5804128883938513197}
   autoDetectCameras: 1
