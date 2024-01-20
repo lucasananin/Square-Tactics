@@ -47,10 +47,13 @@ public class MoveAction : BaseAction
         Vector3 _myPosition = transform.position;
         Vector3 _targetPosition = _positionsList[_currentPositionIndex];
         Vector3 _moveDirection = (_targetPosition - _myPosition).normalized;
-        Vector3 _movementVelocity = _moveDirection * 5f * Time.deltaTime;
-        float _distance = (_myPosition - _targetPosition).sqrMagnitude;
+        //Vector3 _movementVelocity = _moveDirection * 5f * Time.deltaTime;
+        //float _distance = (_myPosition - _targetPosition).sqrMagnitude;
 
-        if (_distance < _stoppingDistance * _stoppingDistance)
+        transform.position = Vector3.MoveTowards(_myPosition, _targetPosition, 5f * Time.deltaTime);
+
+        if (transform.position == _targetPosition)
+        //if (_distance < _stoppingDistance * _stoppingDistance)
         {
             _currentPositionIndex++;
 
@@ -85,7 +88,7 @@ public class MoveAction : BaseAction
         }
         else
         {
-            transform.position += _movementVelocity;
+            //transform.position += _movementVelocity;
             SetTargetVelocity(Vector3.right);
             RotateToDirection(_moveDirection);
         }
